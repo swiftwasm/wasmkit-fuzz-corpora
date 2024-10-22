@@ -1,0 +1,986 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <meta charset='UTF-8'>
+    <link rel='stylesheet' type='text/css' href='../style.css'>
+    <!-- Custom style overrides -->
+    <style>
+      /* Copyright 2018 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file. */
+
+th, td {
+  padding: 5px 16px;
+}
+
+tbody td, tfoot td {
+  font-size: 14px;
+}
+
+thead th {
+  font-size: 16px;
+}
+
+thead th, tfoot td {
+  background-color: #f5f5f5;
+  border-left: 1px solid #e4e4e4;
+  border-right: 1px solid #e4e4e4;
+  color: #484848;
+  text-transform: uppercase;
+}
+
+tbody tr:hover td, tfoot tr:hover td {
+  background-color: #f5f5f5;
+  border-color: #e4e4e4 !important;
+}
+    </style>
+  </head>
+  <body>
+    <h2>Coverage Report</h2>
+    <p>
+      View results by:
+            <a href='directory_view_index.html'>Directories</a>
+              | <a href='file_view_index.html'>Files</a>
+          </p>
+    <div class='centered'><table>
+  <thead>
+    <tr>
+      <th class="column-entry-bold">Path</th>
+      <th class="column-entry-bold" onclick="sortTable(SORT_COLUMN.LINE)" title=
+          "Line coverage is the percentage of code lines which have been executed at least once. Only executable lines within function bodies are considered to be code lines.">
+        Line Coverage
+      </th>
+      <th class="column-entry-bold" onclick="sortTable(SORT_COLUMN.FUNCTION)" title=
+          "Function coverage is the percentage of functions which have been executed at least once. A function is considered to be executed if any of its instantiations are executed.">
+        Function Coverage
+      </th>
+      <th class="column-entry-bold" onclick="sortTable(SORT_COLUMN.REGION)" title=
+          "Region coverage is the percentage of code regions which have been executed at least once. A code region may span multiple lines (e.g in a large function body with no control flow). However, it's also possible for a single line to contain multiple code regions (e.g in 'return x || y &amp;&amp; z').">
+        Region Coverage
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Errno.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Errno.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/104)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/98)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/102)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FileDescriptor.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FileDescriptor.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/54)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/28)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/38)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FileOperations.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FileOperations.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/163)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/39)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/57)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePath.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePath.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/22)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/4)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/8)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathComponentView.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathComponentView.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/130)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/28)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/46)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathComponents.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathComponents.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/131)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/36)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/59)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathParsing.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathParsing.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/280)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/56)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/148)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathString.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathString.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/220)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/58)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/92)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathSyntax.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathSyntax.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/176)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/38)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/71)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathWindows.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/FilePath/FilePathWindows.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/341)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/50)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/108)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Constants.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Constants.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/126)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/106)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/106)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Exports.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Exports.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/40)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/13)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/17)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Mocking.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Mocking.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/116)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/30)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/46)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Syscalls.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Internals/Syscalls.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/52)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/12)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/48)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/PlatformString.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/PlatformString.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/78)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/17)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/32)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/SystemString.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/SystemString.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/253)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/64)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/90)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Util.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/Util.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/79)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/19)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/51)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/UtilConsumers.swift.html'>src/wasmkit/FuzzTesting/.build/checkouts/swift-system/Sources/System/UtilConsumers.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/55)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/18)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/30)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift.html'>src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift</a></pre>
+              </td>
+            <td class='column-entry-yellow'>
+        <pre> 90.00% (9/10)</pre>
+      </td>
+            <td class='column-entry-green'>
+        <pre>100.00% (1/1)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre> 66.67% (4/6)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/SystemExtras/Clock.swift.html'>src/wasmkit/Sources/SystemExtras/Clock.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/45)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/17)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/19)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/SystemExtras/Constants.swift.html'>src/wasmkit/Sources/SystemExtras/Constants.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/39)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/29)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/29)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/SystemExtras/FileAtOperations.swift.html'>src/wasmkit/Sources/SystemExtras/FileAtOperations.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/121)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/33)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/48)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/SystemExtras/FileOperations.swift.html'>src/wasmkit/Sources/SystemExtras/FileOperations.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/212)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/59)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/80)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/SystemExtras/Syscalls.swift.html'>src/wasmkit/Sources/SystemExtras/Syscalls.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/51)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/17)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/17)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/SystemExtras/Vendor/Exports.swift.html'>src/wasmkit/Sources/SystemExtras/Vendor/Exports.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/47)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/15)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/21)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/SystemExtras/Vendor/Utils.swift.html'>src/wasmkit/Sources/SystemExtras/Vendor/Utils.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/85)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/20)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/54)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Engine.swift.html'>src/wasmkit/Sources/WasmKit/Engine.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/25)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/9)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/11)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/ConstEvaluation.swift.html'>src/wasmkit/Sources/WasmKit/Execution/ConstEvaluation.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/84)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/10)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/42)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift.html'>src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/1600)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/224)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/470)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/EngineInterceptor.swift.html'>src/wasmkit/Sources/WasmKit/Execution/EngineInterceptor.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/13)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/3)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/7)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Errors.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Errors.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/130)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/26)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/50)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Execution.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Execution.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/337)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/66)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/110)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Function.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Function.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/174)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/32)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/66)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Instances.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Instances.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/497)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/83)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/203)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Instructions/Control.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Instructions/Control.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/138)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/16)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/33)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Instructions/Instruction.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Instructions/Instruction.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/876)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/106)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/696)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Instructions/InstructionSupport.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Instructions/InstructionSupport.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/250)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/45)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/116)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/141)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/17)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/40)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Instructions/Misc.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Instructions/Misc.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/53)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/11)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/20)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Instructions/Table.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Instructions/Table.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/112)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/18)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/35)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/NameRegistry.swift.html'>src/wasmkit/Sources/WasmKit/Execution/NameRegistry.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/67)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/9)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/34)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Store.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Store.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/25)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/9)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/12)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/StoreAllocator.swift.html'>src/wasmkit/Sources/WasmKit/Execution/StoreAllocator.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/450)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/48)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/126)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/UntypedValue.swift.html'>src/wasmkit/Sources/WasmKit/Execution/UntypedValue.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/115)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/27)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/47)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Execution/Value.swift.html'>src/wasmkit/Sources/WasmKit/Execution/Value.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/241)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/112)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/208)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Imports.swift.html'>src/wasmkit/Sources/WasmKit/Imports.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/32)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/19)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/19)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Module.swift.html'>src/wasmkit/Sources/WasmKit/Module.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/210)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/14)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/66)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/ModuleParser.swift.html'>src/wasmkit/Sources/WasmKit/ModuleParser.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre> 21.37% (25/117)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre> 33.33% (2/6)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  5.71% (2/35)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/ResourceLimiter.swift.html'>src/wasmkit/Sources/WasmKit/ResourceLimiter.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/6)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/2)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/2)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Translator.swift.html'>src/wasmkit/Sources/WasmKit/Translator.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/2137)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/405)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/1075)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmKit/Validator.swift.html'>src/wasmkit/Sources/WasmKit/Validator.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/252)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/52)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/136)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/InstructionVisitor.swift.html'>src/wasmkit/Sources/WasmParser/InstructionVisitor.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/358)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/152)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/203)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/LEB.swift.html'>src/wasmkit/Sources/WasmParser/LEB.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/70)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/3)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/35)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/ParsingLimits.swift.html'>src/wasmkit/Sources/WasmParser/ParsingLimits.swift</a></pre>
+              </td>
+            <td class='column-entry-green'>
+        <pre>100.00% (3/3)</pre>
+      </td>
+            <td class='column-entry-green'>
+        <pre>100.00% (1/1)</pre>
+      </td>
+            <td class='column-entry-green'>
+        <pre>100.00% (1/1)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/Stream/ByteStream.swift.html'>src/wasmkit/Sources/WasmParser/Stream/ByteStream.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre> 33.33% (16/48)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre> 33.33% (2/6)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre> 27.78% (5/18)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/Stream/FileHandleStream.swift.html'>src/wasmkit/Sources/WasmParser/Stream/FileHandleStream.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/79)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/12)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/34)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/Stream/Stream.swift.html'>src/wasmkit/Sources/WasmParser/Stream/Stream.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/6)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/2)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/4)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/WasmParser.swift.html'>src/wasmkit/Sources/WasmParser/WasmParser.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  3.52% (39/1108)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre> 10.09% (11/109)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  2.20% (15/682)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmParser/WasmTypes.swift.html'>src/wasmkit/Sources/WasmParser/WasmTypes.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/120)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/22)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/72)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmTypes/GuestMemory.swift.html'>src/wasmkit/Sources/WasmTypes/GuestMemory.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/223)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/55)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/63)</pre>
+      </td>
+          </tr>
+        <tr class="light-row">
+      <td>
+                  <pre><a href='src/wasmkit/Sources/WasmTypes/WasmTypes.swift.html'>src/wasmkit/Sources/WasmTypes/WasmTypes.swift</a></pre>
+              </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/32)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/9)</pre>
+      </td>
+            <td class='column-entry-red'>
+        <pre>  0.00% (0/17)</pre>
+      </td>
+          </tr>
+      </tbody>
+      <tfoot>
+      <tr class="light-row-bold">
+        <td>
+          <pre>Totals</pre>
+        </td>
+                <td class='column-entry-red'>
+          <pre>  0.70% (92/13159)</pre>
+        </td>
+                <td class='column-entry-red'>
+          <pre>  0.64% (17/2645)</pre>
+        </td>
+                <td class='column-entry-red'>
+          <pre>  0.43% (27/6211)</pre>
+        </td>
+              </tr>
+    </tfoot>
+  </table>
+
+<script>
+  const SORT_COLUMN = {
+    LINE: 2,
+    FUNCTION: 3,
+    REGION: 4,
+  }
+
+  const SORT_TYPES = {
+    UNSET: -1,
+    PERCENT: 0,
+    AGGREGATE: 1,
+  }
+
+  var SORT_ORDER = {
+    [SORT_COLUMN.LINE]: [SORT_TYPES.UNSET],
+    [SORT_COLUMN.FUNCTION]: [SORT_TYPES.UNSET],
+    [SORT_COLUMN.REGION]: [SORT_TYPES.UNSET],
+  }
+
+  function sortTable(columnNumber) {
+    SORT_ORDER[columnNumber] = ++SORT_ORDER[columnNumber] % 2;
+
+    let columnSortOrder = SORT_ORDER[columnNumber];
+    let tbody = document.getElementsByTagName("tbody")[0];
+
+    [].slice.call(tbody.rows).sort(function(a, b) {
+      let aColumn = a.cells[columnNumber-1].textContent;
+      let bColumn = b.cells[columnNumber-1].textContent;
+
+      let aColumnCompare, bColumnCompare;
+      if (columnSortOrder == SORT_TYPES.PERCENT) {
+        aColumnCompare = parseFloat(/([0-9.]+)%/.exec(aColumn)[1]);
+        bColumnCompare = parseFloat(/([0-9.]+)%/.exec(bColumn)[1]);
+      } else {
+        aColumnCompare = parseInt(/\/(\d+)/.exec(aColumn)[1]);
+        bColumnCompare = parseInt(/\/(\d+)/.exec(bColumn)[1]);
+      }
+
+      return (
+          aColumnCompare < bColumnCompare ? -1:
+              aColumnCompare > bColumnCompare ? 1 : 0);
+    }).forEach(function(value, index) {
+      tbody.appendChild(value);
+    });
+  }
+
+</script>    </div>
+  </body>
+</html>

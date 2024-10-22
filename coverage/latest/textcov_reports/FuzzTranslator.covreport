@@ -1,0 +1,252 @@
+$s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF:
+    4|      7|public func FuzzCheck(_ start: UnsafePointer<UInt8>, _ count: Int) -> CInt {
+    5|      7|    let bytes = Array(UnsafeBufferPointer(start: start, count: count))
+    6|      7|    do {
+    7|      7|        var module = try WasmKit.parseWasm(bytes: bytes)
+    8|      0|        try module.materializeAll()
+    9|      7|    } catch {
+   10|      7|        // Ignore errors
+   11|      7|    }
+   12|      7|    return 0
+   13|      7|}
+
+$s7WasmKit05parseA05bytes8featuresAA6ModuleVSays5UInt8VG_0A6Parser0A10FeatureSetVtKF:
+   28|      7|public func parseWasm(bytes: [UInt8], features: WasmFeatureSet = .default) throws -> Module {
+   29|      7|    let stream = StaticByteStream(bytes: bytes)
+   30|      7|    let module = try parseModule(stream: stream, features: features)
+   31|      0|    return module
+   32|      7|}
+$s7WasmKit11parseModule6stream8featuresAA0D0Vx_0A6Parser0A10FeatureSetVtKAG10ByteStreamRzlF:
+   36|      7|func parseModule<Stream: ByteStream>(stream: Stream, features: WasmFeatureSet = .default) throws -> Module {
+   37|      7|    var types: [FunctionType] = []
+   38|      7|    var typeIndices: [TypeIndex] = []
+   39|      7|    var codes: [Code] = []
+   40|      7|    var tables: [TableType] = []
+   41|      7|    var memories: [MemoryType] = []
+   42|      7|    var globals: [WasmParser.Global] = []
+   43|      7|    var elements: [ElementSegment] = []
+   44|      7|    var data: [DataSegment] = []
+   45|      7|    var start: FunctionIndex?
+   46|      7|    var imports: [Import] = []
+   47|      7|    var exports: [Export] = []
+   48|      7|    var customSections: [CustomSection] = []
+   49|      7|    var dataCount: UInt32?
+   50|      7|
+   51|      7|    var parser = WasmParser.Parser<Stream>(
+   52|      7|        stream: stream, features: features
+   53|      7|    )
+   54|      7|
+   55|      7|    while let payload = try parser.parseNext() {
+   56|      0|        switch payload {
+   57|      0|        case .header: break
+   58|      0|        case .customSection(let customSection):
+   59|      0|            customSections.append(customSection)
+   60|      0|        case .typeSection(let typeSection):
+   61|      0|            types = typeSection
+   62|      0|        case .importSection(let importSection):
+   63|      0|            imports = importSection
+   64|      0|        case .functionSection(let types):
+   65|      0|            typeIndices = types
+   66|      0|        case .tableSection(let tableSection):
+   67|      0|            tables = tableSection.map(\.type)
+   68|      0|        case .memorySection(let memorySection):
+   69|      0|            memories = memorySection.map(\.type)
+   70|      0|        case .globalSection(let globalSection):
+   71|      0|            globals = globalSection
+   72|      0|        case .exportSection(let exportSection):
+   73|      0|            exports = exportSection
+   74|      0|        case .startSection(let functionIndex):
+   75|      0|            start = functionIndex
+   76|      0|        case .elementSection(let elementSection):
+   77|      0|            elements = elementSection
+   78|      0|        case .codeSection(let codeSection):
+   79|      0|            codes = codeSection
+   80|      0|        case .dataSection(let dataSection):
+   81|      0|            data = dataSection
+   82|      0|        case .dataCount(let count):
+   83|      0|            dataCount = count
+   84|      0|        }
+   85|      0|    }
+   86|      0|
+   87|      0|    guard typeIndices.count == codes.count else {
+   88|      0|        throw ValidationError(
+   89|      0|            .inconsistentFunctionAndCodeLength(
+   90|      0|                functionCount: typeIndices.count,
+   91|      0|                codeCount: codes.count
+   92|      0|            ))
+   93|      0|    }
+   94|      0|
+   95|      0|    if let dataCount = dataCount, dataCount != UInt32(data.count) {
+   96|      0|        throw ValidationError(
+   97|      0|            .inconsistentDataCountAndDataSectionLength(
+   98|      0|                dataCount: dataCount,
+   99|      0|                dataSection: data.count
+  100|      0|            ))
+  101|      0|    }
+  102|      0|
+  103|      0|    let functions = try codes.enumerated().map { index, code in
+  104|      0|        // SAFETY: The number of typeIndices is guaranteed to be the same as the number of codes
+  105|      0|        let funcTypeIndex = typeIndices[index]
+  106|      0|        let funcType = try Module.resolveType(funcTypeIndex, typeSection: types)
+  107|      0|        return GuestFunction(
+  108|      0|            type: funcType,
+  109|      0|            code: code
+  110|      0|        )
+  111|      0|    }
+  112|      0|
+  113|      0|    return Module(
+  114|      0|        types: types,
+  115|      0|        functions: functions,
+  116|      0|        elements: elements,
+  117|      0|        data: data,
+  118|      0|        start: start,
+  119|      0|        imports: imports,
+  120|      0|        exports: exports,
+  121|      0|        globals: globals,
+  122|      0|        memories: memories,
+  123|      0|        tables: tables,
+  124|      0|        customSections: customSections,
+  125|      0|        features: features,
+  126|      0|        dataCount: dataCount
+  127|      0|    )
+  128|      7|}
+
+$s10WasmParser13ParsingLimitsV7defaultACvgZ:
+    7|      7|    static var `default`: ParsingLimits {
+    8|      7|        return ParsingLimits(maxFunctionLocals: 50000)
+    9|      7|    }
+
+$s10WasmParser16StaticByteStreamC5bytesACSays5UInt8VG_tcfc:
+    7|      7|    public init(bytes: [UInt8]) {
+    8|      7|        self.bytes = ArraySlice(bytes)
+    9|      7|        currentIndex = bytes.startIndex
+   10|      7|    }
+$s10WasmParser16StaticByteStreamC7consume5counts10ArraySliceVys5UInt8VGSi_tKF:
+   43|      7|    public func consume(count: Int) throws -> ArraySlice<UInt8> {
+   44|      7|        guard count > 0 else { return [] }
+   45|      7|        let updatedIndex = currentIndex + count
+   46|      7|
+   47|      7|        guard bytes.indices.contains(updatedIndex - 1) else {
+   48|      3|            throw StreamError<Element>.unexpectedEnd(expected: nil)
+   49|      4|        }
+   50|      4|
+   51|      4|        defer { currentIndex = updatedIndex }
+   52|      4|
+   53|      4|        return bytes[currentIndex..<updatedIndex]
+   54|      7|    }
+
+$s10WasmParser0B0V13orderTrackingAC05OrderD0Vyx_Gvpfi:
+   17|      7|    var orderTracking = OrderTracking()
+$s10WasmParser0B0V6offsetSivg:
+   26|      4|    public var offset: Int {
+   27|      4|        return stream.currentIndex
+   28|      4|    }
+$s10WasmParser0B0V6stream8featuresACyxGx_AA0A10FeatureSetVtcfC:
+   30|      7|    public init(stream: Stream, features: WasmFeatureSet = .default) {
+   31|      7|        self.stream = stream
+   32|      7|        self.features = features
+   33|      7|        self.nextParseTarget = .header
+   34|      7|        self.limits = .default
+   35|      7|    }
+$s10WasmParser0B0V9makeErroryAA0abD0VAF7MessageVF:
+   38|      4|    internal func makeError(_ message: WasmParserError.Message) -> WasmParserError {
+   39|      4|        return WasmParserError(message, offset: offset)
+   40|      4|    }
+$s10WasmParser0A10FeatureSetV8rawValueACSi_tcfC:
+  182|      5|    public init(rawValue: Int) {
+  183|      5|        self.rawValue = rawValue
+  184|      5|    }
+$s10WasmParser0aB5ErrorV7MessageVyAESScfC:
+  205|      4|        init(_ text: String) {
+  206|      4|            self.text = text
+  207|      4|        }
+$s10WasmParser0aB5ErrorV_6offsetA2C7MessageV_SitcfC:
+  214|      4|    init(_ message: Message, offset: Int) {
+  215|      4|        self.message = message
+  216|      4|        self.offset = offset
+  217|      4|    }
+$s10WasmParser0aB5ErrorV7MessageV18invalidMagicNumberyAESays5UInt8VGFZ:
+  227|      4|    static func invalidMagicNumber(_ bytes: [UInt8]) -> Self {
+  228|      4|        Self("magic header not detected: expected \(WASM_MAGIC) but got \(bytes)")
+  229|      4|    }
+$s10WasmParser0B0V16parseMagicNumberyyKF:
+ 1167|      7|    func parseMagicNumber() throws {
+ 1168|      7|        let magicNumber = try stream.consume(count: 4)
+ 1169|      4|        guard magicNumber.elementsEqual(WASM_MAGIC) else {
+ 1170|      4|            throw makeError(.invalidMagicNumber(.init(magicNumber)))
+ 1171|      4|        }
+ 1172|      0|    }
+$s10WasmParser0B0V13OrderTrackingV4last33_266B39EE9A5BCC72156BAE2430A75AC9LLAE0C0Oyx__Gvpfi:
+ 1202|      7|        private var last: Order = .initial
+$s10WasmParser0B0V9parseNextAA14ParsingPayloadOSgyKF:
+ 1239|      7|    public mutating func parseNext() throws -> ParsingPayload? {
+ 1240|      7|        switch nextParseTarget {
+ 1241|      7|        case .header:
+ 1242|      7|            try parseMagicNumber()
+ 1243|      0|            let version = try parseVersion()
+ 1244|      0|            self.nextParseTarget = .section
+ 1245|      0|            return .header(version: version)
+ 1246|      7|        case .section:
+ 1247|      0|            guard try !stream.hasReachedEnd() else {
+ 1248|      0|                return nil
+ 1249|      0|            }
+ 1250|      0|            let sectionID = try stream.consumeAny()
+ 1251|      0|            let sectionSize: UInt32 = try parseUnsigned()
+ 1252|      0|            let sectionStart = stream.currentIndex
+ 1253|      0|
+ 1254|      0|            let payload: ParsingPayload
+ 1255|      0|            let order: OrderTracking.Order?
+ 1256|      0|            switch sectionID {
+ 1257|      0|            case 0:
+ 1258|      0|                order = nil
+ 1259|      0|                payload = .customSection(try parseCustomSection(size: sectionSize))
+ 1260|      0|            case 1:
+ 1261|      0|                order = .type
+ 1262|      0|                payload = .typeSection(try parseTypeSection())
+ 1263|      0|            case 2:
+ 1264|      0|                order = ._import
+ 1265|      0|                payload = .importSection(try parseImportSection())
+ 1266|      0|            case 3:
+ 1267|      0|                order = .function
+ 1268|      0|                payload = .functionSection(try parseFunctionSection())
+ 1269|      0|            case 4:
+ 1270|      0|                order = .table
+ 1271|      0|                payload = .tableSection(try parseTableSection())
+ 1272|      0|            case 5:
+ 1273|      0|                order = .memory
+ 1274|      0|                payload = .memorySection(try parseMemorySection())
+ 1275|      0|            case 6:
+ 1276|      0|                order = .global
+ 1277|      0|                payload = .globalSection(try parseGlobalSection())
+ 1278|      0|            case 7:
+ 1279|      0|                order = .export
+ 1280|      0|                payload = .exportSection(try parseExportSection())
+ 1281|      0|            case 8:
+ 1282|      0|                order = .start
+ 1283|      0|                payload = .startSection(try parseStartSection())
+ 1284|      0|            case 9:
+ 1285|      0|                order = .element
+ 1286|      0|                payload = .elementSection(try parseElementSection())
+ 1287|      0|            case 10:
+ 1288|      0|                order = .code
+ 1289|      0|                payload = .codeSection(try parseCodeSection())
+ 1290|      0|            case 11:
+ 1291|      0|                order = .data
+ 1292|      0|                payload = .dataSection(try parseDataSection())
+ 1293|      0|            case 12:
+ 1294|      0|                order = .dataCount
+ 1295|      0|                payload = .dataCount(try parseDataCountSection())
+ 1296|      0|            default:
+ 1297|      0|                throw makeError(.malformedSectionID(sectionID))
+ 1298|      0|            }
+ 1299|      0|            if let order = order {
+ 1300|      0|                try orderTracking.track(order: order, parser: self)
+ 1301|      0|            }
+ 1302|      0|            let expectedSectionEnd = sectionStart + Int(sectionSize)
+ 1303|      0|            guard expectedSectionEnd == stream.currentIndex else {
+ 1304|      0|                throw makeError(.sectionSizeMismatch(expected: expectedSectionEnd, actual: offset))
+ 1305|      0|            }
+ 1306|      0|            return payload
+ 1307|      7|        }
+ 1308|      7|    }
+
