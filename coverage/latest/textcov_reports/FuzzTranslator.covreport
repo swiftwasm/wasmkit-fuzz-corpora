@@ -1,1430 +1,1661 @@
 $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF:
-    4|    104|public func FuzzCheck(_ start: UnsafePointer<UInt8>, _ count: Int) -> CInt {
-    5|    104|    let bytes = Array(UnsafeBufferPointer(start: start, count: count))
-    6|    104|    do {
-    7|    104|        var module = try WasmKit.parseWasm(bytes: bytes)
-    8|    100|        try module.materializeAll()
-    9|     74|    } catch {
-   10|     30|        // Ignore errors
-   11|    104|    }
-   12|    104|    return 0
-   13|    104|}
+    4|  38.5k|public func FuzzCheck(_ start: UnsafePointer<UInt8>, _ count: Int) -> CInt {
+    5|  38.5k|    let bytes = Array(UnsafeBufferPointer(start: start, count: count))
+    6|  38.5k|    do {
+    7|  38.5k|        var module = try WasmKit.parseWasm(bytes: bytes)
+    8|    210|        try module.materializeAll()
+    9|  38.3k|    } catch {
+   10|  38.3k|        // Ignore errors
+   11|  38.5k|    }
+   12|  38.5k|    return 0
+   13|  38.5k|}
 
 $s7WasmKit8InternerCACyxGycfc:
-  174|    100|    init() {
-  175|    100|        itemByIntern = []
-  176|    100|        internByItem = [:]
-  177|    100|    }
+  174|    210|    init() {
+  175|    210|        itemByIntern = []
+  176|    210|        internByItem = [:]
+  177|    210|    }
 
 $s7WasmKit13ModuleImportsV5build4from19functionTypeIndices11globalTypes06memoryK005tableK0ACSay0A6Parser6ImportVG_Says6UInt32VGzSayAJ06GlobalH0VGzSayAJ6LimitsVGzSayAJ05TableH0VGztFZ:
-   15|    100|    ) -> ModuleImports {
-   16|    100|        var numberOfFunctions: Int = 0
-   17|    100|        var numberOfGlobals: Int = 0
-   18|    100|        var numberOfMemories: Int = 0
-   19|    100|        var numberOfTables: Int = 0
-   20|    100|        for item in imports {
-   21|     89|            switch item.descriptor {
-   22|     89|            case .function(let typeIndex):
-   23|     14|                numberOfFunctions += 1
-   24|     14|                functionTypeIndices.append(typeIndex)
-   25|     89|            case .table(let tableType):
-   26|     20|                numberOfTables += 1
-   27|     20|                tableTypes.append(tableType)
-   28|     89|            case .memory(let memoryType):
-   29|     18|                numberOfMemories += 1
-   30|     18|                memoryTypes.append(memoryType)
-   31|     89|            case .global(let globalType):
-   32|     37|                numberOfGlobals += 1
-   33|     37|                globalTypes.append(globalType)
-   34|     89|            }
-   35|    100|        }
-   36|    100|        return ModuleImports(
-   37|    100|            numberOfFunctions: numberOfFunctions,
-   38|    100|            numberOfGlobals: numberOfGlobals,
-   39|    100|            numberOfMemories: numberOfMemories,
-   40|    100|            numberOfTables: numberOfTables
-   41|    100|        )
-   42|    100|    }
+   15|    210|    ) -> ModuleImports {
+   16|    210|        var numberOfFunctions: Int = 0
+   17|    210|        var numberOfGlobals: Int = 0
+   18|    210|        var numberOfMemories: Int = 0
+   19|    210|        var numberOfTables: Int = 0
+   20|    210|        for item in imports {
+   21|    190|            switch item.descriptor {
+   22|    190|            case .function(let typeIndex):
+   23|     41|                numberOfFunctions += 1
+   24|     41|                functionTypeIndices.append(typeIndex)
+   25|    190|            case .table(let tableType):
+   26|     33|                numberOfTables += 1
+   27|     33|                tableTypes.append(tableType)
+   28|    190|            case .memory(let memoryType):
+   29|     40|                numberOfMemories += 1
+   30|     40|                memoryTypes.append(memoryType)
+   31|    190|            case .global(let globalType):
+   32|     76|                numberOfGlobals += 1
+   33|     76|                globalTypes.append(globalType)
+   34|    190|            }
+   35|    210|        }
+   36|    210|        return ModuleImports(
+   37|    210|            numberOfFunctions: numberOfFunctions,
+   38|    210|            numberOfGlobals: numberOfGlobals,
+   39|    210|            numberOfMemories: numberOfMemories,
+   40|    210|            numberOfTables: numberOfTables
+   41|    210|        )
+   42|    210|    }
 $s7WasmKit6ModuleV5types9functions8elements4data5start7imports7exports7globals8memories6tables14customSections8features0G5CountACSay0A5Types12FunctionTypeVG_SayAA05GuestS0VGSay0A6Parser14ElementSegmentVGSayAX04DataX0OGs6UInt32VSgSayAX6ImportVGSayAX6ExportVGSayAX6GlobalVGSayAX6LimitsVGSayAX05TableT0VGSayAX13CustomSectionVGAX0A10FeatureSetVA5_tcfC:
-   81|    100|    ) {
-   82|    100|        self.functions = functions
-   83|    100|        self.elements = elements
-   84|    100|        self.data = data
-   85|    100|        self.start = start
-   86|    100|        self.imports = imports
-   87|    100|        self.exports = exports
-   88|    100|        self.globals = globals
-   89|    100|        self.customSections = customSections
-   90|    100|        self.features = features
-   91|    100|        self.dataCount = dataCount
-   92|    100|
-   93|    100|        var importedFunctionTypes: [TypeIndex] = []
-   94|    100|        var globalTypes: [GlobalType] = []
-   95|    100|        var memoryTypes: [MemoryType] = []
-   96|    100|        var tableTypes: [TableType] = []
-   97|    100|
-   98|    100|        self.moduleImports = ModuleImports.build(
-   99|    100|            from: imports,
-  100|    100|            functionTypeIndices: &importedFunctionTypes,
-  101|    100|            globalTypes: &globalTypes,
-  102|    100|            memoryTypes: &memoryTypes,
-  103|    100|            tableTypes: &tableTypes
-  104|    100|        )
-  105|    100|        self.types = types
-  106|    100|        self.importedFunctionTypes = importedFunctionTypes
-  107|    100|        self.memoryTypes = memoryTypes + memories
-  108|    100|        self.tableTypes = tableTypes + tables
-  109|    100|    }
+   81|    210|    ) {
+   82|    210|        self.functions = functions
+   83|    210|        self.elements = elements
+   84|    210|        self.data = data
+   85|    210|        self.start = start
+   86|    210|        self.imports = imports
+   87|    210|        self.exports = exports
+   88|    210|        self.globals = globals
+   89|    210|        self.customSections = customSections
+   90|    210|        self.features = features
+   91|    210|        self.dataCount = dataCount
+   92|    210|
+   93|    210|        var importedFunctionTypes: [TypeIndex] = []
+   94|    210|        var globalTypes: [GlobalType] = []
+   95|    210|        var memoryTypes: [MemoryType] = []
+   96|    210|        var tableTypes: [TableType] = []
+   97|    210|
+   98|    210|        self.moduleImports = ModuleImports.build(
+   99|    210|            from: imports,
+  100|    210|            functionTypeIndices: &importedFunctionTypes,
+  101|    210|            globalTypes: &globalTypes,
+  102|    210|            memoryTypes: &memoryTypes,
+  103|    210|            tableTypes: &tableTypes
+  104|    210|        )
+  105|    210|        self.types = types
+  106|    210|        self.importedFunctionTypes = importedFunctionTypes
+  107|    210|        self.memoryTypes = memoryTypes + memories
+  108|    210|        self.tableTypes = tableTypes + tables
+  109|    210|    }
 $s7WasmKit6ModuleV11resolveType_11typeSection0A5Types08FunctionE0Vs6UInt32V_SayAHGtKFZ:
-  111|     59|    static func resolveType(_ index: TypeIndex, typeSection: [FunctionType]) throws -> FunctionType {
-  112|     59|        guard Int(index) < typeSection.count else {
-  113|      0|            throw TranslationError("Type index \(index) is out of range")
-  114|     59|        }
-  115|     59|        return typeSection[Int(index)]
-  116|     59|    }
+  111|     61|    static func resolveType(_ index: TypeIndex, typeSection: [FunctionType]) throws -> FunctionType {
+  112|     61|        guard Int(index) < typeSection.count else {
+  113|      3|            throw TranslationError("Type index \(index) is out of range")
+  114|     58|        }
+  115|     58|        return typeSection[Int(index)]
+  116|     61|    }
 $s7WasmKit6ModuleV14materializeAllyyKF:
-  230|    100|    public mutating func materializeAll() throws {
-  231|    100|        let allocator = ISeqAllocator()
-  232|    100|        let funcTypeInterner = Interner<FunctionType>()
-  233|    100|        for function in functions {
-  234|     26|            _ = try function.compile(module: self, funcTypeInterner: funcTypeInterner, allocator: allocator)
-  235|     74|        }
-  236|     74|    }
+  230|    210|    public mutating func materializeAll() throws {
+  231|    210|        let allocator = ISeqAllocator()
+  232|    210|        let funcTypeInterner = Interner<FunctionType>()
+  233|    210|        for function in functions {
+  234|     23|            _ = try function.compile(module: self, funcTypeInterner: funcTypeInterner, allocator: allocator)
+  235|    187|        }
+  236|    187|    }
 $s7WasmKit13GuestFunctionV7compile6module16funcTypeInterner9allocatorAA19InstructionSequenceVAA6ModuleV_AA0I0Cy0A5Types0dH0VGAA13ISeqAllocatorCtKF:
-  279|     26|    func compile(module: Module, funcTypeInterner: Interner<FunctionType>, allocator: ISeqAllocator) throws -> InstructionSequence {
-  280|     26|        throw TranslationError("Compile without instantiation is no longer supported")
-  281|     26|    }
+  279|     23|    func compile(module: Module, funcTypeInterner: Interner<FunctionType>, allocator: ISeqAllocator) throws -> InstructionSequence {
+  280|     23|        throw TranslationError("Compile without instantiation is no longer supported")
+  281|     23|    }
 
 $s7WasmKit05parseA05bytes8featuresAA6ModuleVSays5UInt8VG_0A6Parser0A10FeatureSetVtKF:
-   28|    104|public func parseWasm(bytes: [UInt8], features: WasmFeatureSet = .default) throws -> Module {
-   29|    104|    let stream = StaticByteStream(bytes: bytes)
-   30|    104|    let module = try parseModule(stream: stream, features: features)
-   31|    100|    return module
-   32|    104|}
+   28|  38.5k|public func parseWasm(bytes: [UInt8], features: WasmFeatureSet = .default) throws -> Module {
+   29|  38.5k|    let stream = StaticByteStream(bytes: bytes)
+   30|  38.5k|    let module = try parseModule(stream: stream, features: features)
+   31|    210|    return module
+   32|  38.5k|}
 $s7WasmKit11parseModule6stream8featuresAA0D0Vx_0A6Parser0A10FeatureSetVtKAG10ByteStreamRzlF:
-   36|    104|func parseModule<Stream: ByteStream>(stream: Stream, features: WasmFeatureSet = .default) throws -> Module {
-   37|    104|    var types: [FunctionType] = []
-   38|    104|    var typeIndices: [TypeIndex] = []
-   39|    104|    var codes: [Code] = []
-   40|    104|    var tables: [TableType] = []
-   41|    104|    var memories: [MemoryType] = []
-   42|    104|    var globals: [WasmParser.Global] = []
-   43|    104|    var elements: [ElementSegment] = []
-   44|    104|    var data: [DataSegment] = []
-   45|    104|    var start: FunctionIndex?
-   46|    104|    var imports: [Import] = []
-   47|    104|    var exports: [Export] = []
-   48|    104|    var customSections: [CustomSection] = []
-   49|    104|    var dataCount: UInt32?
-   50|    104|
-   51|    104|    var parser = WasmParser.Parser<Stream>(
-   52|    104|        stream: stream, features: features
-   53|    104|    )
-   54|    104|
-   55|    578|    while let payload = try parser.parseNext() {
-   56|    578|        switch payload {
-   57|    578|        case .header: break
-   58|    578|        case .customSection(let customSection):
-   59|      0|            customSections.append(customSection)
-   60|    578|        case .typeSection(let typeSection):
-   61|     77|            types = typeSection
-   62|    578|        case .importSection(let importSection):
-   63|     78|            imports = importSection
-   64|    578|        case .functionSection(let types):
-   65|     26|            typeIndices = types
-   66|    578|        case .tableSection(let tableSection):
-   67|     42|            tables = tableSection.map(\.type)
-   68|    578|        case .memorySection(let memorySection):
-   69|     43|            memories = memorySection.map(\.type)
-   70|    578|        case .globalSection(let globalSection):
-   71|     72|            globals = globalSection
-   72|    578|        case .exportSection(let exportSection):
-   73|     56|            exports = exportSection
-   74|    578|        case .startSection(let functionIndex):
-   75|      4|            start = functionIndex
-   76|    578|        case .elementSection(let elementSection):
-   77|     21|            elements = elementSection
-   78|    578|        case .codeSection(let codeSection):
-   79|     26|            codes = codeSection
-   80|    578|        case .dataSection(let dataSection):
-   81|     33|            data = dataSection
-   82|    578|        case .dataCount(let count):
-   83|      0|            dataCount = count
-   84|    578|        }
-   85|    578|    }
-   86|    100|
-   87|    100|    guard typeIndices.count == codes.count else {
-   88|      0|        throw ValidationError(
-   89|      0|            .inconsistentFunctionAndCodeLength(
-   90|      0|                functionCount: typeIndices.count,
-   91|      0|                codeCount: codes.count
-   92|      0|            ))
-   93|    100|    }
-   94|    100|
-   95|    100|    if let dataCount = dataCount, dataCount != UInt32(data.count) {
-   96|      0|        throw ValidationError(
-   97|      0|            .inconsistentDataCountAndDataSectionLength(
-   98|      0|                dataCount: dataCount,
-   99|      0|                dataSection: data.count
-  100|      0|            ))
-  101|    100|    }
-  102|    100|
-  103|    100|    let functions = try codes.enumerated().map { index, code in
-  104|    100|        // SAFETY: The number of typeIndices is guaranteed to be the same as the number of codes
-  105|    100|        let funcTypeIndex = typeIndices[index]
-  106|    100|        let funcType = try Module.resolveType(funcTypeIndex, typeSection: types)
-  107|    100|        return GuestFunction(
-  108|    100|            type: funcType,
-  109|    100|            code: code
-  110|    100|        )
-  111|    100|    }
-  112|    100|
-  113|    100|    return Module(
-  114|    100|        types: types,
-  115|    100|        functions: functions,
-  116|    100|        elements: elements,
-  117|    100|        data: data,
-  118|    100|        start: start,
-  119|    100|        imports: imports,
-  120|    100|        exports: exports,
-  121|    100|        globals: globals,
-  122|    100|        memories: memories,
-  123|    100|        tables: tables,
-  124|    100|        customSections: customSections,
-  125|    100|        features: features,
-  126|    100|        dataCount: dataCount
-  127|    100|    )
-  128|    104|}
+   36|  38.5k|func parseModule<Stream: ByteStream>(stream: Stream, features: WasmFeatureSet = .default) throws -> Module {
+   37|  38.5k|    var types: [FunctionType] = []
+   38|  38.5k|    var typeIndices: [TypeIndex] = []
+   39|  38.5k|    var codes: [Code] = []
+   40|  38.5k|    var tables: [TableType] = []
+   41|  38.5k|    var memories: [MemoryType] = []
+   42|  38.5k|    var globals: [WasmParser.Global] = []
+   43|  38.5k|    var elements: [ElementSegment] = []
+   44|  38.5k|    var data: [DataSegment] = []
+   45|  38.5k|    var start: FunctionIndex?
+   46|  38.5k|    var imports: [Import] = []
+   47|  38.5k|    var exports: [Export] = []
+   48|  38.5k|    var customSections: [CustomSection] = []
+   49|  38.5k|    var dataCount: UInt32?
+   50|  38.5k|
+   51|  38.5k|    var parser = WasmParser.Parser<Stream>(
+   52|  38.5k|        stream: stream, features: features
+   53|  38.5k|    )
+   54|  38.5k|
+   55|   115k|    while let payload = try parser.parseNext() {
+   56|   115k|        switch payload {
+   57|   115k|        case .header: break
+   58|   115k|        case .customSection(let customSection):
+   59|  6.15k|            customSections.append(customSection)
+   60|   115k|        case .typeSection(let typeSection):
+   61|  22.5k|            types = typeSection
+   62|   115k|        case .importSection(let importSection):
+   63|  15.7k|            imports = importSection
+   64|   115k|        case .functionSection(let types):
+   65|  5.51k|            typeIndices = types
+   66|   115k|        case .tableSection(let tableSection):
+   67|  10.8k|            tables = tableSection.map(\.type)
+   68|   115k|        case .memorySection(let memorySection):
+   69|  9.88k|            memories = memorySection.map(\.type)
+   70|   115k|        case .globalSection(let globalSection):
+   71|  3.02k|            globals = globalSection
+   72|   115k|        case .exportSection(let exportSection):
+   73|  2.58k|            exports = exportSection
+   74|   115k|        case .startSection(let functionIndex):
+   75|    122|            start = functionIndex
+   76|   115k|        case .elementSection(let elementSection):
+   77|    263|            elements = elementSection
+   78|   115k|        case .codeSection(let codeSection):
+   79|     75|            codes = codeSection
+   80|   115k|        case .dataSection(let dataSection):
+   81|     89|            data = dataSection
+   82|   115k|        case .dataCount(let count):
+   83|     12|            dataCount = count
+   84|   115k|        }
+   85|   115k|    }
+   86|    221|
+   87|    221|    guard typeIndices.count == codes.count else {
+   88|      7|        throw ValidationError(
+   89|      7|            .inconsistentFunctionAndCodeLength(
+   90|      7|                functionCount: typeIndices.count,
+   91|      7|                codeCount: codes.count
+   92|      7|            ))
+   93|    214|    }
+   94|    214|
+   95|    214|    if let dataCount = dataCount, dataCount != UInt32(data.count) {
+   96|      1|        throw ValidationError(
+   97|      1|            .inconsistentDataCountAndDataSectionLength(
+   98|      1|                dataCount: dataCount,
+   99|      1|                dataSection: data.count
+  100|      1|            ))
+  101|    213|    }
+  102|    213|
+  103|    213|    let functions = try codes.enumerated().map { index, code in
+  104|    213|        // SAFETY: The number of typeIndices is guaranteed to be the same as the number of codes
+  105|    213|        let funcTypeIndex = typeIndices[index]
+  106|    213|        let funcType = try Module.resolveType(funcTypeIndex, typeSection: types)
+  107|    213|        return GuestFunction(
+  108|    213|            type: funcType,
+  109|    213|            code: code
+  110|    213|        )
+  111|    213|    }
+  112|    210|
+  113|    210|    return Module(
+  114|    210|        types: types,
+  115|    210|        functions: functions,
+  116|    210|        elements: elements,
+  117|    210|        data: data,
+  118|    210|        start: start,
+  119|    210|        imports: imports,
+  120|    210|        exports: exports,
+  121|    210|        globals: globals,
+  122|    210|        memories: memories,
+  123|    210|        tables: tables,
+  124|    210|        customSections: customSections,
+  125|    210|        features: features,
+  126|    210|        dataCount: dataCount
+  127|    210|    )
+  128|  38.5k|}
 $s7WasmKit11parseModule6stream8featuresAA0D0Vx_0A6Parser0A10FeatureSetVtKAG10ByteStreamRzlFAG9TableTypeVAG0L0Vcfu_:
-   67|     42|            tables = tableSection.map(\.type)
+   67|  10.8k|            tables = tableSection.map(\.type)
 $s7WasmKit11parseModule6stream8featuresAA0D0Vx_0A6Parser0A10FeatureSetVtKAG10ByteStreamRzlFAG6LimitsVAG6MemoryVcfu0_:
-   69|     43|            memories = memorySection.map(\.type)
+   69|  9.87k|            memories = memorySection.map(\.type)
 $s7WasmKit11parseModule6stream8featuresAA0D0Vx_0A6Parser0A10FeatureSetVtKAG10ByteStreamRzlFAA13GuestFunctionVSi_AG4CodeVtKXEfU_:
-  103|     59|    let functions = try codes.enumerated().map { index, code in
-  104|     59|        // SAFETY: The number of typeIndices is guaranteed to be the same as the number of codes
-  105|     59|        let funcTypeIndex = typeIndices[index]
-  106|     59|        let funcType = try Module.resolveType(funcTypeIndex, typeSection: types)
-  107|     59|        return GuestFunction(
-  108|     59|            type: funcType,
-  109|     59|            code: code
-  110|     59|        )
-  111|     59|    }
+  103|     61|    let functions = try codes.enumerated().map { index, code in
+  104|     61|        // SAFETY: The number of typeIndices is guaranteed to be the same as the number of codes
+  105|     61|        let funcTypeIndex = typeIndices[index]
+  106|     61|        let funcType = try Module.resolveType(funcTypeIndex, typeSection: types)
+  107|     58|        return GuestFunction(
+  108|     58|            type: funcType,
+  109|     58|            code: code
+  110|     58|        )
+  111|     61|    }
 
 $s7WasmKit13ISeqAllocatorC7buffers021_3C1F9FC595E9AC192A47I10B121D811E8LLSaySwGvpfi:
-    6|    100|    private var buffers: [UnsafeMutableRawBufferPointer] = []
+    6|    210|    private var buffers: [UnsafeMutableRawBufferPointer] = []
 $s7WasmKit13ISeqAllocatorCfd:
-   29|    100|    deinit {
-   30|    100|        for buffer in buffers {
+   29|    210|    deinit {
+   30|    210|        for buffer in buffers {
    31|      0|            buffer.deallocate()
-   32|    100|        }
-   33|    100|    }
+   32|    210|        }
+   33|    210|    }
 $s7WasmKit16TranslationErrorVyACSScfC:
  2171|     26|    init(_ description: String) {
  2172|     26|        self.description = description
  2173|     26|    }
 
+$s7WasmKit15ValidationErrorV7MessageVyAESScfC:
+    9|      8|        init(_ text: String) {
+   10|      8|            self.text = text
+   11|      8|        }
+$s7WasmKit15ValidationErrorVyA2C7MessageVcfC:
+   30|      8|    init(_ message: Message) {
+   31|      8|        self.message = message
+   32|      8|    }
+$s7WasmKit15ValidationErrorV7MessageV33inconsistentFunctionAndCodeLength13functionCount04codeL0AESi_SitFZ:
+  174|      7|    static func inconsistentFunctionAndCodeLength(functionCount: Int, codeCount: Int) -> Self {
+  175|      7|        Self("Inconsistent function and code length: \(functionCount) vs \(codeCount)")
+  176|      7|    }
+$s7WasmKit15ValidationErrorV7MessageV024inconsistentDataCountAndG13SectionLength04dataH00lJ0AEs6UInt32V_SitFZ:
+  178|      1|    static func inconsistentDataCountAndDataSectionLength(dataCount: UInt32, dataSection: Int) -> Self {
+  179|      1|        Self("Inconsistent data count and data section length: \(dataCount) vs \(dataSection)")
+  180|      1|    }
+
+$s10WasmParser21AnyInstructionVisitorPAAE16visitUnreachableyyKF:
+  236|   816k|    public mutating func visitUnreachable() throws { return try self.visit(.unreachable) }
+$s10WasmParser21AnyInstructionVisitorPAAE8visitNopyyKF:
+  237|  91.8k|    public mutating func visitNop() throws { return try self.visit(.nop) }
+$s10WasmParser21AnyInstructionVisitorPAAE10visitBlock9blockTypeyAA0gI0O_tKF:
+  238|  67.7k|    public mutating func visitBlock(blockType: BlockType) throws { return try self.visit(.block(blockType: blockType)) }
+$s10WasmParser21AnyInstructionVisitorPAAE9visitLoop9blockTypeyAA05BlockI0O_tKF:
+  239|  58.0k|    public mutating func visitLoop(blockType: BlockType) throws { return try self.visit(.loop(blockType: blockType)) }
+$s10WasmParser21AnyInstructionVisitorPAAE7visitIf9blockTypeyAA05BlockI0O_tKF:
+  240|  20.4k|    public mutating func visitIf(blockType: BlockType) throws { return try self.visit(.if(blockType: blockType)) }
+$s10WasmParser21AnyInstructionVisitorPAAE9visitElseyyKF:
+  241|  13.9k|    public mutating func visitElse() throws { return try self.visit(.else) }
 $s10WasmParser21AnyInstructionVisitorPAAE8visitEndyyKF:
-  242|    327|    public mutating func visitEnd() throws { return try self.visit(.end) }
+  242|  62.0k|    public mutating func visitEnd() throws { return try self.visit(.end) }
+$s10WasmParser21AnyInstructionVisitorPAAE7visitBr13relativeDepthys6UInt32V_tKF:
+  243|  57.6k|    public mutating func visitBr(relativeDepth: UInt32) throws { return try self.visit(.br(relativeDepth: relativeDepth)) }
+$s10WasmParser21AnyInstructionVisitorPAAE9visitBrIf13relativeDepthys6UInt32V_tKF:
+  244|  20.8k|    public mutating func visitBrIf(relativeDepth: UInt32) throws { return try self.visit(.brIf(relativeDepth: relativeDepth)) }
+$s10WasmParser21AnyInstructionVisitorPAAE12visitBrTable7targetsyAA0gH0V_tKF:
+  245|  36.4k|    public mutating func visitBrTable(targets: BrTable) throws { return try self.visit(.brTable(targets: targets)) }
+$s10WasmParser21AnyInstructionVisitorPAAE11visitReturnyyKF:
+  246|  22.0k|    public mutating func visitReturn() throws { return try self.visit(.return) }
+$s10WasmParser21AnyInstructionVisitorPAAE9visitCall13functionIndexys6UInt32V_tKF:
+  247|  53.0k|    public mutating func visitCall(functionIndex: UInt32) throws { return try self.visit(.call(functionIndex: functionIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE17visitCallIndirect9typeIndex05tableJ0ys6UInt32V_AHtKF:
+  248|  5.67k|    public mutating func visitCallIndirect(typeIndex: UInt32, tableIndex: UInt32) throws { return try self.visit(.callIndirect(typeIndex: typeIndex, tableIndex: tableIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE9visitDropyyKF:
+  249|  12.0k|    public mutating func visitDrop() throws { return try self.visit(.drop) }
+$s10WasmParser21AnyInstructionVisitorPAAE11visitSelectyyKF:
+  250|  6.50k|    public mutating func visitSelect() throws { return try self.visit(.select) }
+$s10WasmParser21AnyInstructionVisitorPAAE16visitTypedSelect4typey0A5Types9ValueTypeO_tKF:
+  251|  3.40k|    public mutating func visitTypedSelect(type: ValueType) throws { return try self.visit(.typedSelect(type: type)) }
+$s10WasmParser21AnyInstructionVisitorPAAE13visitLocalGet10localIndexys6UInt32V_tKF:
+  252|  71.4k|    public mutating func visitLocalGet(localIndex: UInt32) throws { return try self.visit(.localGet(localIndex: localIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE13visitLocalSet10localIndexys6UInt32V_tKF:
+  253|  32.7k|    public mutating func visitLocalSet(localIndex: UInt32) throws { return try self.visit(.localSet(localIndex: localIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE13visitLocalTee10localIndexys6UInt32V_tKF:
+  254|  22.0k|    public mutating func visitLocalTee(localIndex: UInt32) throws { return try self.visit(.localTee(localIndex: localIndex)) }
 $s10WasmParser21AnyInstructionVisitorPAAE14visitGlobalGet11globalIndexys6UInt32V_tKF:
-  255|     17|    public mutating func visitGlobalGet(globalIndex: UInt32) throws { return try self.visit(.globalGet(globalIndex: globalIndex)) }
+  255|  75.8k|    public mutating func visitGlobalGet(globalIndex: UInt32) throws { return try self.visit(.globalGet(globalIndex: globalIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE14visitGlobalSet11globalIndexys6UInt32V_tKF:
+  256|  29.9k|    public mutating func visitGlobalSet(globalIndex: UInt32) throws { return try self.visit(.globalSet(globalIndex: globalIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE9visitLoad_6memargyAA0D0O0G0O_AA6MemArgVtKF:
+  257|   182k|    public mutating func visitLoad(_ load: Instruction.Load, memarg: MemArg) throws { return try self.visit(.load(load, memarg: memarg)) }
+$s10WasmParser21AnyInstructionVisitorPAAE10visitStore_6memargyAA0D0O0G0O_AA6MemArgVtKF:
+  258|   160k|    public mutating func visitStore(_ store: Instruction.Store, memarg: MemArg) throws { return try self.visit(.store(store, memarg: memarg)) }
+$s10WasmParser21AnyInstructionVisitorPAAE15visitMemorySize6memoryys6UInt32V_tKF:
+  259|  8.60k|    public mutating func visitMemorySize(memory: UInt32) throws { return try self.visit(.memorySize(memory: memory)) }
+$s10WasmParser21AnyInstructionVisitorPAAE15visitMemoryGrow6memoryys6UInt32V_tKF:
+  260|  7.61k|    public mutating func visitMemoryGrow(memory: UInt32) throws { return try self.visit(.memoryGrow(memory: memory)) }
 $s10WasmParser21AnyInstructionVisitorPAAE13visitI32Const5valueys5Int32V_tKF:
-  261|    208|    public mutating func visitI32Const(value: Int32) throws { return try self.visit(.i32Const(value: value)) }
+  261|  90.6k|    public mutating func visitI32Const(value: Int32) throws { return try self.visit(.i32Const(value: value)) }
 $s10WasmParser21AnyInstructionVisitorPAAE13visitI64Const5valueys5Int64V_tKF:
-  262|     62|    public mutating func visitI64Const(value: Int64) throws { return try self.visit(.i64Const(value: value)) }
+  262|  49.8k|    public mutating func visitI64Const(value: Int64) throws { return try self.visit(.i64Const(value: value)) }
 $s10WasmParser21AnyInstructionVisitorPAAE13visitF32Const5valueyAA7IEEE754O7Float32V_tKF:
-  263|     20|    public mutating func visitF32Const(value: IEEE754.Float32) throws { return try self.visit(.f32Const(value: value)) }
+  263|  95.7k|    public mutating func visitF32Const(value: IEEE754.Float32) throws { return try self.visit(.f32Const(value: value)) }
 $s10WasmParser21AnyInstructionVisitorPAAE13visitF64Const5valueyAA7IEEE754O7Float64V_tKF:
-  264|     20|    public mutating func visitF64Const(value: IEEE754.Float64) throws { return try self.visit(.f64Const(value: value)) }
+  264|  40.9k|    public mutating func visitF64Const(value: IEEE754.Float64) throws { return try self.visit(.f64Const(value: value)) }
+$s10WasmParser21AnyInstructionVisitorPAAE12visitRefNull4typey0A5Types13ReferenceTypeO_tKF:
+  265|  3.20k|    public mutating func visitRefNull(type: ReferenceType) throws { return try self.visit(.refNull(type: type)) }
+$s10WasmParser21AnyInstructionVisitorPAAE14visitRefIsNullyyKF:
+  266|  3.94k|    public mutating func visitRefIsNull() throws { return try self.visit(.refIsNull) }
+$s10WasmParser21AnyInstructionVisitorPAAE12visitRefFunc13functionIndexys6UInt32V_tKF:
+  267|  13.5k|    public mutating func visitRefFunc(functionIndex: UInt32) throws { return try self.visit(.refFunc(functionIndex: functionIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE11visitI32EqzyyKF:
+  268|  3.67k|    public mutating func visitI32Eqz() throws { return try self.visit(.i32Eqz) }
+$s10WasmParser21AnyInstructionVisitorPAAE8visitCmpyyAA0D0O0G0OKF:
+  269|   297k|    public mutating func visitCmp(_ cmp: Instruction.Cmp) throws { return try self.visit(.cmp(cmp)) }
+$s10WasmParser21AnyInstructionVisitorPAAE11visitI64EqzyyKF:
+  270|  4.48k|    public mutating func visitI64Eqz() throws { return try self.visit(.i64Eqz) }
+$s10WasmParser21AnyInstructionVisitorPAAE10visitUnaryyyAA0D0O0G0OKF:
+  271|   413k|    public mutating func visitUnary(_ unary: Instruction.Unary) throws { return try self.visit(.unary(unary)) }
+$s10WasmParser21AnyInstructionVisitorPAAE11visitBinaryyyAA0D0O0G0OKF:
+  272|   592k|    public mutating func visitBinary(_ binary: Instruction.Binary) throws { return try self.visit(.binary(binary)) }
+$s10WasmParser21AnyInstructionVisitorPAAE15visitConversionyyAA0D0O0G0OKF:
+  273|   468k|    public mutating func visitConversion(_ conversion: Instruction.Conversion) throws { return try self.visit(.conversion(conversion)) }
+$s10WasmParser21AnyInstructionVisitorPAAE15visitMemoryInit9dataIndexys6UInt32V_tKF:
+  274|  3.27k|    public mutating func visitMemoryInit(dataIndex: UInt32) throws { return try self.visit(.memoryInit(dataIndex: dataIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE13visitDataDrop9dataIndexys6UInt32V_tKF:
+  275|  2.92k|    public mutating func visitDataDrop(dataIndex: UInt32) throws { return try self.visit(.dataDrop(dataIndex: dataIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE15visitMemoryCopy6dstMem03srcJ0ys6UInt32V_AHtKF:
+  276|  1.52k|    public mutating func visitMemoryCopy(dstMem: UInt32, srcMem: UInt32) throws { return try self.visit(.memoryCopy(dstMem: dstMem, srcMem: srcMem)) }
+$s10WasmParser21AnyInstructionVisitorPAAE15visitMemoryFill6memoryys6UInt32V_tKF:
+  277|  1.37k|    public mutating func visitMemoryFill(memory: UInt32) throws { return try self.visit(.memoryFill(memory: memory)) }
+$s10WasmParser21AnyInstructionVisitorPAAE14visitTableInit9elemIndex5tableys6UInt32V_AHtKF:
+  278|  11.7k|    public mutating func visitTableInit(elemIndex: UInt32, table: UInt32) throws { return try self.visit(.tableInit(elemIndex: elemIndex, table: table)) }
+$s10WasmParser21AnyInstructionVisitorPAAE13visitElemDrop9elemIndexys6UInt32V_tKF:
+  279|  2.93k|    public mutating func visitElemDrop(elemIndex: UInt32) throws { return try self.visit(.elemDrop(elemIndex: elemIndex)) }
+$s10WasmParser21AnyInstructionVisitorPAAE14visitTableCopy03dstG003srcG0ys6UInt32V_AHtKF:
+  280|  2.06k|    public mutating func visitTableCopy(dstTable: UInt32, srcTable: UInt32) throws { return try self.visit(.tableCopy(dstTable: dstTable, srcTable: srcTable)) }
+$s10WasmParser21AnyInstructionVisitorPAAE14visitTableFill5tableys6UInt32V_tKF:
+  281|  1.12k|    public mutating func visitTableFill(table: UInt32) throws { return try self.visit(.tableFill(table: table)) }
+$s10WasmParser21AnyInstructionVisitorPAAE13visitTableGet5tableys6UInt32V_tKF:
+  282|  3.13k|    public mutating func visitTableGet(table: UInt32) throws { return try self.visit(.tableGet(table: table)) }
+$s10WasmParser21AnyInstructionVisitorPAAE13visitTableSet5tableys6UInt32V_tKF:
+  283|  88.4k|    public mutating func visitTableSet(table: UInt32) throws { return try self.visit(.tableSet(table: table)) }
+$s10WasmParser21AnyInstructionVisitorPAAE14visitTableGrow5tableys6UInt32V_tKF:
+  284|  11.2k|    public mutating func visitTableGrow(table: UInt32) throws { return try self.visit(.tableGrow(table: table)) }
+$s10WasmParser21AnyInstructionVisitorPAAE14visitTableSize5tableys6UInt32V_tKF:
+  285|  1.73k|    public mutating func visitTableSize(table: UInt32) throws { return try self.visit(.tableSize(table: table)) }
 
 $s10WasmParser12decodeLEB1286streamxq__tKs17FixedWidthIntegerRzSURzAA10ByteStreamR_r0_lF:
-   10|  2.26k|) throws -> IntType where IntType: FixedWidthInteger, IntType: UnsignedInteger, Stream: ByteStream {
-   11|  2.26k|    let firstByte = try stream.consumeAny()
-   12|  2.26k|    var result: IntType = IntType(firstByte & 0b0111_1111)
-   13|  2.26k|    if _fastPath(firstByte & 0b1000_0000 == 0) {
-   14|  2.08k|        return result
-   15|  2.08k|    }
-   16|    182|
-   17|    182|    var shift: UInt = 7
-   18|    182|
-   19|    237|    while true {
-   20|    237|        let byte = try stream.consumeAny()
-   21|    237|        let slice = IntType(byte & 0b0111_1111)
-   22|    237|        let nextShift = shift + 7
-   23|    237|        if nextShift >= IntType.bitWidth, (byte >> (UInt(IntType.bitWidth) - shift)) != 0 {
-   24|      0|            throw LEBError.integerRepresentationTooLong
-   25|    237|        }
-   26|    237|        result |= slice << shift
-   27|    237|        shift = nextShift
-   28|    237|
-   29|    237|        guard byte & 0b1000_0000 != 0 else { break }
-   30|    182|    }
-   31|    182|
-   32|    182|    return result
-   33|  2.26k|}
+   10|  2.50M|) throws -> IntType where IntType: FixedWidthInteger, IntType: UnsignedInteger, Stream: ByteStream {
+   11|  2.50M|    let firstByte = try stream.consumeAny()
+   12|  2.50M|    var result: IntType = IntType(firstByte & 0b0111_1111)
+   13|  2.50M|    if _fastPath(firstByte & 0b1000_0000 == 0) {
+   14|  2.34M|        return result
+   15|  2.34M|    }
+   16|   156k|
+   17|   156k|    var shift: UInt = 7
+   18|   156k|
+   19|   274k|    while true {
+   20|   274k|        let byte = try stream.consumeAny()
+   21|   274k|        let slice = IntType(byte & 0b0111_1111)
+   22|   274k|        let nextShift = shift + 7
+   23|   274k|        if nextShift >= IntType.bitWidth, (byte >> (UInt(IntType.bitWidth) - shift)) != 0 {
+   24|  1.30k|            throw LEBError.integerRepresentationTooLong
+   25|   272k|        }
+   26|   272k|        result |= slice << shift
+   27|   272k|        shift = nextShift
+   28|   272k|
+   29|   272k|        guard byte & 0b1000_0000 != 0 else { break }
+   30|   154k|    }
+   31|   154k|
+   32|   154k|    return result
+   33|  2.50M|}
 $s10WasmParser12decodeLEB1286streamxq__tKAA16RawSignedIntegerRzAA10ByteStreamR_r0_lF:
-   37|    270|) throws -> IntType where IntType: FixedWidthInteger, IntType: RawSignedInteger, Stream: ByteStream {
-   38|    270|    let firstByte = try stream.consumeAny()
-   39|    270|    var result = IntType.Unsigned(firstByte & 0b0111_1111)
-   40|    270|    if _fastPath(firstByte & 0b1000_0000 == 0) {
-   41|    149|        // Interpret Int${Self.bitWidth-1} as Int${Self.bitWidth}
-   42|    149|        return (IntType(bitPattern: result) << (IntType.bitWidth - 7)) >> (IntType.bitWidth - 7)
-   43|    149|    }
-   44|    121|
-   45|    121|    var shift: IntType = 7
-   46|    121|
-   47|    121|    var byte: UInt8
-   48|    413|    repeat {
-   49|    413|        byte = try stream.consumeAny()
-   50|    413|
-   51|    413|        let slice = IntType.Unsigned(byte & 0b0111_1111)
-   52|    413|        result |= slice << shift
-   53|    413|
-   54|    413|        // When we don't have enough bit width
-   55|    413|        if shift > (IntType.bitWidth - 7) {
-   56|     54|            let remainingBitWidth = IntType.bitWidth - Int(shift)
-   57|     54|            let continuationBit = (byte & 0b1000_0000) != 0
-   58|     54|            // When a next byte is expected
-   59|     54|            if continuationBit {
-   60|      0|                throw LEBError.integerRepresentationTooLong
-   61|     54|            }
-   62|     54|
-   63|     54|            let signAndDiscardingBits = Int8(bitPattern: byte << 1) >> remainingBitWidth
-   64|     54|            // When meaningful bits are discarded
-   65|     54|            if signAndDiscardingBits != 0 && signAndDiscardingBits != -1 {
-   66|      0|                throw LEBError.overflow
-   67|     54|            }
-   68|     54|            return IntType(bitPattern: result)
-   69|    359|        }
-   70|    359|
-   71|    359|        shift += 7
-   72|    359|    } while byte & 0b1000_0000 != 0
-   73|     67|
-   74|     67|    // Sign flag is second high-order bit
-   75|     67|    if byte & 0b0100_0000 != 0 {
-   76|      4|        // Sign extend
-   77|      4|        result |= IntType.Unsigned(bitPattern: ~0) << shift
-   78|      4|    }
-   79|     67|
-   80|     67|    return IntType(bitPattern: result)
-   81|    270|}
+   37|   140k|) throws -> IntType where IntType: FixedWidthInteger, IntType: RawSignedInteger, Stream: ByteStream {
+   38|   140k|    let firstByte = try stream.consumeAny()
+   39|   140k|    var result = IntType.Unsigned(firstByte & 0b0111_1111)
+   40|   140k|    if _fastPath(firstByte & 0b1000_0000 == 0) {
+   41|  49.9k|        // Interpret Int${Self.bitWidth-1} as Int${Self.bitWidth}
+   42|  49.9k|        return (IntType(bitPattern: result) << (IntType.bitWidth - 7)) >> (IntType.bitWidth - 7)
+   43|  90.8k|    }
+   44|  90.8k|
+   45|  90.8k|    var shift: IntType = 7
+   46|  90.8k|
+   47|  90.8k|    var byte: UInt8
+   48|   346k|    repeat {
+   49|   346k|        byte = try stream.consumeAny()
+   50|   346k|
+   51|   346k|        let slice = IntType.Unsigned(byte & 0b0111_1111)
+   52|   346k|        result |= slice << shift
+   53|   346k|
+   54|   346k|        // When we don't have enough bit width
+   55|   346k|        if shift > (IntType.bitWidth - 7) {
+   56|  34.7k|            let remainingBitWidth = IntType.bitWidth - Int(shift)
+   57|  34.7k|            let continuationBit = (byte & 0b1000_0000) != 0
+   58|  34.7k|            // When a next byte is expected
+   59|  34.7k|            if continuationBit {
+   60|     75|                throw LEBError.integerRepresentationTooLong
+   61|  34.6k|            }
+   62|  34.6k|
+   63|  34.6k|            let signAndDiscardingBits = Int8(bitPattern: byte << 1) >> remainingBitWidth
+   64|  34.6k|            // When meaningful bits are discarded
+   65|  34.6k|            if signAndDiscardingBits != 0 && signAndDiscardingBits != -1 {
+   66|    135|                throw LEBError.overflow
+   67|  34.5k|            }
+   68|  34.5k|            return IntType(bitPattern: result)
+   69|   312k|        }
+   70|   312k|
+   71|   312k|        shift += 7
+   72|   312k|    } while byte & 0b1000_0000 != 0
+   73|  55.9k|
+   74|  55.9k|    // Sign flag is second high-order bit
+   75|  55.9k|    if byte & 0b0100_0000 != 0 {
+   76|  19.0k|        // Sign extend
+   77|  19.0k|        result |= IntType.Unsigned(bitPattern: ~0) << shift
+   78|  19.0k|    }
+   79|  55.9k|
+   80|  55.9k|    return IntType(bitPattern: result)
+   81|   140k|}
 $s10WasmParser12decodeLEB1286streamxq__tKAA16RawSignedIntegerRzAA10ByteStreamR_r0_lFSbyKXEfu_:
-   65|     25|            if signAndDiscardingBits != 0 && signAndDiscardingBits != -1 {
+   65|  11.1k|            if signAndDiscardingBits != 0 && signAndDiscardingBits != -1 {
 
 $s10WasmParser13ParsingLimitsV7defaultACvgZ:
-    7|    104|    static var `default`: ParsingLimits {
-    8|    104|        return ParsingLimits(maxFunctionLocals: 50000)
-    9|    104|    }
+    7|  38.5k|    static var `default`: ParsingLimits {
+    8|  38.5k|        return ParsingLimits(maxFunctionLocals: 50000)
+    9|  38.5k|    }
 
 $s10WasmParser16StaticByteStreamC5bytesACSays5UInt8VG_tcfc:
-    7|    104|    public init(bytes: [UInt8]) {
-    8|    104|        self.bytes = ArraySlice(bytes)
-    9|    104|        currentIndex = bytes.startIndex
-   10|    104|    }
+    7|  38.5k|    public init(bytes: [UInt8]) {
+    8|  38.5k|        self.bytes = ArraySlice(bytes)
+    9|  38.5k|        currentIndex = bytes.startIndex
+   10|  38.5k|    }
 $s10WasmParser16StaticByteStreamC10consumeAnys5UInt8VyKF:
-   18|  5.59k|    public func consumeAny() throws -> UInt8 {
-   19|  5.59k|        guard bytes.indices.contains(currentIndex) else {
-   20|      0|            throw StreamError<Element>.unexpectedEnd(expected: nil)
-   21|  5.59k|        }
-   22|  5.59k|
-   23|  5.59k|        let consumed = bytes[currentIndex]
-   24|  5.59k|        currentIndex = bytes.index(after: currentIndex)
-   25|  5.59k|        return consumed
-   26|  5.59k|    }
+   18|  8.03M|    public func consumeAny() throws -> UInt8 {
+   19|  8.03M|        guard bytes.indices.contains(currentIndex) else {
+   20|  21.1k|            throw StreamError<Element>.unexpectedEnd(expected: nil)
+   21|  8.01M|        }
+   22|  8.01M|
+   23|  8.01M|        let consumed = bytes[currentIndex]
+   24|  8.01M|        currentIndex = bytes.index(after: currentIndex)
+   25|  8.01M|        return consumed
+   26|  8.03M|    }
 $s10WasmParser16StaticByteStreamC7consumeys5UInt8VShyAFGKF:
-   29|    236|    public func consume(_ expected: Set<UInt8>) throws -> UInt8 {
-   30|    236|        guard bytes.indices.contains(currentIndex) else {
-   31|      0|            throw StreamError<Element>.unexpectedEnd(expected: Set(expected))
-   32|    236|        }
-   33|    236|
-   34|    236|        let consumed = bytes[currentIndex]
-   35|    236|        guard expected.contains(consumed) else {
-   36|      0|            throw StreamError<Element>.unexpected(consumed, index: currentIndex, expected: Set(expected))
-   37|    236|        }
-   38|    236|
-   39|    236|        currentIndex = bytes.index(after: currentIndex)
-   40|    236|        return consumed
-   41|    236|    }
+   29|  36.4k|    public func consume(_ expected: Set<UInt8>) throws -> UInt8 {
+   30|  36.4k|        guard bytes.indices.contains(currentIndex) else {
+   31|     50|            throw StreamError<Element>.unexpectedEnd(expected: Set(expected))
+   32|  36.3k|        }
+   33|  36.3k|
+   34|  36.3k|        let consumed = bytes[currentIndex]
+   35|  36.3k|        guard expected.contains(consumed) else {
+   36|     93|            throw StreamError<Element>.unexpected(consumed, index: currentIndex, expected: Set(expected))
+   37|  36.2k|        }
+   38|  36.2k|
+   39|  36.2k|        currentIndex = bytes.index(after: currentIndex)
+   40|  36.2k|        return consumed
+   41|  36.4k|    }
 $s10WasmParser16StaticByteStreamC7consume5counts10ArraySliceVys5UInt8VGSi_tKF:
-   43|    374|    public func consume(count: Int) throws -> ArraySlice<UInt8> {
-   44|    374|        guard count > 0 else { return [] }
-   45|    334|        let updatedIndex = currentIndex + count
-   46|    334|
-   47|    334|        guard bytes.indices.contains(updatedIndex - 1) else {
-   48|      2|            throw StreamError<Element>.unexpectedEnd(expected: nil)
-   49|    332|        }
-   50|    332|
-   51|    332|        defer { currentIndex = updatedIndex }
-   52|    332|
-   53|    332|        return bytes[currentIndex..<updatedIndex]
-   54|    374|    }
+   43|   227k|    public func consume(count: Int) throws -> ArraySlice<UInt8> {
+   44|   227k|        guard count > 0 else { return [] }
+   45|   219k|        let updatedIndex = currentIndex + count
+   46|   219k|
+   47|   219k|        guard bytes.indices.contains(updatedIndex - 1) else {
+   48|    692|            throw StreamError<Element>.unexpectedEnd(expected: nil)
+   49|   218k|        }
+   50|   218k|
+   51|   218k|        defer { currentIndex = updatedIndex }
+   52|   218k|
+   53|   218k|        return bytes[currentIndex..<updatedIndex]
+   54|   227k|    }
 $s10WasmParser16StaticByteStreamC4peeks5UInt8VSgyF:
-   56|    578|    public func peek() -> UInt8? {
-   57|    578|        guard bytes.indices.contains(currentIndex) else {
-   58|    100|            return nil
-   59|    478|        }
-   60|    478|        return bytes[currentIndex]
-   61|    578|    }
+   56|   262k|    public func peek() -> UInt8? {
+   57|   262k|        guard bytes.indices.contains(currentIndex) else {
+   58|    724|            return nil
+   59|   261k|        }
+   60|   261k|        return bytes[currentIndex]
+   61|   262k|    }
 
 $s10WasmParser6StreamPAAE13hasReachedEndSbyKF:
-   24|    578|    func hasReachedEnd() throws -> Bool {
-   25|    578|        try peek() == nil
-   26|    578|    }
+   24|   115k|    func hasReachedEnd() throws -> Bool {
+   25|   115k|        try peek() == nil
+   26|   115k|    }
 
 $s10WasmParser0B0V13orderTrackingAC05OrderD0Vyx_Gvpfi:
-   17|    104|    var orderTracking = OrderTracking()
+   17|  38.5k|    var orderTracking = OrderTracking()
 $s10WasmParser0B0V6offsetSivg:
-   26|      2|    public var offset: Int {
-   27|      2|        return stream.currentIndex
-   28|      2|    }
+   26|  15.7k|    public var offset: Int {
+   27|  15.7k|        return stream.currentIndex
+   28|  15.7k|    }
 $s10WasmParser0B0V6stream8featuresACyxGx_AA0A10FeatureSetVtcfC:
-   30|    104|    public init(stream: Stream, features: WasmFeatureSet = .default) {
-   31|    104|        self.stream = stream
-   32|    104|        self.features = features
-   33|    104|        self.nextParseTarget = .header
-   34|    104|        self.limits = .default
-   35|    104|    }
+   30|  38.5k|    public init(stream: Stream, features: WasmFeatureSet = .default) {
+   31|  38.5k|        self.stream = stream
+   32|  38.5k|        self.features = features
+   33|  38.5k|        self.nextParseTarget = .header
+   34|  38.5k|        self.limits = .default
+   35|  38.5k|    }
 $s10WasmParser0B0V9makeErroryAA0abD0VAF7MessageVF:
-   38|      2|    internal func makeError(_ message: WasmParserError.Message) -> WasmParserError {
-   39|      2|        return WasmParserError(message, offset: offset)
-   40|      2|    }
+   38|  12.0k|    internal func makeError(_ message: WasmParserError.Message) -> WasmParserError {
+   39|  12.0k|        return WasmParserError(message, offset: offset)
+   40|  12.0k|    }
 $s10WasmParser0A10FeatureSetV8rawValueACSi_tcfC:
-  182|    499|    public init(rawValue: Int) {
-  183|    499|        self.rawValue = rawValue
-  184|    499|    }
+  182|   852k|    public init(rawValue: Int) {
+  183|   852k|        self.rawValue = rawValue
+  184|   852k|    }
 $s10WasmParser0aB5ErrorV7MessageVyAESScfC:
-  205|      2|        init(_ text: String) {
-  206|      2|            self.text = text
-  207|      2|        }
+  205|  11.4k|        init(_ text: String) {
+  206|  11.4k|            self.text = text
+  207|  11.4k|        }
 $s10WasmParser0aB5ErrorV_6offsetA2C7MessageV_SitcfC:
-  214|      2|    init(_ message: Message, offset: Int) {
-  215|      2|        self.message = message
-  216|      2|        self.offset = offset
-  217|      2|    }
+  214|  12.1k|    init(_ message: Message, offset: Int) {
+  215|  12.1k|        self.message = message
+  216|  12.1k|        self.offset = offset
+  217|  12.1k|    }
 $s10WasmParser0aB5ErrorV7MessageV18invalidMagicNumberyAESays5UInt8VGFZ:
-  227|      2|    static func invalidMagicNumber(_ bytes: [UInt8]) -> Self {
-  228|      2|        Self("magic header not detected: expected \(WASM_MAGIC) but got \(bytes)")
-  229|      2|    }
+  227|      4|    static func invalidMagicNumber(_ bytes: [UInt8]) -> Self {
+  228|      4|        Self("magic header not detected: expected \(WASM_MAGIC) but got \(bytes)")
+  229|      4|    }
+$s10WasmParser0aB5ErrorV7MessageV14unknownVersionyAESays5UInt8VGFZ:
+  231|      2|    static func unknownVersion(_ bytes: [UInt8]) -> Self {
+  232|      2|        Self("unknown binary version: \(bytes)")
+  233|      2|    }
+$s10WasmParser0aB5ErrorV7MessageV11invalidUTF8yAESays5UInt8VGFZ:
+  235|     75|    static func invalidUTF8(_ bytes: [UInt8]) -> Self {
+  236|     75|        Self("malformed UTF-8 encoding: \(bytes)")
+  237|     75|    }
+$s10WasmParser0aB5ErrorV7MessageV18invalidSectionSizeyAEs6UInt32VFZ:
+  239|     43|    static func invalidSectionSize(_ size: UInt32) -> Self {
+  240|     43|        // TODO: Remove size parameter
+  241|     43|        Self("unexpected end-of-file")
+  242|     43|    }
+$s10WasmParser0aB5ErrorV7MessageV18malformedSectionIDyAEs5UInt8VFZ:
+  244|     63|    static func malformedSectionID(_ id: UInt8) -> Self {
+  245|     63|        Self("malformed section id: \(id)")
+  246|     63|    }
+$s10WasmParser0aB5ErrorV7MessageV12zeroExpected6actualAEs5UInt8V_tFZ:
+  248|    684|    @usableFromInline static func zeroExpected(actual: UInt8) -> Self {
+  249|    684|        Self("Zero expected but got \(actual)")
+  250|    684|    }
+$s10WasmParser0aB5ErrorV7MessageV13tooManyLocals_5limitAEs6UInt64V_AItFZ:
+  252|     39|    static func tooManyLocals(_ count: UInt64, limit: UInt64) -> Self {
+  253|     39|        Self("Too many locals: \(count) vs \(limit)")
+  254|     39|    }
+$s10WasmParser0aB5ErrorV7MessageV15expectedRefType6actualAE0A5Types05ValueG0O_tFZ:
+  256|    169|    @usableFromInline static func expectedRefType(actual: ValueType) -> Self {
+  257|    169|        Self("Expected reference type but got \(actual)")
+  258|    169|    }
+$s10WasmParser0aB5ErrorV7MessageV24unimplementedInstruction_6suffixAEs5UInt8V_s6UInt32VSgtFZ:
+  260|    122|    @usableFromInline static func unimplementedInstruction(_ opcode: UInt8, suffix: UInt32? = nil) -> Self {
+  261|    122|        let suffixText = suffix.map { " with suffix \($0)" } ?? ""
+  262|    122|        return Self("Unimplemented instruction: \(opcode)\(suffixText)")
+  263|    122|    }
+$s10WasmParser0aB5ErrorV7MessageV24unimplementedInstruction_6suffixAEs5UInt8V_s6UInt32VSgtFZSSAKXEfU_:
+  261|    122|        let suffixText = suffix.map { " with suffix \($0)" } ?? ""
+$s10WasmParser0aB5ErrorV7MessageV21unexpectedElementKind8expected6actualAEs6UInt32V_AJtFZ:
+  265|    429|    static func unexpectedElementKind(expected: UInt32, actual: UInt32) -> Self {
+  266|    429|        Self("Unexpected element kind: expected \(expected) but got \(actual)")
+  267|    429|    }
+$s10WasmParser0aB5ErrorV7MessageV19sectionSizeMismatch8expected6actualAESi_SitFZ:
+  276|  1.01k|    static func sectionSizeMismatch(expected: Int, actual: Int) -> Self {
+  277|  1.01k|        Self("Section size mismatch: expected \(expected) but got \(actual)")
+  278|  1.01k|    }
+$s10WasmParser0aB5ErrorV7MessageV13illegalOpcodeyAEs5UInt8VFZ:
+  280|  8.59k|    @usableFromInline static func illegalOpcode(_ opcode: UInt8) -> Self {
+  281|  8.59k|        Self("Illegal opcode: \(opcode)")
+  282|  8.59k|    }
+$s10WasmParser0aB5ErrorV7MessageV19malformedMutabilityyAEs5UInt8VFZ:
+  284|     37|    static func malformedMutability(_ byte: UInt8) -> Self {
+  285|     37|        Self("Malformed mutability: \(byte)")
+  286|     37|    }
+$s10WasmParser0aB5ErrorV7MessageV21malformedFunctionTypeyAEs5UInt8VFZ:
+  288|     29|    static func malformedFunctionType(_ byte: UInt8) -> Self {
+  289|     29|        Self("Malformed function type: \(byte)")
+  290|     29|    }
+$s10WasmParser0aB5ErrorV7MessageV14malformedLimityAEs5UInt8VFZ:
+  294|     98|    static func malformedLimit(_ byte: UInt8) -> Self {
+  295|     98|        Self("Malformed limit: \(byte)")
+  296|     98|    }
+$s10WasmParser0aB5ErrorV7MessageV24malformedDataSegmentKindyAEs6UInt32VFZ:
+  300|     52|    static func malformedDataSegmentKind(_ kind: UInt32) -> Self {
+  301|     52|        Self("Malformed data segment kind: \(kind)")
+  302|     52|    }
+$s10WasmParser0aB5ErrorV7MessageV18invalidResultArity8expected6actualAESi_SitFZ:
+  304|     27|    @usableFromInline static func invalidResultArity(expected: Int, actual: Int) -> Self {
+  305|     27|        Self("invalid result arity: expected \(expected) but got \(actual)")
+  306|     27|    }
 $s10WasmParser10ByteStreamPAAE11parseVector33_266B39EE9A5BCC72156BAE2430A75AC9LL7contentSayqd__Gqd__yKXE_tKlF:
-  312|  1.08k|    fileprivate func parseVector<Content>(content parser: () throws -> Content) throws -> [Content] {
-  313|  1.08k|        var contents = [Content]()
-  314|  1.08k|        let count: UInt32 = try parseUnsigned()
-  315|  1.35k|        for _ in 0..<count {
-  316|  1.35k|            try contents.append(parser())
-  317|  1.35k|        }
-  318|  1.08k|        return contents
-  319|  1.08k|    }
+  312|   301k|    fileprivate func parseVector<Content>(content parser: () throws -> Content) throws -> [Content] {
+  313|   301k|        var contents = [Content]()
+  314|   301k|        let count: UInt32 = try parseUnsigned()
+  315|   864k|        for _ in 0..<count {
+  316|   864k|            try contents.append(parser())
+  317|   825k|        }
+  318|   262k|        return contents
+  319|   301k|    }
 $s10WasmParser10ByteStreamPAAE13parseUnsignedyqd__qd__mKAA03RawF7IntegerRd__lF:
-  327|  2.26k|    func parseUnsigned<T: RawUnsignedInteger>(_: T.Type = T.self) throws -> T {
-  328|  2.26k|        try decodeLEB128(stream: self)
-  329|  2.26k|    }
+  327|  2.50M|    func parseUnsigned<T: RawUnsignedInteger>(_: T.Type = T.self) throws -> T {
+  328|  2.50M|        try decodeLEB128(stream: self)
+  329|  2.49M|    }
 $s10WasmParser10ByteStreamPAAE11parseSignedqd__yKAA03RawF7IntegerRd__lF:
-  332|    270|    func parseSigned<T: FixedWidthInteger & RawSignedInteger>() throws -> T {
-  333|    270|        try decodeLEB128(stream: self)
-  334|    270|    }
+  332|   140k|    func parseSigned<T: FixedWidthInteger & RawSignedInteger>() throws -> T {
+  333|   140k|        try decodeLEB128(stream: self)
+  334|   140k|    }
 $s10WasmParser10ByteStreamPAAE9parseName33_266B39EE9A5BCC72156BAE2430A75AC9LLSSyKF:
-  340|    325|    fileprivate func parseName() throws -> String {
-  341|    325|        let bytes = try parseVector { () -> UInt8 in
-  342|    325|            try consumeAny()
-  343|    325|        }
-  344|    325|
-  345|    325|        // TODO(optimize): Utilize ASCII fast path in UTF8 decoder
-  346|    325|        var name = ""
-  347|    325|
-  348|    325|        var iterator = bytes.makeIterator()
-  349|    325|        var decoder = UTF8()
-  350|    589|        Decode: while true {
-  351|    589|            switch decoder.decode(&iterator) {
-  352|    589|            case let .scalarValue(scalar): name.append(Character(scalar))
-  353|    589|            case .emptyInput: break Decode
-  354|    589|            case .error: throw WasmParserError(.invalidUTF8(bytes), offset: currentIndex)
-  355|    589|            }
-  356|    325|        }
-  357|    325|
-  358|    325|        return name
-  359|    325|    }
+  340|  68.6k|    fileprivate func parseName() throws -> String {
+  341|  68.6k|        let bytes = try parseVector { () -> UInt8 in
+  342|  68.6k|            try consumeAny()
+  343|  68.6k|        }
+  344|  68.2k|
+  345|  68.2k|        // TODO(optimize): Utilize ASCII fast path in UTF8 decoder
+  346|  68.2k|        var name = ""
+  347|  68.2k|
+  348|  68.2k|        var iterator = bytes.makeIterator()
+  349|  68.2k|        var decoder = UTF8()
+  350|   123k|        Decode: while true {
+  351|   123k|            switch decoder.decode(&iterator) {
+  352|   123k|            case let .scalarValue(scalar): name.append(Character(scalar))
+  353|   123k|            case .emptyInput: break Decode
+  354|   123k|            case .error: throw WasmParserError(.invalidUTF8(bytes), offset: currentIndex)
+  355|   123k|            }
+  356|  68.1k|        }
+  357|  68.1k|
+  358|  68.1k|        return name
+  359|  68.6k|    }
 $s10WasmParser10ByteStreamPAAE9parseName33_266B39EE9A5BCC72156BAE2430A75AC9LLSSyKFs5UInt8VyKXEfU_:
-  341|    274|        let bytes = try parseVector { () -> UInt8 in
-  342|    274|            try consumeAny()
-  343|    274|        }
+  341|  61.0k|        let bytes = try parseVector { () -> UInt8 in
+  342|  61.0k|            try consumeAny()
+  343|  60.7k|        }
 $s10WasmParser0B0V11parseVector7contentSayqd__Gqd__yKXE_tKlF:
-  364|    756|    func parseVector<Content>(content parser: () throws -> Content) throws -> [Content] {
-  365|    756|        try stream.parseVector(content: parser)
-  366|    756|    }
+  364|   232k|    func parseVector<Content>(content parser: () throws -> Content) throws -> [Content] {
+  365|   232k|        try stream.parseVector(content: parser)
+  366|   193k|    }
 $s10WasmParser0B0V13parseUnsignedyqd__qd__mKAA03RawD7IntegerRd__lF:
-  370|  1.18k|    func parseUnsigned<T: RawUnsignedInteger>(_: T.Type = T.self) throws -> T {
-  371|  1.18k|        try stream.parseUnsigned(T.self)
-  372|  1.18k|    }
+  370|  2.20M|    func parseUnsigned<T: RawUnsignedInteger>(_: T.Type = T.self) throws -> T {
+  371|  2.20M|        try stream.parseUnsigned(T.self)
+  372|  2.19M|    }
 $s10WasmParser0B0V12parseIntegerqd__yKAA011RawUnsignedD0Rd__lF:
-  375|    270|    func parseInteger<T: RawUnsignedInteger>() throws -> T {
-  376|    270|        let signed: T.Signed = try stream.parseSigned()
-  377|    270|        return T(bitPattern: signed)
-  378|    270|    }
+  375|   140k|    func parseInteger<T: RawUnsignedInteger>() throws -> T {
+  376|   140k|        let signed: T.Signed = try stream.parseSigned()
+  377|   140k|        return T(bitPattern: signed)
+  378|   140k|    }
 $s10WasmParser0B0V9parseNameSSyKF:
-  380|    325|    func parseName() throws -> String {
-  381|    325|        try stream.parseName()
-  382|    325|    }
+  380|  68.6k|    func parseName() throws -> String {
+  381|  68.6k|        try stream.parseName()
+  382|  68.1k|    }
 $s10WasmParser0B0V10parseFloats6UInt32VyKF:
-  389|     20|    func parseFloat() throws -> UInt32 {
-  390|     20|        let consumedLittleEndian = try stream.consume(count: 4).reversed()
-  391|     20|        let bitPattern = consumedLittleEndian.reduce(UInt32(0)) { acc, byte in
-  392|     20|            acc << 8 + UInt32(byte)
-  393|     20|        }
-  394|     20|        return bitPattern
-  395|     20|    }
+  389|  95.8k|    func parseFloat() throws -> UInt32 {
+  390|  95.8k|        let consumedLittleEndian = try stream.consume(count: 4).reversed()
+  391|  95.7k|        let bitPattern = consumedLittleEndian.reduce(UInt32(0)) { acc, byte in
+  392|  95.7k|            acc << 8 + UInt32(byte)
+  393|  95.7k|        }
+  394|  95.7k|        return bitPattern
+  395|  95.8k|    }
 $s10WasmParser0B0V10parseFloats6UInt32VyKFA2F_s5UInt8VtXEfU_:
-  391|     80|        let bitPattern = consumedLittleEndian.reduce(UInt32(0)) { acc, byte in
-  392|     80|            acc << 8 + UInt32(byte)
-  393|     80|        }
+  391|   382k|        let bitPattern = consumedLittleEndian.reduce(UInt32(0)) { acc, byte in
+  392|   382k|            acc << 8 + UInt32(byte)
+  393|   382k|        }
 $s10WasmParser0B0V11parseDoubles6UInt64VyKF:
-  398|     20|    func parseDouble() throws -> UInt64 {
-  399|     20|        let consumedLittleEndian = try stream.consume(count: 8).reversed()
-  400|     20|        let bitPattern = consumedLittleEndian.reduce(UInt64(0)) { acc, byte in
-  401|     20|            acc << 8 + UInt64(byte)
-  402|     20|        }
-  403|     20|        return bitPattern
-  404|     20|    }
+  398|  41.2k|    func parseDouble() throws -> UInt64 {
+  399|  41.2k|        let consumedLittleEndian = try stream.consume(count: 8).reversed()
+  400|  40.9k|        let bitPattern = consumedLittleEndian.reduce(UInt64(0)) { acc, byte in
+  401|  40.9k|            acc << 8 + UInt64(byte)
+  402|  40.9k|        }
+  403|  40.9k|        return bitPattern
+  404|  41.2k|    }
 $s10WasmParser0B0V11parseDoubles6UInt64VyKFA2F_s5UInt8VtXEfU_:
-  400|    160|        let bitPattern = consumedLittleEndian.reduce(UInt64(0)) { acc, byte in
-  401|    160|            acc << 8 + UInt64(byte)
-  402|    160|        }
+  400|   327k|        let bitPattern = consumedLittleEndian.reduce(UInt64(0)) { acc, byte in
+  401|   327k|            acc << 8 + UInt64(byte)
+  402|   327k|        }
 $s10WasmParser0B0V14parseValueType0A5Types0dE0OyKF:
-  413|    473|    func parseValueType() throws -> ValueType {
-  414|    473|        let b = try stream.consumeAny()
-  415|    473|
-  416|    473|        switch b {
-  417|    473|        case 0x7F: return .i32
-  418|    473|        case 0x7E: return .i64
-  419|    473|        case 0x7D: return .f32
-  420|    473|        case 0x7C: return .f64
-  421|    473|        case 0x70: return .ref(.funcRef)
-  422|    473|        case 0x6F: return .ref(.externRef)
-  423|    473|        default:
-  424|      0|            throw StreamError<Stream.Element>.unexpected(b, index: offset, expected: Set(0x7C...0x7F))
-  425|    473|        }
-  426|    473|    }
+  413|   151k|    func parseValueType() throws -> ValueType {
+  414|   151k|        let b = try stream.consumeAny()
+  415|   149k|
+  416|   149k|        switch b {
+  417|   149k|        case 0x7F: return .i32
+  418|   149k|        case 0x7E: return .i64
+  419|   149k|        case 0x7D: return .f32
+  420|   149k|        case 0x7C: return .f64
+  421|   149k|        case 0x70: return .ref(.funcRef)
+  422|   149k|        case 0x6F: return .ref(.externRef)
+  423|   149k|        default:
+  424|  2.50k|            throw StreamError<Stream.Element>.unexpected(b, index: offset, expected: Set(0x7C...0x7F))
+  425|   149k|        }
+  426|   149k|    }
+$s10WasmParser0B0V15parseResultTypeAA05BlockE0OyKF:
+  431|   146k|    func parseResultType() throws -> BlockType {
+  432|   146k|        guard let nextByte = try stream.peek() else {
+  433|    503|            throw makeError(.unexpectedEnd)
+  434|   146k|        }
+  435|   146k|        switch nextByte {
+  436|   146k|        case 0x40:
+  437|  37.7k|            _ = try stream.consumeAny()
+  438|  37.7k|            return .empty
+  439|   146k|        case 0x7C...0x7F, 0x70, 0x6F:
+  440|  38.0k|            return try .type(parseValueType())
+  441|   146k|        default:
+  442|  70.4k|            return try .funcType(TypeIndex(stream.consumeAny()))
+  443|   146k|        }
+  444|   146k|    }
 $s10WasmParser0B0V17parseFunctionType0A5Types0dE0VyKF:
-  448|     90|    func parseFunctionType() throws -> FunctionType {
-  449|     90|        let opcode = try stream.consumeAny()
-  450|     90|
-  451|     90|        // XXX: spectest expects the first byte should be parsed as a LEB128 with 1 byte limit
-  452|     90|        // but the spec itself doesn't require it, so just check the continue bit of LEB128 here.
-  453|     90|        guard opcode & 0b10000000 == 0 else {
-  454|      0|            throw makeError(.integerRepresentationTooLong)
-  455|     90|        }
-  456|     90|        guard opcode == 0x60 else {
-  457|      0|            throw makeError(.malformedFunctionType(opcode))
-  458|     90|        }
-  459|     90|
-  460|     90|        let parameters = try parseVector { try parseValueType() }
-  461|     90|        let results = try parseVector { try parseValueType() }
-  462|     90|        return FunctionType(parameters: parameters, results: results)
-  463|     90|    }
+  448|  20.1k|    func parseFunctionType() throws -> FunctionType {
+  449|  20.1k|        let opcode = try stream.consumeAny()
+  450|  20.1k|
+  451|  20.1k|        // XXX: spectest expects the first byte should be parsed as a LEB128 with 1 byte limit
+  452|  20.1k|        // but the spec itself doesn't require it, so just check the continue bit of LEB128 here.
+  453|  20.1k|        guard opcode & 0b10000000 == 0 else {
+  454|      3|            throw makeError(.integerRepresentationTooLong)
+  455|  20.1k|        }
+  456|  20.1k|        guard opcode == 0x60 else {
+  457|     29|            throw makeError(.malformedFunctionType(opcode))
+  458|  20.1k|        }
+  459|  20.1k|
+  460|  20.1k|        let parameters = try parseVector { try parseValueType() }
+  461|  20.0k|        let results = try parseVector { try parseValueType() }
+  462|  19.8k|        return FunctionType(parameters: parameters, results: results)
+  463|  20.1k|    }
 $s10WasmParser0B0V17parseFunctionType0A5Types0dE0VyKFAE05ValueE0OyKXEfU_:
-  460|    105|        let parameters = try parseVector { try parseValueType() }
+  460|  28.0k|        let parameters = try parseVector { try parseValueType() }
 $s10WasmParser0B0V17parseFunctionType0A5Types0dE0VyKFAE05ValueE0OyKXEfU0_:
-  461|     78|        let results = try parseVector { try parseValueType() }
+  461|  19.0k|        let results = try parseVector { try parseValueType() }
 $s10WasmParser0B0V11parseLimitsAA0D0VyKF:
-  467|    123|    func parseLimits() throws -> Limits {
-  468|    123|        let b = try stream.consumeAny()
-  469|    123|        let sharedMask: UInt8 = 0b0010
-  470|    123|        let isMemory64Mask: UInt8 = 0b0100
-  471|    123|
-  472|    123|        let hasMax = b & 0b0001 != 0
-  473|    123|        let shared = b & sharedMask != 0
-  474|    123|        let isMemory64 = b & isMemory64Mask != 0
-  475|    123|
-  476|    123|        var flagMask: UInt8 = 0b0001
-  477|    123|        if features.contains(.threads) {
+  467|  38.4k|    func parseLimits() throws -> Limits {
+  468|  38.4k|        let b = try stream.consumeAny()
+  469|  38.3k|        let sharedMask: UInt8 = 0b0010
+  470|  38.3k|        let isMemory64Mask: UInt8 = 0b0100
+  471|  38.3k|
+  472|  38.3k|        let hasMax = b & 0b0001 != 0
+  473|  38.3k|        let shared = b & sharedMask != 0
+  474|  38.3k|        let isMemory64 = b & isMemory64Mask != 0
+  475|  38.3k|
+  476|  38.3k|        var flagMask: UInt8 = 0b0001
+  477|  38.3k|        if features.contains(.threads) {
   478|      0|            flagMask |= sharedMask
   479|      0|        }
-  480|    123|        if features.contains(.memory64) {
+  480|  38.3k|        if features.contains(.memory64) {
   481|      0|            flagMask |= isMemory64Mask
   482|      0|        }
-  483|    123|        guard (b & ~flagMask) == 0 else {
-  484|      0|            throw makeError(.malformedLimit(b))
-  485|    123|        }
-  486|    123|
-  487|    123|        let min: UInt64
-  488|    123|        if isMemory64 {
+  483|  38.3k|        guard (b & ~flagMask) == 0 else {
+  484|     98|            throw makeError(.malformedLimit(b))
+  485|  38.2k|        }
+  486|  38.2k|
+  487|  38.2k|        let min: UInt64
+  488|  38.2k|        if isMemory64 {
   489|      0|            min = try parseUnsigned(UInt64.self)
-  490|    123|        } else {
-  491|    123|            min = try UInt64(parseUnsigned(UInt32.self))
-  492|    123|        }
-  493|    123|        var max: UInt64?
-  494|    123|        if hasMax {
-  495|     58|            if isMemory64 {
+  490|  38.2k|        } else {
+  491|  38.2k|            min = try UInt64(parseUnsigned(UInt32.self))
+  492|  38.2k|        }
+  493|  38.2k|        var max: UInt64?
+  494|  38.2k|        if hasMax {
+  495|  17.0k|            if isMemory64 {
   496|      0|                max = try parseUnsigned(UInt64.self)
-  497|     58|            } else {
-  498|     58|                max = try UInt64(parseUnsigned(UInt32.self))
-  499|     58|            }
-  500|    123|        }
-  501|    123|        return Limits(min: min, max: max, isMemory64: isMemory64, shared: shared)
-  502|    123|    }
+  497|  17.0k|            } else {
+  498|  17.0k|                max = try UInt64(parseUnsigned(UInt32.self))
+  499|  17.0k|            }
+  500|  38.2k|        }
+  501|  38.2k|        return Limits(min: min, max: max, isMemory64: isMemory64, shared: shared)
+  502|  38.4k|    }
 $s10WasmParser0B0V15parseMemoryTypeAA6LimitsVyKF:
-  506|     18|    func parseMemoryType() throws -> MemoryType {
-  507|     18|        return try parseLimits()
-  508|     18|    }
+  506|  5.51k|    func parseMemoryType() throws -> MemoryType {
+  507|  5.51k|        return try parseLimits()
+  508|  5.51k|    }
 $s10WasmParser0B0V14parseTableTypeAA0dE0VyKF:
-  512|     62|    func parseTableType() throws -> TableType {
-  513|     62|        let elementType: ReferenceType
-  514|     62|        let b = try stream.consumeAny()
-  515|     62|
-  516|     62|        switch b {
-  517|     62|        case 0x70:
-  518|     62|            elementType = .funcRef
-  519|     62|        case 0x6F:
-  520|      0|            elementType = .externRef
-  521|     62|        default:
-  522|      0|            throw StreamError.unexpected(b, index: offset, expected: [0x6F, 0x70])
-  523|     62|        }
-  524|     62|
-  525|     62|        let limits = try parseLimits()
-  526|     62|        return TableType(elementType: elementType, limits: limits)
-  527|     62|    }
+  512|  21.0k|    func parseTableType() throws -> TableType {
+  513|  21.0k|        let elementType: ReferenceType
+  514|  21.0k|        let b = try stream.consumeAny()
+  515|  20.9k|
+  516|  20.9k|        switch b {
+  517|  20.9k|        case 0x70:
+  518|  20.7k|            elementType = .funcRef
+  519|  20.9k|        case 0x6F:
+  520|     83|            elementType = .externRef
+  521|  20.9k|        default:
+  522|    133|            throw StreamError.unexpected(b, index: offset, expected: [0x6F, 0x70])
+  523|  20.9k|        }
+  524|  20.8k|
+  525|  20.8k|        let limits = try parseLimits()
+  526|  20.7k|        return TableType(elementType: elementType, limits: limits)
+  527|  21.0k|    }
 $s10WasmParser0B0V15parseGlobalTypeAA0dE0VyKF:
-  531|    250|    func parseGlobalType() throws -> GlobalType {
-  532|    250|        let valueType = try parseValueType()
-  533|    250|        let mutability = try parseMutability()
-  534|    250|        return GlobalType(mutability: mutability, valueType: valueType)
-  535|    250|    }
+  531|  52.4k|    func parseGlobalType() throws -> GlobalType {
+  532|  52.4k|        let valueType = try parseValueType()
+  533|  48.1k|        let mutability = try parseMutability()
+  534|  48.1k|        return GlobalType(mutability: mutability, valueType: valueType)
+  535|  52.4k|    }
 $s10WasmParser0B0V15parseMutabilityAA0D0OyKF:
-  537|    250|    func parseMutability() throws -> Mutability {
-  538|    250|        let b = try stream.consumeAny()
-  539|    250|        switch b {
-  540|    250|        case 0x00:
-  541|     70|            return .constant
-  542|    250|        case 0x01:
-  543|    180|            return .variable
-  544|    250|        default:
-  545|      0|            throw makeError(.malformedMutability(b))
-  546|    250|        }
-  547|    250|    }
+  537|  48.1k|    func parseMutability() throws -> Mutability {
+  538|  48.1k|        let b = try stream.consumeAny()
+  539|  48.1k|        switch b {
+  540|  48.1k|        case 0x00:
+  541|  20.2k|            return .constant
+  542|  48.1k|        case 0x01:
+  543|  27.9k|            return .variable
+  544|  48.1k|        default:
+  545|     37|            throw makeError(.malformedMutability(b))
+  546|  48.1k|        }
+  547|  48.1k|    }
+$s10WasmParser0B0V11parseMemargAA6MemArgVyKF:
+  552|   344k|    func parseMemarg() throws -> MemArg {
+  553|   344k|        let align: UInt32 = try parseUnsigned()
+  554|   343k|        let offset: UInt64 = try features.contains(.memory64) ? parseUnsigned(UInt64.self) : UInt64(parseUnsigned(UInt32.self))
+  555|   342k|        return MemArg(offset: offset, align: align)
+  556|   344k|    }
 $s10WasmParser0B0V16parseVectorBytess10ArraySliceVys5UInt8VGyKF:
-  558|     71|    func parseVectorBytes() throws -> ArraySlice<UInt8> {
-  559|     71|        let count: UInt32 = try parseUnsigned()
-  560|     71|        return try stream.consume(count: Int(count))
-  561|     71|    }
+  558|  4.67k|    func parseVectorBytes() throws -> ArraySlice<UInt8> {
+  559|  4.67k|        let count: UInt32 = try parseUnsigned()
+  560|  4.63k|        return try stream.consume(count: Int(count))
+  561|  4.67k|    }
 $s10WasmParser0B0V16parseInstruction7visitorAA0D4CodeOqd__z_tKAA0D7VisitorRd__lF:
-  568|    654|    func parseInstruction<V: InstructionVisitor>(visitor v: inout V) throws -> InstructionCode {
-  569|    654|        let rawCode = try stream.consumeAny()
-  570|    654|        guard let code = InstructionCode(rawValue: rawCode) else {
-  571|      0|            throw makeError(.illegalOpcode(rawCode))
-  572|    654|        }
-  573|    654|        try doParseInstruction(code: code, visitor: &v)
-  574|    654|        return code
-  575|    654|    }
+  568|  4.17M|    func parseInstruction<V: InstructionVisitor>(visitor v: inout V) throws -> InstructionCode {
+  569|  4.17M|        let rawCode = try stream.consumeAny()
+  570|  4.16M|        guard let code = InstructionCode(rawValue: rawCode) else {
+  571|  8.59k|            throw makeError(.illegalOpcode(rawCode))
+  572|  4.15M|        }
+  573|  4.15M|        try doParseInstruction(code: code, visitor: &v)
+  574|  4.14M|        return code
+  575|  4.17M|    }
 $s10WasmParser0B0V18doParseInstruction4code7visitoryAA0E4CodeO_qd__ztKAA0E7VisitorRd__lF:
-  578|    654|    func doParseInstruction<V: InstructionVisitor>(code: InstructionCode, visitor v: inout V) throws {
-  579|    654|        switch code {
-  580|    654|        case .unreachable: return try v.visitUnreachable()
-  581|    654|        case .nop: return try v.visitNop()
-  582|    654|        case .block: return try v.visitBlock(blockType: try parseResultType())
-  583|    654|        case .loop: return try v.visitLoop(blockType: try parseResultType())
-  584|    654|        case .if: return try v.visitIf(blockType: try parseResultType())
-  585|    654|        case .else: return try v.visitElse()
-  586|    654|        case .end: return try v.visitEnd()
-  587|    654|        case .br:
-  588|      0|            let label: UInt32 = try parseUnsigned()
-  589|      0|            return try v.visitBr(relativeDepth: label)
-  590|    654|        case .br_if:
-  591|      0|            let label: UInt32 = try parseUnsigned()
-  592|      0|            return try v.visitBrIf(relativeDepth: label)
-  593|    654|        case .br_table:
-  594|      0|            let labelIndices: [UInt32] = try parseVector { try parseUnsigned() }
-  595|      0|            let labelIndex: UInt32 = try parseUnsigned()
-  596|      0|            return try v.visitBrTable(targets: BrTable(labelIndices: labelIndices, defaultIndex: labelIndex))
-  597|    654|        case .return:
-  598|      0|            return try v.visitReturn()
-  599|    654|        case .call:
-  600|      0|            let index: UInt32 = try parseUnsigned()
-  601|      0|            return try v.visitCall(functionIndex: index)
-  602|    654|        case .call_indirect:
-  603|      0|            let typeIndex: TypeIndex = try parseUnsigned()
-  604|      0|            if try !features.contains(.referenceTypes) && stream.peek() != 0 {
+  578|  4.15M|    func doParseInstruction<V: InstructionVisitor>(code: InstructionCode, visitor v: inout V) throws {
+  579|  4.15M|        switch code {
+  580|  4.15M|        case .unreachable: return try v.visitUnreachable()
+  581|  4.15M|        case .nop: return try v.visitNop()
+  582|  4.15M|        case .block: return try v.visitBlock(blockType: try parseResultType())
+  583|  4.15M|        case .loop: return try v.visitLoop(blockType: try parseResultType())
+  584|  4.15M|        case .if: return try v.visitIf(blockType: try parseResultType())
+  585|  4.15M|        case .else: return try v.visitElse()
+  586|  4.15M|        case .end: return try v.visitEnd()
+  587|  4.15M|        case .br:
+  588|  57.6k|            let label: UInt32 = try parseUnsigned()
+  589|  57.6k|            return try v.visitBr(relativeDepth: label)
+  590|  4.15M|        case .br_if:
+  591|  20.8k|            let label: UInt32 = try parseUnsigned()
+  592|  20.8k|            return try v.visitBrIf(relativeDepth: label)
+  593|  4.15M|        case .br_table:
+  594|  36.8k|            let labelIndices: [UInt32] = try parseVector { try parseUnsigned() }
+  595|  36.5k|            let labelIndex: UInt32 = try parseUnsigned()
+  596|  36.4k|            return try v.visitBrTable(targets: BrTable(labelIndices: labelIndices, defaultIndex: labelIndex))
+  597|  4.15M|        case .return:
+  598|  22.0k|            return try v.visitReturn()
+  599|  4.15M|        case .call:
+  600|  53.1k|            let index: UInt32 = try parseUnsigned()
+  601|  53.0k|            return try v.visitCall(functionIndex: index)
+  602|  4.15M|        case .call_indirect:
+  603|  5.96k|            let typeIndex: TypeIndex = try parseUnsigned()
+  604|  5.93k|            if try !features.contains(.referenceTypes) && stream.peek() != 0 {
   605|      0|                // Check that reserved byte is zero when reference-types is disabled
   606|      0|                throw makeError(.malformedIndirectCall)
-  607|      0|            }
-  608|      0|            let tableIndex: TableIndex = try parseUnsigned()
-  609|      0|            return try v.visitCallIndirect(typeIndex: typeIndex, tableIndex: tableIndex)
-  610|    654|        case .drop: return try v.visitDrop()
-  611|    654|        case .select: return try v.visitSelect()
-  612|    654|        case .typed_select:
-  613|      0|            let results = try parseVector { try parseValueType() }
-  614|      0|            guard results.count == 1 else {
-  615|      0|                throw makeError(.invalidResultArity(expected: 1, actual: results.count))
-  616|      0|            }
-  617|      0|            return try v.visitTypedSelect(type: results[0])
-  618|    654|
-  619|    654|        case .local_get:
-  620|      0|            let index: UInt32 = try parseUnsigned()
-  621|      0|            return try v.visitLocalGet(localIndex: index)
-  622|    654|        case .local_set:
-  623|      0|            let index: UInt32 = try parseUnsigned()
-  624|      0|            return try v.visitLocalSet(localIndex: index)
-  625|    654|        case .local_tee:
-  626|      0|            let index: UInt32 = try parseUnsigned()
-  627|      0|            return try v.visitLocalTee(localIndex: index)
-  628|    654|        case .global_get:
-  629|     17|            let index: UInt32 = try parseUnsigned()
-  630|     17|            return try v.visitGlobalGet(globalIndex: index)
-  631|    654|        case .global_set:
-  632|      0|            let index: UInt32 = try parseUnsigned()
-  633|      0|            return try v.visitGlobalSet(globalIndex: index)
-  634|    654|
-  635|    654|        case .i32_load: return try v.visitLoad(.i32Load, memarg: try parseMemarg())
-  636|    654|        case .i64_load: return try v.visitLoad(.i64Load, memarg: try parseMemarg())
-  637|    654|        case .f32_load: return try v.visitLoad(.f32Load, memarg: try parseMemarg())
-  638|    654|        case .f64_load: return try v.visitLoad(.f64Load, memarg: try parseMemarg())
-  639|    654|        case .i32_load8_s: return try v.visitLoad(.i32Load8S, memarg: try parseMemarg())
-  640|    654|        case .i32_load8_u: return try v.visitLoad(.i32Load8U, memarg: try parseMemarg())
-  641|    654|        case .i32_load16_s: return try v.visitLoad(.i32Load16S, memarg: try parseMemarg())
-  642|    654|        case .i32_load16_u: return try v.visitLoad(.i32Load16U, memarg: try parseMemarg())
-  643|    654|        case .i64_load8_s: return try v.visitLoad(.i64Load8S, memarg: try parseMemarg())
-  644|    654|        case .i64_load8_u: return try v.visitLoad(.i64Load8U, memarg: try parseMemarg())
-  645|    654|        case .i64_load16_s: return try v.visitLoad(.i64Load16S, memarg: try parseMemarg())
-  646|    654|        case .i64_load16_u: return try v.visitLoad(.i64Load16U, memarg: try parseMemarg())
-  647|    654|        case .i64_load32_s: return try v.visitLoad(.i64Load32S, memarg: try parseMemarg())
-  648|    654|        case .i64_load32_u: return try v.visitLoad(.i64Load32U, memarg: try parseMemarg())
-  649|    654|        case .i32_store: return try v.visitStore(.i32Store, memarg: try parseMemarg())
-  650|    654|        case .i64_store: return try v.visitStore(.i64Store, memarg: try parseMemarg())
-  651|    654|        case .f32_store: return try v.visitStore(.f32Store, memarg: try parseMemarg())
-  652|    654|        case .f64_store: return try v.visitStore(.f64Store, memarg: try parseMemarg())
-  653|    654|        case .i32_store8: return try v.visitStore(.i32Store8, memarg: try parseMemarg())
-  654|    654|        case .i32_store16: return try v.visitStore(.i32Store16, memarg: try parseMemarg())
-  655|    654|        case .i64_store8: return try v.visitStore(.i64Store8, memarg: try parseMemarg())
-  656|    654|        case .i64_store16: return try v.visitStore(.i64Store16, memarg: try parseMemarg())
-  657|    654|        case .i64_store32: return try v.visitStore(.i64Store32, memarg: try parseMemarg())
-  658|    654|        case .memory_size:
-  659|      0|            let zero = try stream.consumeAny()
-  660|      0|            guard zero == 0x00 else {
-  661|      0|                throw makeError(.zeroExpected(actual: zero))
-  662|      0|            }
-  663|      0|            return try v.visitMemorySize(memory: UInt32(zero))
-  664|    654|        case .memory_grow:
-  665|      0|            let zero = try stream.consumeAny()
-  666|      0|            guard zero == 0x00 else {
-  667|      0|                throw makeError(.zeroExpected(actual: zero))
-  668|      0|            }
-  669|      0|            return try v.visitMemoryGrow(memory: UInt32(zero))
-  670|    654|
-  671|    654|        case .i32_const:
-  672|    208|            let n: UInt32 = try parseInteger()
-  673|    208|            return try v.visitI32Const(value: Int32(bitPattern: n))
-  674|    654|        case .i64_const:
-  675|     62|            let n: UInt64 = try parseInteger()
-  676|     62|            return try v.visitI64Const(value: Int64(bitPattern: n))
-  677|    654|        case .f32_const:
-  678|     20|            let n = try parseFloat()
-  679|     20|            return try v.visitF32Const(value: IEEE754.Float32(bitPattern: n))
-  680|    654|        case .f64_const:
-  681|     20|            let n = try parseDouble()
-  682|     20|            return try v.visitF64Const(value: IEEE754.Float64(bitPattern: n))
-  683|    654|
-  684|    654|        case .i32_eqz: return try v.visitI32Eqz()
-  685|    654|        case .i32_eq: return try v.visitCmp(.i32Eq)
-  686|    654|        case .i32_ne: return try v.visitCmp(.i32Ne)
-  687|    654|        case .i32_lt_s: return try v.visitCmp(.i32LtS)
-  688|    654|        case .i32_lt_u: return try v.visitCmp(.i32LtU)
-  689|    654|        case .i32_gt_s: return try v.visitCmp(.i32GtS)
-  690|    654|        case .i32_gt_u: return try v.visitCmp(.i32GtU)
-  691|    654|        case .i32_le_s: return try v.visitCmp(.i32LeS)
-  692|    654|        case .i32_le_u: return try v.visitCmp(.i32LeU)
-  693|    654|        case .i32_ge_s: return try v.visitCmp(.i32GeS)
-  694|    654|        case .i32_ge_u: return try v.visitCmp(.i32GeU)
-  695|    654|
-  696|    654|        case .i64_eqz: return try v.visitI64Eqz()
-  697|    654|        case .i64_eq: return try v.visitCmp(.i64Eq)
-  698|    654|        case .i64_ne: return try v.visitCmp(.i64Ne)
-  699|    654|        case .i64_lt_s: return try v.visitCmp(.i64LtS)
-  700|    654|        case .i64_lt_u: return try v.visitCmp(.i64LtU)
-  701|    654|        case .i64_gt_s: return try v.visitCmp(.i64GtS)
-  702|    654|        case .i64_gt_u: return try v.visitCmp(.i64GtU)
-  703|    654|        case .i64_le_s: return try v.visitCmp(.i64LeS)
-  704|    654|        case .i64_le_u: return try v.visitCmp(.i64LeU)
-  705|    654|        case .i64_ge_s: return try v.visitCmp(.i64GeS)
-  706|    654|        case .i64_ge_u: return try v.visitCmp(.i64GeU)
-  707|    654|
-  708|    654|        case .f32_eq: return try v.visitCmp(.f32Eq)
-  709|    654|        case .f32_ne: return try v.visitCmp(.f32Ne)
-  710|    654|        case .f32_lt: return try v.visitCmp(.f32Lt)
-  711|    654|        case .f32_gt: return try v.visitCmp(.f32Gt)
-  712|    654|        case .f32_le: return try v.visitCmp(.f32Le)
-  713|    654|        case .f32_ge: return try v.visitCmp(.f32Ge)
-  714|    654|
-  715|    654|        case .f64_eq: return try v.visitCmp(.f64Eq)
-  716|    654|        case .f64_ne: return try v.visitCmp(.f64Ne)
-  717|    654|        case .f64_lt: return try v.visitCmp(.f64Lt)
-  718|    654|        case .f64_gt: return try v.visitCmp(.f64Gt)
-  719|    654|        case .f64_le: return try v.visitCmp(.f64Le)
-  720|    654|        case .f64_ge: return try v.visitCmp(.f64Ge)
-  721|    654|
-  722|    654|        case .i32_clz: return try v.visitUnary(.i32Clz)
-  723|    654|        case .i32_ctz: return try v.visitUnary(.i32Ctz)
-  724|    654|        case .i32_popcnt: return try v.visitUnary(.i32Popcnt)
-  725|    654|        case .i32_add: return try v.visitBinary(.i32Add)
-  726|    654|        case .i32_sub: return try v.visitBinary(.i32Sub)
-  727|    654|        case .i32_mul: return try v.visitBinary(.i32Mul)
-  728|    654|        case .i32_div_s: return try v.visitBinary(.i32DivS)
-  729|    654|        case .i32_div_u: return try v.visitBinary(.i32DivU)
-  730|    654|        case .i32_rem_s: return try v.visitBinary(.i32RemS)
-  731|    654|        case .i32_rem_u: return try v.visitBinary(.i32RemU)
-  732|    654|        case .i32_and: return try v.visitBinary(.i32And)
-  733|    654|        case .i32_or: return try v.visitBinary(.i32Or)
-  734|    654|        case .i32_xor: return try v.visitBinary(.i32Xor)
-  735|    654|        case .i32_shl: return try v.visitBinary(.i32Shl)
-  736|    654|        case .i32_shr_s: return try v.visitBinary(.i32ShrS)
-  737|    654|        case .i32_shr_u: return try v.visitBinary(.i32ShrU)
-  738|    654|        case .i32_rotl: return try v.visitBinary(.i32Rotl)
-  739|    654|        case .i32_rotr: return try v.visitBinary(.i32Rotr)
-  740|    654|
-  741|    654|        case .i64_clz: return try v.visitUnary(.i64Clz)
-  742|    654|        case .i64_ctz: return try v.visitUnary(.i64Ctz)
-  743|    654|        case .i64_popcnt: return try v.visitUnary(.i64Popcnt)
-  744|    654|        case .i64_add: return try v.visitBinary(.i64Add)
-  745|    654|        case .i64_sub: return try v.visitBinary(.i64Sub)
-  746|    654|        case .i64_mul: return try v.visitBinary(.i64Mul)
-  747|    654|        case .i64_div_s: return try v.visitBinary(.i64DivS)
-  748|    654|        case .i64_div_u: return try v.visitBinary(.i64DivU)
-  749|    654|        case .i64_rem_s: return try v.visitBinary(.i64RemS)
-  750|    654|        case .i64_rem_u: return try v.visitBinary(.i64RemU)
-  751|    654|        case .i64_and: return try v.visitBinary(.i64And)
-  752|    654|        case .i64_or: return try v.visitBinary(.i64Or)
-  753|    654|        case .i64_xor: return try v.visitBinary(.i64Xor)
-  754|    654|        case .i64_shl: return try v.visitBinary(.i64Shl)
-  755|    654|        case .i64_shr_s: return try v.visitBinary(.i64ShrS)
-  756|    654|        case .i64_shr_u: return try v.visitBinary(.i64ShrU)
-  757|    654|        case .i64_rotl: return try v.visitBinary(.i64Rotl)
-  758|    654|        case .i64_rotr: return try v.visitBinary(.i64Rotr)
-  759|    654|
-  760|    654|        case .f32_abs: return try v.visitUnary(.f32Abs)
-  761|    654|        case .f32_neg: return try v.visitUnary(.f32Neg)
-  762|    654|        case .f32_ceil: return try v.visitUnary(.f32Ceil)
-  763|    654|        case .f32_floor: return try v.visitUnary(.f32Floor)
-  764|    654|        case .f32_trunc: return try v.visitUnary(.f32Trunc)
-  765|    654|        case .f32_nearest: return try v.visitUnary(.f32Nearest)
-  766|    654|        case .f32_sqrt: return try v.visitUnary(.f32Sqrt)
-  767|    654|
-  768|    654|        case .f32_add: return try v.visitBinary(.f32Add)
-  769|    654|        case .f32_sub: return try v.visitBinary(.f32Sub)
-  770|    654|        case .f32_mul: return try v.visitBinary(.f32Mul)
-  771|    654|        case .f32_div: return try v.visitBinary(.f32Div)
-  772|    654|        case .f32_min: return try v.visitBinary(.f32Min)
-  773|    654|        case .f32_max: return try v.visitBinary(.f32Max)
-  774|    654|        case .f32_copysign: return try v.visitBinary(.f32Copysign)
-  775|    654|
-  776|    654|        case .f64_abs: return try v.visitUnary(.f64Abs)
-  777|    654|        case .f64_neg: return try v.visitUnary(.f64Neg)
-  778|    654|        case .f64_ceil: return try v.visitUnary(.f64Ceil)
-  779|    654|        case .f64_floor: return try v.visitUnary(.f64Floor)
-  780|    654|        case .f64_trunc: return try v.visitUnary(.f64Trunc)
-  781|    654|        case .f64_nearest: return try v.visitUnary(.f64Nearest)
-  782|    654|        case .f64_sqrt: return try v.visitUnary(.f64Sqrt)
-  783|    654|
-  784|    654|        case .f64_add: return try v.visitBinary(.f64Add)
-  785|    654|        case .f64_sub: return try v.visitBinary(.f64Sub)
-  786|    654|        case .f64_mul: return try v.visitBinary(.f64Mul)
-  787|    654|        case .f64_div: return try v.visitBinary(.f64Div)
-  788|    654|        case .f64_min: return try v.visitBinary(.f64Min)
-  789|    654|        case .f64_max: return try v.visitBinary(.f64Max)
-  790|    654|        case .f64_copysign: return try v.visitBinary(.f64Copysign)
-  791|    654|
-  792|    654|        case .i32_wrap_i64: return try v.visitConversion(.i32WrapI64)
-  793|    654|        case .i32_trunc_f32_s: return try v.visitConversion(.i32TruncF32S)
-  794|    654|        case .i32_trunc_f32_u: return try v.visitConversion(.i32TruncF32U)
-  795|    654|        case .i32_trunc_f64_s: return try v.visitConversion(.i32TruncF64S)
-  796|    654|        case .i32_trunc_f64_u: return try v.visitConversion(.i32TruncF64U)
-  797|    654|        case .i64_extend_i32_s: return try v.visitConversion(.i64ExtendI32S)
-  798|    654|        case .i64_extend_i32_u: return try v.visitConversion(.i64ExtendI32U)
-  799|    654|        case .i64_trunc_f32_s: return try v.visitConversion(.i64TruncF32S)
-  800|    654|        case .i64_trunc_f32_u: return try v.visitConversion(.i64TruncF32U)
-  801|    654|        case .i64_trunc_f64_s: return try v.visitConversion(.i64TruncF64S)
-  802|    654|        case .i64_trunc_f64_u: return try v.visitConversion(.i64TruncF64U)
-  803|    654|        case .f32_convert_i32_s: return try v.visitConversion(.f32ConvertI32S)
-  804|    654|        case .f32_convert_i32_u: return try v.visitConversion(.f32ConvertI32U)
-  805|    654|        case .f32_convert_i64_s: return try v.visitConversion(.f32ConvertI64S)
-  806|    654|        case .f32_convert_i64_u: return try v.visitConversion(.f32ConvertI64U)
-  807|    654|        case .f32_demote_f64: return try v.visitConversion(.f32DemoteF64)
-  808|    654|        case .f64_convert_i32_s: return try v.visitConversion(.f64ConvertI32S)
-  809|    654|        case .f64_convert_i32_u: return try v.visitConversion(.f64ConvertI32U)
-  810|    654|        case .f64_convert_i64_s: return try v.visitConversion(.f64ConvertI64S)
-  811|    654|        case .f64_convert_i64_u: return try v.visitConversion(.f64ConvertI64U)
-  812|    654|        case .f64_promote_f32: return try v.visitConversion(.f64PromoteF32)
-  813|    654|        case .i32_reinterpret_f32: return try v.visitConversion(.i32ReinterpretF32)
-  814|    654|        case .i64_reinterpret_f64: return try v.visitConversion(.i64ReinterpretF64)
-  815|    654|        case .f32_reinterpret_i32: return try v.visitConversion(.f32ReinterpretI32)
-  816|    654|        case .f64_reinterpret_i64: return try v.visitConversion(.f64ReinterpretI64)
-  817|    654|        case .i32_extend8_s: return try v.visitUnary(.i32Extend8S)
-  818|    654|        case .i32_extend16_s: return try v.visitUnary(.i32Extend16S)
-  819|    654|        case .i64_extend8_s: return try v.visitUnary(.i64Extend8S)
-  820|    654|        case .i64_extend16_s: return try v.visitUnary(.i64Extend16S)
-  821|    654|        case .i64_extend32_s: return try v.visitUnary(.i64Extend32S)
-  822|    654|
-  823|    654|        case .ref_null:
-  824|      0|            let type = try parseValueType()
-  825|      0|
-  826|      0|            guard case let .ref(refType) = type else {
-  827|      0|                throw makeError(.expectedRefType(actual: type))
-  828|      0|            }
-  829|      0|
-  830|      0|            return try v.visitRefNull(type: refType)
-  831|    654|
-  832|    654|        case .ref_is_null: return try v.visitRefIsNull()
-  833|    654|
-  834|    654|        case .ref_func: return try v.visitRefFunc(functionIndex: try parseUnsigned())
-  835|    654|
-  836|    654|        case .table_get: return try v.visitTableGet(table: try parseUnsigned())
-  837|    654|
-  838|    654|        case .table_set: return try v.visitTableSet(table: try parseUnsigned())
-  839|    654|
-  840|    654|        case .wasm2InstructionPrefix:
-  841|      0|            let codeSuffix: UInt32 = try parseUnsigned()
-  842|      0|            switch codeSuffix {
-  843|      0|            case 0: return try v.visitConversion(.i32TruncSatF32S)
-  844|      0|            case 1: return try v.visitConversion(.i32TruncSatF32U)
-  845|      0|            case 2: return try v.visitConversion(.i32TruncSatF64S)
-  846|      0|            case 3: return try v.visitConversion(.i32TruncSatF64U)
-  847|      0|            case 4: return try v.visitConversion(.i64TruncSatF32S)
-  848|      0|            case 5: return try v.visitConversion(.i64TruncSatF32U)
-  849|      0|            case 6: return try v.visitConversion(.i64TruncSatF64S)
-  850|      0|            case 7: return try v.visitConversion(.i64TruncSatF64U)
-  851|      0|            case 8:
-  852|      0|                let dataIndex: DataIndex = try parseUnsigned()
-  853|      0|                let zero = try stream.consumeAny()
-  854|      0|                guard zero == 0x00 else {
-  855|      0|                    throw makeError(.zeroExpected(actual: zero))
-  856|      0|                }
-  857|      0|
-  858|      0|                return try v.visitMemoryInit(dataIndex: dataIndex)
-  859|      0|            case 9:
-  860|      0|                return try v.visitDataDrop(dataIndex: try parseUnsigned())
-  861|      0|            case 10:
-  862|      0|                let (zero1, zero2) = try (stream.consumeAny(), stream.consumeAny())
-  863|      0|                guard zero1 == 0x00 else {
-  864|      0|                    throw makeError(.zeroExpected(actual: zero1))
-  865|      0|                }
-  866|      0|                guard zero2 == 0x00 else {
-  867|      0|                    throw makeError(.zeroExpected(actual: zero2))
-  868|      0|                }
-  869|      0|                return try v.visitMemoryCopy(dstMem: 0, srcMem: 0)
-  870|      0|            case 11:
-  871|      0|                let zero = try stream.consumeAny()
-  872|      0|                guard zero == 0x00 else {
-  873|      0|                    throw makeError(.zeroExpected(actual: zero))
-  874|      0|                }
-  875|      0|
-  876|      0|                return try v.visitMemoryFill(memory: 0)
-  877|      0|            case 12:
-  878|      0|                let elementIndex: ElementIndex = try parseUnsigned()
-  879|      0|                let tableIndex: TableIndex = try parseUnsigned()
-  880|      0|                return try v.visitTableInit(elemIndex: elementIndex, table: tableIndex)
-  881|      0|            case 13: return try v.visitElemDrop(elemIndex: try parseUnsigned())
-  882|      0|            case 14:
-  883|      0|                let destinationTableIndex: TableIndex = try parseUnsigned()
-  884|      0|                let sourceTableIndex: TableIndex = try parseUnsigned()
-  885|      0|                return try v.visitTableCopy(dstTable: destinationTableIndex, srcTable: sourceTableIndex)
-  886|      0|            case 15: return try v.visitTableGrow(table: try parseUnsigned())
-  887|      0|            case 16: return try v.visitTableSize(table: try parseUnsigned())
-  888|      0|            case 17: return try v.visitTableFill(table: try parseUnsigned())
-  889|      0|            default:
-  890|      0|                throw makeError(.unimplementedInstruction(code.rawValue, suffix: codeSuffix))
-  891|      0|            }
-  892|    654|        }
-  893|    654|    }
+  607|  5.93k|            }
+  608|  5.93k|            let tableIndex: TableIndex = try parseUnsigned()
+  609|  5.67k|            return try v.visitCallIndirect(typeIndex: typeIndex, tableIndex: tableIndex)
+  610|  4.15M|        case .drop: return try v.visitDrop()
+  611|  4.15M|        case .select: return try v.visitSelect()
+  612|  4.15M|        case .typed_select:
+  613|  3.65k|            let results = try parseVector { try parseValueType() }
+  614|  3.43k|            guard results.count == 1 else {
+  615|     27|                throw makeError(.invalidResultArity(expected: 1, actual: results.count))
+  616|  3.40k|            }
+  617|  3.40k|            return try v.visitTypedSelect(type: results[0])
+  618|  4.15M|
+  619|  4.15M|        case .local_get:
+  620|  71.5k|            let index: UInt32 = try parseUnsigned()
+  621|  71.4k|            return try v.visitLocalGet(localIndex: index)
+  622|  4.15M|        case .local_set:
+  623|  32.8k|            let index: UInt32 = try parseUnsigned()
+  624|  32.7k|            return try v.visitLocalSet(localIndex: index)
+  625|  4.15M|        case .local_tee:
+  626|  22.1k|            let index: UInt32 = try parseUnsigned()
+  627|  22.0k|            return try v.visitLocalTee(localIndex: index)
+  628|  4.15M|        case .global_get:
+  629|  75.9k|            let index: UInt32 = try parseUnsigned()
+  630|  75.8k|            return try v.visitGlobalGet(globalIndex: index)
+  631|  4.15M|        case .global_set:
+  632|  29.9k|            let index: UInt32 = try parseUnsigned()
+  633|  29.9k|            return try v.visitGlobalSet(globalIndex: index)
+  634|  4.15M|
+  635|  4.15M|        case .i32_load: return try v.visitLoad(.i32Load, memarg: try parseMemarg())
+  636|  4.15M|        case .i64_load: return try v.visitLoad(.i64Load, memarg: try parseMemarg())
+  637|  4.15M|        case .f32_load: return try v.visitLoad(.f32Load, memarg: try parseMemarg())
+  638|  4.15M|        case .f64_load: return try v.visitLoad(.f64Load, memarg: try parseMemarg())
+  639|  4.15M|        case .i32_load8_s: return try v.visitLoad(.i32Load8S, memarg: try parseMemarg())
+  640|  4.15M|        case .i32_load8_u: return try v.visitLoad(.i32Load8U, memarg: try parseMemarg())
+  641|  4.15M|        case .i32_load16_s: return try v.visitLoad(.i32Load16S, memarg: try parseMemarg())
+  642|  4.15M|        case .i32_load16_u: return try v.visitLoad(.i32Load16U, memarg: try parseMemarg())
+  643|  4.15M|        case .i64_load8_s: return try v.visitLoad(.i64Load8S, memarg: try parseMemarg())
+  644|  4.15M|        case .i64_load8_u: return try v.visitLoad(.i64Load8U, memarg: try parseMemarg())
+  645|  4.15M|        case .i64_load16_s: return try v.visitLoad(.i64Load16S, memarg: try parseMemarg())
+  646|  4.15M|        case .i64_load16_u: return try v.visitLoad(.i64Load16U, memarg: try parseMemarg())
+  647|  4.15M|        case .i64_load32_s: return try v.visitLoad(.i64Load32S, memarg: try parseMemarg())
+  648|  4.15M|        case .i64_load32_u: return try v.visitLoad(.i64Load32U, memarg: try parseMemarg())
+  649|  4.15M|        case .i32_store: return try v.visitStore(.i32Store, memarg: try parseMemarg())
+  650|  4.15M|        case .i64_store: return try v.visitStore(.i64Store, memarg: try parseMemarg())
+  651|  4.15M|        case .f32_store: return try v.visitStore(.f32Store, memarg: try parseMemarg())
+  652|  4.15M|        case .f64_store: return try v.visitStore(.f64Store, memarg: try parseMemarg())
+  653|  4.15M|        case .i32_store8: return try v.visitStore(.i32Store8, memarg: try parseMemarg())
+  654|  4.15M|        case .i32_store16: return try v.visitStore(.i32Store16, memarg: try parseMemarg())
+  655|  4.15M|        case .i64_store8: return try v.visitStore(.i64Store8, memarg: try parseMemarg())
+  656|  4.15M|        case .i64_store16: return try v.visitStore(.i64Store16, memarg: try parseMemarg())
+  657|  4.15M|        case .i64_store32: return try v.visitStore(.i64Store32, memarg: try parseMemarg())
+  658|  4.15M|        case .memory_size:
+  659|  8.83k|            let zero = try stream.consumeAny()
+  660|  8.79k|            guard zero == 0x00 else {
+  661|    194|                throw makeError(.zeroExpected(actual: zero))
+  662|  8.60k|            }
+  663|  8.60k|            return try v.visitMemorySize(memory: UInt32(zero))
+  664|  4.15M|        case .memory_grow:
+  665|  7.98k|            let zero = try stream.consumeAny()
+  666|  7.88k|            guard zero == 0x00 else {
+  667|    278|                throw makeError(.zeroExpected(actual: zero))
+  668|  7.61k|            }
+  669|  7.61k|            return try v.visitMemoryGrow(memory: UInt32(zero))
+  670|  4.15M|
+  671|  4.15M|        case .i32_const:
+  672|  90.9k|            let n: UInt32 = try parseInteger()
+  673|  90.6k|            return try v.visitI32Const(value: Int32(bitPattern: n))
+  674|  4.15M|        case .i64_const:
+  675|  50.0k|            let n: UInt64 = try parseInteger()
+  676|  49.8k|            return try v.visitI64Const(value: Int64(bitPattern: n))
+  677|  4.15M|        case .f32_const:
+  678|  95.8k|            let n = try parseFloat()
+  679|  95.7k|            return try v.visitF32Const(value: IEEE754.Float32(bitPattern: n))
+  680|  4.15M|        case .f64_const:
+  681|  41.2k|            let n = try parseDouble()
+  682|  40.9k|            return try v.visitF64Const(value: IEEE754.Float64(bitPattern: n))
+  683|  4.15M|
+  684|  4.15M|        case .i32_eqz: return try v.visitI32Eqz()
+  685|  4.15M|        case .i32_eq: return try v.visitCmp(.i32Eq)
+  686|  4.15M|        case .i32_ne: return try v.visitCmp(.i32Ne)
+  687|  4.15M|        case .i32_lt_s: return try v.visitCmp(.i32LtS)
+  688|  4.15M|        case .i32_lt_u: return try v.visitCmp(.i32LtU)
+  689|  4.15M|        case .i32_gt_s: return try v.visitCmp(.i32GtS)
+  690|  4.15M|        case .i32_gt_u: return try v.visitCmp(.i32GtU)
+  691|  4.15M|        case .i32_le_s: return try v.visitCmp(.i32LeS)
+  692|  4.15M|        case .i32_le_u: return try v.visitCmp(.i32LeU)
+  693|  4.15M|        case .i32_ge_s: return try v.visitCmp(.i32GeS)
+  694|  4.15M|        case .i32_ge_u: return try v.visitCmp(.i32GeU)
+  695|  4.15M|
+  696|  4.15M|        case .i64_eqz: return try v.visitI64Eqz()
+  697|  4.15M|        case .i64_eq: return try v.visitCmp(.i64Eq)
+  698|  4.15M|        case .i64_ne: return try v.visitCmp(.i64Ne)
+  699|  4.15M|        case .i64_lt_s: return try v.visitCmp(.i64LtS)
+  700|  4.15M|        case .i64_lt_u: return try v.visitCmp(.i64LtU)
+  701|  4.15M|        case .i64_gt_s: return try v.visitCmp(.i64GtS)
+  702|  4.15M|        case .i64_gt_u: return try v.visitCmp(.i64GtU)
+  703|  4.15M|        case .i64_le_s: return try v.visitCmp(.i64LeS)
+  704|  4.15M|        case .i64_le_u: return try v.visitCmp(.i64LeU)
+  705|  4.15M|        case .i64_ge_s: return try v.visitCmp(.i64GeS)
+  706|  4.15M|        case .i64_ge_u: return try v.visitCmp(.i64GeU)
+  707|  4.15M|
+  708|  4.15M|        case .f32_eq: return try v.visitCmp(.f32Eq)
+  709|  4.15M|        case .f32_ne: return try v.visitCmp(.f32Ne)
+  710|  4.15M|        case .f32_lt: return try v.visitCmp(.f32Lt)
+  711|  4.15M|        case .f32_gt: return try v.visitCmp(.f32Gt)
+  712|  4.15M|        case .f32_le: return try v.visitCmp(.f32Le)
+  713|  4.15M|        case .f32_ge: return try v.visitCmp(.f32Ge)
+  714|  4.15M|
+  715|  4.15M|        case .f64_eq: return try v.visitCmp(.f64Eq)
+  716|  4.15M|        case .f64_ne: return try v.visitCmp(.f64Ne)
+  717|  4.15M|        case .f64_lt: return try v.visitCmp(.f64Lt)
+  718|  4.15M|        case .f64_gt: return try v.visitCmp(.f64Gt)
+  719|  4.15M|        case .f64_le: return try v.visitCmp(.f64Le)
+  720|  4.15M|        case .f64_ge: return try v.visitCmp(.f64Ge)
+  721|  4.15M|
+  722|  4.15M|        case .i32_clz: return try v.visitUnary(.i32Clz)
+  723|  4.15M|        case .i32_ctz: return try v.visitUnary(.i32Ctz)
+  724|  4.15M|        case .i32_popcnt: return try v.visitUnary(.i32Popcnt)
+  725|  4.15M|        case .i32_add: return try v.visitBinary(.i32Add)
+  726|  4.15M|        case .i32_sub: return try v.visitBinary(.i32Sub)
+  727|  4.15M|        case .i32_mul: return try v.visitBinary(.i32Mul)
+  728|  4.15M|        case .i32_div_s: return try v.visitBinary(.i32DivS)
+  729|  4.15M|        case .i32_div_u: return try v.visitBinary(.i32DivU)
+  730|  4.15M|        case .i32_rem_s: return try v.visitBinary(.i32RemS)
+  731|  4.15M|        case .i32_rem_u: return try v.visitBinary(.i32RemU)
+  732|  4.15M|        case .i32_and: return try v.visitBinary(.i32And)
+  733|  4.15M|        case .i32_or: return try v.visitBinary(.i32Or)
+  734|  4.15M|        case .i32_xor: return try v.visitBinary(.i32Xor)
+  735|  4.15M|        case .i32_shl: return try v.visitBinary(.i32Shl)
+  736|  4.15M|        case .i32_shr_s: return try v.visitBinary(.i32ShrS)
+  737|  4.15M|        case .i32_shr_u: return try v.visitBinary(.i32ShrU)
+  738|  4.15M|        case .i32_rotl: return try v.visitBinary(.i32Rotl)
+  739|  4.15M|        case .i32_rotr: return try v.visitBinary(.i32Rotr)
+  740|  4.15M|
+  741|  4.15M|        case .i64_clz: return try v.visitUnary(.i64Clz)
+  742|  4.15M|        case .i64_ctz: return try v.visitUnary(.i64Ctz)
+  743|  4.15M|        case .i64_popcnt: return try v.visitUnary(.i64Popcnt)
+  744|  4.15M|        case .i64_add: return try v.visitBinary(.i64Add)
+  745|  4.15M|        case .i64_sub: return try v.visitBinary(.i64Sub)
+  746|  4.15M|        case .i64_mul: return try v.visitBinary(.i64Mul)
+  747|  4.15M|        case .i64_div_s: return try v.visitBinary(.i64DivS)
+  748|  4.15M|        case .i64_div_u: return try v.visitBinary(.i64DivU)
+  749|  4.15M|        case .i64_rem_s: return try v.visitBinary(.i64RemS)
+  750|  4.15M|        case .i64_rem_u: return try v.visitBinary(.i64RemU)
+  751|  4.15M|        case .i64_and: return try v.visitBinary(.i64And)
+  752|  4.15M|        case .i64_or: return try v.visitBinary(.i64Or)
+  753|  4.15M|        case .i64_xor: return try v.visitBinary(.i64Xor)
+  754|  4.15M|        case .i64_shl: return try v.visitBinary(.i64Shl)
+  755|  4.15M|        case .i64_shr_s: return try v.visitBinary(.i64ShrS)
+  756|  4.15M|        case .i64_shr_u: return try v.visitBinary(.i64ShrU)
+  757|  4.15M|        case .i64_rotl: return try v.visitBinary(.i64Rotl)
+  758|  4.15M|        case .i64_rotr: return try v.visitBinary(.i64Rotr)
+  759|  4.15M|
+  760|  4.15M|        case .f32_abs: return try v.visitUnary(.f32Abs)
+  761|  4.15M|        case .f32_neg: return try v.visitUnary(.f32Neg)
+  762|  4.15M|        case .f32_ceil: return try v.visitUnary(.f32Ceil)
+  763|  4.15M|        case .f32_floor: return try v.visitUnary(.f32Floor)
+  764|  4.15M|        case .f32_trunc: return try v.visitUnary(.f32Trunc)
+  765|  4.15M|        case .f32_nearest: return try v.visitUnary(.f32Nearest)
+  766|  4.15M|        case .f32_sqrt: return try v.visitUnary(.f32Sqrt)
+  767|  4.15M|
+  768|  4.15M|        case .f32_add: return try v.visitBinary(.f32Add)
+  769|  4.15M|        case .f32_sub: return try v.visitBinary(.f32Sub)
+  770|  4.15M|        case .f32_mul: return try v.visitBinary(.f32Mul)
+  771|  4.15M|        case .f32_div: return try v.visitBinary(.f32Div)
+  772|  4.15M|        case .f32_min: return try v.visitBinary(.f32Min)
+  773|  4.15M|        case .f32_max: return try v.visitBinary(.f32Max)
+  774|  4.15M|        case .f32_copysign: return try v.visitBinary(.f32Copysign)
+  775|  4.15M|
+  776|  4.15M|        case .f64_abs: return try v.visitUnary(.f64Abs)
+  777|  4.15M|        case .f64_neg: return try v.visitUnary(.f64Neg)
+  778|  4.15M|        case .f64_ceil: return try v.visitUnary(.f64Ceil)
+  779|  4.15M|        case .f64_floor: return try v.visitUnary(.f64Floor)
+  780|  4.15M|        case .f64_trunc: return try v.visitUnary(.f64Trunc)
+  781|  4.15M|        case .f64_nearest: return try v.visitUnary(.f64Nearest)
+  782|  4.15M|        case .f64_sqrt: return try v.visitUnary(.f64Sqrt)
+  783|  4.15M|
+  784|  4.15M|        case .f64_add: return try v.visitBinary(.f64Add)
+  785|  4.15M|        case .f64_sub: return try v.visitBinary(.f64Sub)
+  786|  4.15M|        case .f64_mul: return try v.visitBinary(.f64Mul)
+  787|  4.15M|        case .f64_div: return try v.visitBinary(.f64Div)
+  788|  4.15M|        case .f64_min: return try v.visitBinary(.f64Min)
+  789|  4.15M|        case .f64_max: return try v.visitBinary(.f64Max)
+  790|  4.15M|        case .f64_copysign: return try v.visitBinary(.f64Copysign)
+  791|  4.15M|
+  792|  4.15M|        case .i32_wrap_i64: return try v.visitConversion(.i32WrapI64)
+  793|  4.15M|        case .i32_trunc_f32_s: return try v.visitConversion(.i32TruncF32S)
+  794|  4.15M|        case .i32_trunc_f32_u: return try v.visitConversion(.i32TruncF32U)
+  795|  4.15M|        case .i32_trunc_f64_s: return try v.visitConversion(.i32TruncF64S)
+  796|  4.15M|        case .i32_trunc_f64_u: return try v.visitConversion(.i32TruncF64U)
+  797|  4.15M|        case .i64_extend_i32_s: return try v.visitConversion(.i64ExtendI32S)
+  798|  4.15M|        case .i64_extend_i32_u: return try v.visitConversion(.i64ExtendI32U)
+  799|  4.15M|        case .i64_trunc_f32_s: return try v.visitConversion(.i64TruncF32S)
+  800|  4.15M|        case .i64_trunc_f32_u: return try v.visitConversion(.i64TruncF32U)
+  801|  4.15M|        case .i64_trunc_f64_s: return try v.visitConversion(.i64TruncF64S)
+  802|  4.15M|        case .i64_trunc_f64_u: return try v.visitConversion(.i64TruncF64U)
+  803|  4.15M|        case .f32_convert_i32_s: return try v.visitConversion(.f32ConvertI32S)
+  804|  4.15M|        case .f32_convert_i32_u: return try v.visitConversion(.f32ConvertI32U)
+  805|  4.15M|        case .f32_convert_i64_s: return try v.visitConversion(.f32ConvertI64S)
+  806|  4.15M|        case .f32_convert_i64_u: return try v.visitConversion(.f32ConvertI64U)
+  807|  4.15M|        case .f32_demote_f64: return try v.visitConversion(.f32DemoteF64)
+  808|  4.15M|        case .f64_convert_i32_s: return try v.visitConversion(.f64ConvertI32S)
+  809|  4.15M|        case .f64_convert_i32_u: return try v.visitConversion(.f64ConvertI32U)
+  810|  4.15M|        case .f64_convert_i64_s: return try v.visitConversion(.f64ConvertI64S)
+  811|  4.15M|        case .f64_convert_i64_u: return try v.visitConversion(.f64ConvertI64U)
+  812|  4.15M|        case .f64_promote_f32: return try v.visitConversion(.f64PromoteF32)
+  813|  4.15M|        case .i32_reinterpret_f32: return try v.visitConversion(.i32ReinterpretF32)
+  814|  4.15M|        case .i64_reinterpret_f64: return try v.visitConversion(.i64ReinterpretF64)
+  815|  4.15M|        case .f32_reinterpret_i32: return try v.visitConversion(.f32ReinterpretI32)
+  816|  4.15M|        case .f64_reinterpret_i64: return try v.visitConversion(.f64ReinterpretI64)
+  817|  4.15M|        case .i32_extend8_s: return try v.visitUnary(.i32Extend8S)
+  818|  4.15M|        case .i32_extend16_s: return try v.visitUnary(.i32Extend16S)
+  819|  4.15M|        case .i64_extend8_s: return try v.visitUnary(.i64Extend8S)
+  820|  4.15M|        case .i64_extend16_s: return try v.visitUnary(.i64Extend16S)
+  821|  4.15M|        case .i64_extend32_s: return try v.visitUnary(.i64Extend32S)
+  822|  4.15M|
+  823|  4.15M|        case .ref_null:
+  824|  3.41k|            let type = try parseValueType()
+  825|  3.26k|
+  826|  3.26k|            guard case let .ref(refType) = type else {
+  827|     56|                throw makeError(.expectedRefType(actual: type))
+  828|  3.20k|            }
+  829|  3.20k|
+  830|  3.20k|            return try v.visitRefNull(type: refType)
+  831|  4.15M|
+  832|  4.15M|        case .ref_is_null: return try v.visitRefIsNull()
+  833|  4.15M|
+  834|  4.15M|        case .ref_func: return try v.visitRefFunc(functionIndex: try parseUnsigned())
+  835|  4.15M|
+  836|  4.15M|        case .table_get: return try v.visitTableGet(table: try parseUnsigned())
+  837|  4.15M|
+  838|  4.15M|        case .table_set: return try v.visitTableSet(table: try parseUnsigned())
+  839|  4.15M|
+  840|  4.15M|        case .wasm2InstructionPrefix:
+  841|   124k|            let codeSuffix: UInt32 = try parseUnsigned()
+  842|   124k|            switch codeSuffix {
+  843|   124k|            case 0: return try v.visitConversion(.i32TruncSatF32S)
+  844|   124k|            case 1: return try v.visitConversion(.i32TruncSatF32U)
+  845|   124k|            case 2: return try v.visitConversion(.i32TruncSatF64S)
+  846|   124k|            case 3: return try v.visitConversion(.i32TruncSatF64U)
+  847|   124k|            case 4: return try v.visitConversion(.i64TruncSatF32S)
+  848|   124k|            case 5: return try v.visitConversion(.i64TruncSatF32U)
+  849|   124k|            case 6: return try v.visitConversion(.i64TruncSatF64S)
+  850|   124k|            case 7: return try v.visitConversion(.i64TruncSatF64U)
+  851|   124k|            case 8:
+  852|  3.41k|                let dataIndex: DataIndex = try parseUnsigned()
+  853|  3.40k|                let zero = try stream.consumeAny()
+  854|  3.38k|                guard zero == 0x00 else {
+  855|    117|                    throw makeError(.zeroExpected(actual: zero))
+  856|  3.27k|                }
+  857|  3.27k|
+  858|  3.27k|                return try v.visitMemoryInit(dataIndex: dataIndex)
+  859|   124k|            case 9:
+  860|  2.94k|                return try v.visitDataDrop(dataIndex: try parseUnsigned())
+  861|   124k|            case 10:
+  862|  1.61k|                let (zero1, zero2) = try (stream.consumeAny(), stream.consumeAny())
+  863|  1.60k|                guard zero1 == 0x00 else {
+  864|     64|                    throw makeError(.zeroExpected(actual: zero1))
+  865|  1.53k|                }
+  866|  1.53k|                guard zero2 == 0x00 else {
+  867|     15|                    throw makeError(.zeroExpected(actual: zero2))
+  868|  1.52k|                }
+  869|  1.52k|                return try v.visitMemoryCopy(dstMem: 0, srcMem: 0)
+  870|   124k|            case 11:
+  871|  1.40k|                let zero = try stream.consumeAny()
+  872|  1.38k|                guard zero == 0x00 else {
+  873|     16|                    throw makeError(.zeroExpected(actual: zero))
+  874|  1.37k|                }
+  875|  1.37k|
+  876|  1.37k|                return try v.visitMemoryFill(memory: 0)
+  877|   124k|            case 12:
+  878|  11.8k|                let elementIndex: ElementIndex = try parseUnsigned()
+  879|  11.8k|                let tableIndex: TableIndex = try parseUnsigned()
+  880|  11.7k|                return try v.visitTableInit(elemIndex: elementIndex, table: tableIndex)
+  881|   124k|            case 13: return try v.visitElemDrop(elemIndex: try parseUnsigned())
+  882|   124k|            case 14:
+  883|  2.13k|                let destinationTableIndex: TableIndex = try parseUnsigned()
+  884|  2.12k|                let sourceTableIndex: TableIndex = try parseUnsigned()
+  885|  2.06k|                return try v.visitTableCopy(dstTable: destinationTableIndex, srcTable: sourceTableIndex)
+  886|   124k|            case 15: return try v.visitTableGrow(table: try parseUnsigned())
+  887|   124k|            case 16: return try v.visitTableSize(table: try parseUnsigned())
+  888|   124k|            case 17: return try v.visitTableFill(table: try parseUnsigned())
+  889|   124k|            default:
+  890|    122|                throw makeError(.unimplementedInstruction(code.rawValue, suffix: codeSuffix))
+  891|   124k|            }
+  892|  4.15M|        }
+  893|  4.15M|    }
+$s10WasmParser0B0V18doParseInstruction4code7visitoryAA0E4CodeO_qd__ztKAA0E7VisitorRd__lFs6UInt32VyKXEfU_:
+  594|   230k|            let labelIndices: [UInt32] = try parseVector { try parseUnsigned() }
+$s10WasmParser0B0V18doParseInstruction4code7visitoryAA0E4CodeO_qd__ztKAA0E7VisitorRd__lF0A5Types9ValueTypeOyKXEfU0_:
+  613|  6.59k|            let results = try parseVector { try parseValueType() }
 $s10WasmParser0B0V18InstructionFactoryV5instsSayAA0C0OGvpfi:
-  896|    327|        var insts: [Instruction] = []
+  896|  89.6k|        var insts: [Instruction] = []
 $s10WasmParser0B0V18InstructionFactoryV5visityyAA0C0OKF:
-  898|    654|        mutating func visit(_ instruction: Instruction) throws {
-  899|    654|            insts.append(instruction)
-  900|    654|        }
+  898|  4.14M|        mutating func visit(_ instruction: Instruction) throws {
+  899|  4.14M|            insts.append(instruction)
+  900|  4.14M|        }
 $s10WasmParser0B0V20parseConstExpressionSayAA11InstructionOGyKF:
-  903|    327|    func parseConstExpression() throws -> ConstExpression {
-  904|    327|        var factory = InstructionFactory()
-  905|    327|        var inst: InstructionCode
-  906|    654|        repeat {
-  907|    654|            inst = try self.parseInstruction(visitor: &factory)
-  908|    654|        } while inst != .end
-  909|    327|        return factory.insts
-  910|    327|    }
+  903|  89.6k|    func parseConstExpression() throws -> ConstExpression {
+  904|  89.6k|        var factory = InstructionFactory()
+  905|  89.6k|        var inst: InstructionCode
+  906|  4.17M|        repeat {
+  907|  4.17M|            inst = try self.parseInstruction(visitor: &factory)
+  908|  4.17M|        } while inst != .end
+  909|  62.0k|        return factory.insts
+  910|  89.6k|    }
+$s10WasmParser0B0V18parseCustomSection4sizeAA0dE0Vs6UInt32V_tKF:
+  918|  6.26k|    func parseCustomSection(size: UInt32) throws -> CustomSection {
+  919|  6.26k|        let preNameIndex = stream.currentIndex
+  920|  6.26k|        let name = try parseName()
+  921|  6.21k|        let nameSize = stream.currentIndex - preNameIndex
+  922|  6.21k|        let contentSize = Int(size) - nameSize
+  923|  6.21k|
+  924|  6.21k|        guard contentSize >= 0 else {
+  925|     43|            throw makeError(.invalidSectionSize(size))
+  926|  6.16k|        }
+  927|  6.16k|
+  928|  6.16k|        let bytes = try stream.consume(count: contentSize)
+  929|  6.15k|
+  930|  6.15k|        return CustomSection(name: name, bytes: bytes)
+  931|  6.26k|    }
 $s10WasmParser0B0V16parseTypeSectionSay0A5Types08FunctionD0VGyKF:
-  935|     77|    func parseTypeSection() throws -> [FunctionType] {
-  936|     77|        return try parseVector { try parseFunctionType() }
-  937|     77|    }
+  935|  22.9k|    func parseTypeSection() throws -> [FunctionType] {
+  936|  22.9k|        return try parseVector { try parseFunctionType() }
+  937|  22.9k|    }
 $s10WasmParser0B0V16parseTypeSectionSay0A5Types08FunctionD0VGyKFAGyKXEfU_:
-  936|     90|        return try parseVector { try parseFunctionType() }
+  936|  20.1k|        return try parseVector { try parseFunctionType() }
 $s10WasmParser0B0V18parseImportSectionSayAA0D0VGyKF:
-  941|     78|    func parseImportSection() throws -> [Import] {
-  942|     78|        return try parseVector {
-  943|     78|            let module = try parseName()
-  944|     78|            let name = try parseName()
-  945|     78|            let descriptor = try parseImportDescriptor()
-  946|     78|            return Import(module: module, name: name, descriptor: descriptor)
-  947|     78|        }
-  948|     78|    }
+  941|  16.2k|    func parseImportSection() throws -> [Import] {
+  942|  16.2k|        return try parseVector {
+  943|  16.2k|            let module = try parseName()
+  944|  16.2k|            let name = try parseName()
+  945|  16.2k|            let descriptor = try parseImportDescriptor()
+  946|  16.2k|            return Import(module: module, name: name, descriptor: descriptor)
+  947|  16.2k|        }
+  948|  16.2k|    }
 $s10WasmParser0B0V18parseImportSectionSayAA0D0VGyKFAFyKXEfU_:
-  942|     89|        return try parseVector {
-  943|     89|            let module = try parseName()
-  944|     89|            let name = try parseName()
-  945|     89|            let descriptor = try parseImportDescriptor()
-  946|     89|            return Import(module: module, name: name, descriptor: descriptor)
-  947|     89|        }
+  942|  25.6k|        return try parseVector {
+  943|  25.6k|            let module = try parseName()
+  944|  25.5k|            let name = try parseName()
+  945|  25.4k|            let descriptor = try parseImportDescriptor()
+  946|  25.3k|            return Import(module: module, name: name, descriptor: descriptor)
+  947|  25.6k|        }
 $s10WasmParser0B0V21parseImportDescriptorAA0dE0OyKF:
-  952|     89|    func parseImportDescriptor() throws -> ImportDescriptor {
-  953|     89|        let b = try stream.consume(Set(0x00...0x03))
-  954|     89|        switch b {
-  955|     89|        case 0x00: return try .function(parseUnsigned())
-  956|     89|        case 0x01: return try .table(parseTableType())
-  957|     89|        case 0x02: return try .memory(parseMemoryType())
-  958|     89|        case 0x03: return try .global(parseGlobalType())
-  959|     89|        default:
+  952|  25.4k|    func parseImportDescriptor() throws -> ImportDescriptor {
+  953|  25.4k|        let b = try stream.consume(Set(0x00...0x03))
+  954|  25.4k|        switch b {
+  955|  25.4k|        case 0x00: return try .function(parseUnsigned())
+  956|  25.4k|        case 0x01: return try .table(parseTableType())
+  957|  25.4k|        case 0x02: return try .memory(parseMemoryType())
+  958|  25.4k|        case 0x03: return try .global(parseGlobalType())
+  959|  25.4k|        default:
   960|      0|            preconditionFailure("should never reach here")
-  961|     89|        }
+  961|  25.4k|        }
   962|      0|    }
 $s10WasmParser0B0V20parseFunctionSectionSays6UInt32VGyKF:
-  966|     26|    func parseFunctionSection() throws -> [TypeIndex] {
-  967|     26|        return try parseVector { try parseUnsigned() }
-  968|     26|    }
+  966|  6.04k|    func parseFunctionSection() throws -> [TypeIndex] {
+  967|  6.04k|        return try parseVector { try parseUnsigned() }
+  968|  6.04k|    }
 $s10WasmParser0B0V20parseFunctionSectionSays6UInt32VGyKFAFyKXEfU_:
-  967|     59|        return try parseVector { try parseUnsigned() }
+  967|   145k|        return try parseVector { try parseUnsigned() }
 $s10WasmParser0B0V17parseTableSectionSayAA0D0VGyKF:
-  972|     42|    func parseTableSection() throws -> [Table] {
-  973|     42|        return try parseVector { try Table(type: parseTableType()) }
-  974|     42|    }
+  972|  11.1k|    func parseTableSection() throws -> [Table] {
+  973|  11.1k|        return try parseVector { try Table(type: parseTableType()) }
+  974|  11.1k|    }
 $s10WasmParser0B0V17parseTableSectionSayAA0D0VGyKFAFyKXEfU_:
-  973|     42|        return try parseVector { try Table(type: parseTableType()) }
+  973|  13.0k|        return try parseVector { try Table(type: parseTableType()) }
 $s10WasmParser0B0V18parseMemorySectionSayAA0D0VGyKF:
-  978|     43|    func parseMemorySection() throws -> [Memory] {
-  979|     43|        return try parseVector { try Memory(type: parseLimits()) }
-  980|     43|    }
+  978|  10.0k|    func parseMemorySection() throws -> [Memory] {
+  979|  10.0k|        return try parseVector { try Memory(type: parseLimits()) }
+  980|  10.0k|    }
 $s10WasmParser0B0V18parseMemorySectionSayAA0D0VGyKFAFyKXEfU_:
-  979|     43|        return try parseVector { try Memory(type: parseLimits()) }
+  979|  12.1k|        return try parseVector { try Memory(type: parseLimits()) }
 $s10WasmParser0B0V18parseGlobalSectionSayAA0D0VGyKF:
-  984|     72|    func parseGlobalSection() throws -> [Global] {
-  985|     72|        return try parseVector {
-  986|     72|            let type = try parseGlobalType()
-  987|     72|            let expression = try parseConstExpression()
-  988|     72|            return Global(type: type, initializer: expression)
-  989|     72|        }
-  990|     72|    }
+  984|  28.0k|    func parseGlobalSection() throws -> [Global] {
+  985|  28.0k|        return try parseVector {
+  986|  28.0k|            let type = try parseGlobalType()
+  987|  28.0k|            let expression = try parseConstExpression()
+  988|  28.0k|            return Global(type: type, initializer: expression)
+  989|  28.0k|        }
+  990|  28.0k|    }
 $s10WasmParser0B0V18parseGlobalSectionSayAA0D0VGyKFAFyKXEfU_:
-  985|    213|        return try parseVector {
-  986|    213|            let type = try parseGlobalType()
-  987|    213|            let expression = try parseConstExpression()
-  988|    213|            return Global(type: type, initializer: expression)
-  989|    213|        }
+  985|  44.0k|        return try parseVector {
+  986|  44.0k|            let type = try parseGlobalType()
+  987|  39.7k|            let expression = try parseConstExpression()
+  988|  19.5k|            return Global(type: type, initializer: expression)
+  989|  44.0k|        }
 $s10WasmParser0B0V18parseExportSectionSayAA0D0VGyKF:
-  994|     56|    func parseExportSection() throws -> [Export] {
-  995|     56|        return try parseVector {
-  996|     56|            let name = try parseName()
-  997|     56|            let descriptor = try parseExportDescriptor()
-  998|     56|            return Export(name: name, descriptor: descriptor)
-  999|     56|        }
- 1000|     56|    }
+  994|  2.98k|    func parseExportSection() throws -> [Export] {
+  995|  2.98k|        return try parseVector {
+  996|  2.98k|            let name = try parseName()
+  997|  2.98k|            let descriptor = try parseExportDescriptor()
+  998|  2.98k|            return Export(name: name, descriptor: descriptor)
+  999|  2.98k|        }
+ 1000|  2.98k|    }
 $s10WasmParser0B0V18parseExportSectionSayAA0D0VGyKFAFyKXEfU_:
-  995|    147|        return try parseVector {
-  996|    147|            let name = try parseName()
-  997|    147|            let descriptor = try parseExportDescriptor()
-  998|    147|            return Export(name: name, descriptor: descriptor)
-  999|    147|        }
+  995|  11.1k|        return try parseVector {
+  996|  11.1k|            let name = try parseName()
+  997|  10.9k|            let descriptor = try parseExportDescriptor()
+  998|  10.8k|            return Export(name: name, descriptor: descriptor)
+  999|  11.1k|        }
 $s10WasmParser0B0V21parseExportDescriptorAA0dE0OyKF:
- 1004|    147|    func parseExportDescriptor() throws -> ExportDescriptor {
- 1005|    147|        let b = try stream.consume(Set(0x00...0x03))
- 1006|    147|        switch b {
- 1007|    147|        case 0x00: return try .function(parseUnsigned())
- 1008|    147|        case 0x01: return try .table(parseUnsigned())
- 1009|    147|        case 0x02: return try .memory(parseUnsigned())
- 1010|    147|        case 0x03: return try .global(parseUnsigned())
- 1011|    147|        default:
+ 1004|  10.9k|    func parseExportDescriptor() throws -> ExportDescriptor {
+ 1005|  10.9k|        let b = try stream.consume(Set(0x00...0x03))
+ 1006|  10.8k|        switch b {
+ 1007|  10.8k|        case 0x00: return try .function(parseUnsigned())
+ 1008|  10.8k|        case 0x01: return try .table(parseUnsigned())
+ 1009|  10.8k|        case 0x02: return try .memory(parseUnsigned())
+ 1010|  10.8k|        case 0x03: return try .global(parseUnsigned())
+ 1011|  10.8k|        default:
  1012|      0|            preconditionFailure("should never reach here")
- 1013|    147|        }
+ 1013|  10.8k|        }
  1014|      0|    }
 $s10WasmParser0B0V17parseStartSections6UInt32VyKF:
- 1018|      4|    func parseStartSection() throws -> FunctionIndex {
- 1019|      4|        return try parseUnsigned()
- 1020|      4|    }
+ 1018|    154|    func parseStartSection() throws -> FunctionIndex {
+ 1019|    154|        return try parseUnsigned()
+ 1020|    154|    }
 $s10WasmParser0B0V19parseElementSectionSayAA0D7SegmentVGyKF:
- 1024|     21|    func parseElementSection() throws -> [ElementSegment] {
- 1025|     21|        return try parseVector {
- 1026|     21|            let flag = try ElementSegment.Flag(rawValue: parseUnsigned())
- 1027|     21|
- 1028|     21|            let type: ReferenceType
- 1029|     21|            let initializer: [ConstExpression]
- 1030|     21|            let mode: ElementSegment.Mode
- 1031|     21|
- 1032|     21|            if flag.contains(.isPassiveOrDeclarative) {
- 1033|     21|                if flag.contains(.isDeclarative) {
- 1034|     21|                    mode = .declarative
- 1035|     21|                } else {
- 1036|     21|                    mode = .passive
- 1037|     21|                }
- 1038|     21|            } else {
- 1039|     21|                let table: TableIndex
- 1040|     21|
- 1041|     21|                if flag.contains(.hasTableIndex) {
- 1042|     21|                    table = try parseUnsigned()
- 1043|     21|                } else {
- 1044|     21|                    table = 0
- 1045|     21|                }
- 1046|     21|
- 1047|     21|                let offset = try parseConstExpression()
- 1048|     21|                mode = .active(table: table, offset: offset)
- 1049|     21|            }
- 1050|     21|
- 1051|     21|            if flag.segmentHasRefType {
- 1052|     21|                let valueType = try parseValueType()
- 1053|     21|
- 1054|     21|                guard case let .ref(refType) = valueType else {
- 1055|     21|                    throw makeError(.expectedRefType(actual: valueType))
- 1056|     21|                }
- 1057|     21|
- 1058|     21|                type = refType
- 1059|     21|            } else {
- 1060|     21|                type = .funcRef
- 1061|     21|            }
- 1062|     21|
- 1063|     21|            if flag.segmentHasElemKind {
- 1064|     21|                // `elemkind` parsing as defined in the spec
- 1065|     21|                let elemKind = try parseUnsigned() as UInt32
- 1066|     21|                guard elemKind == 0x00 else {
- 1067|     21|                    throw makeError(.unexpectedElementKind(expected: 0x00, actual: elemKind))
- 1068|     21|                }
- 1069|     21|            }
- 1070|     21|
- 1071|     21|            if flag.contains(.usesExpressions) {
- 1072|     21|                initializer = try parseVector { try parseConstExpression() }
- 1073|     21|            } else {
- 1074|     21|                initializer = try parseVector {
- 1075|     21|                    try [Instruction.refFunc(functionIndex: parseUnsigned() as UInt32)]
- 1076|     21|                }
- 1077|     21|            }
- 1078|     21|
- 1079|     21|            return ElementSegment(type: type, initializer: initializer, mode: mode)
- 1080|     21|        }
- 1081|     21|    }
+ 1024|  7.85k|    func parseElementSection() throws -> [ElementSegment] {
+ 1025|  7.85k|        return try parseVector {
+ 1026|  7.85k|            let flag = try ElementSegment.Flag(rawValue: parseUnsigned())
+ 1027|  7.85k|
+ 1028|  7.85k|            let type: ReferenceType
+ 1029|  7.85k|            let initializer: [ConstExpression]
+ 1030|  7.85k|            let mode: ElementSegment.Mode
+ 1031|  7.85k|
+ 1032|  7.85k|            if flag.contains(.isPassiveOrDeclarative) {
+ 1033|  7.85k|                if flag.contains(.isDeclarative) {
+ 1034|  7.85k|                    mode = .declarative
+ 1035|  7.85k|                } else {
+ 1036|  7.85k|                    mode = .passive
+ 1037|  7.85k|                }
+ 1038|  7.85k|            } else {
+ 1039|  7.85k|                let table: TableIndex
+ 1040|  7.85k|
+ 1041|  7.85k|                if flag.contains(.hasTableIndex) {
+ 1042|  7.85k|                    table = try parseUnsigned()
+ 1043|  7.85k|                } else {
+ 1044|  7.85k|                    table = 0
+ 1045|  7.85k|                }
+ 1046|  7.85k|
+ 1047|  7.85k|                let offset = try parseConstExpression()
+ 1048|  7.85k|                mode = .active(table: table, offset: offset)
+ 1049|  7.85k|            }
+ 1050|  7.85k|
+ 1051|  7.85k|            if flag.segmentHasRefType {
+ 1052|  7.85k|                let valueType = try parseValueType()
+ 1053|  7.85k|
+ 1054|  7.85k|                guard case let .ref(refType) = valueType else {
+ 1055|  7.85k|                    throw makeError(.expectedRefType(actual: valueType))
+ 1056|  7.85k|                }
+ 1057|  7.85k|
+ 1058|  7.85k|                type = refType
+ 1059|  7.85k|            } else {
+ 1060|  7.85k|                type = .funcRef
+ 1061|  7.85k|            }
+ 1062|  7.85k|
+ 1063|  7.85k|            if flag.segmentHasElemKind {
+ 1064|  7.85k|                // `elemkind` parsing as defined in the spec
+ 1065|  7.85k|                let elemKind = try parseUnsigned() as UInt32
+ 1066|  7.85k|                guard elemKind == 0x00 else {
+ 1067|  7.85k|                    throw makeError(.unexpectedElementKind(expected: 0x00, actual: elemKind))
+ 1068|  7.85k|                }
+ 1069|  7.85k|            }
+ 1070|  7.85k|
+ 1071|  7.85k|            if flag.contains(.usesExpressions) {
+ 1072|  7.85k|                initializer = try parseVector { try parseConstExpression() }
+ 1073|  7.85k|            } else {
+ 1074|  7.85k|                initializer = try parseVector {
+ 1075|  7.85k|                    try [Instruction.refFunc(functionIndex: parseUnsigned() as UInt32)]
+ 1076|  7.85k|                }
+ 1077|  7.85k|            }
+ 1078|  7.85k|
+ 1079|  7.85k|            return ElementSegment(type: type, initializer: initializer, mode: mode)
+ 1080|  7.85k|        }
+ 1081|  7.85k|    }
 $s10WasmParser0B0V19parseElementSectionSayAA0D7SegmentVGyKFAFyKXEfU_:
- 1025|     43|        return try parseVector {
- 1026|     43|            let flag = try ElementSegment.Flag(rawValue: parseUnsigned())
- 1027|     43|
- 1028|     43|            let type: ReferenceType
- 1029|     43|            let initializer: [ConstExpression]
- 1030|     43|            let mode: ElementSegment.Mode
- 1031|     43|
- 1032|     43|            if flag.contains(.isPassiveOrDeclarative) {
- 1033|      0|                if flag.contains(.isDeclarative) {
- 1034|      0|                    mode = .declarative
- 1035|      0|                } else {
- 1036|      0|                    mode = .passive
- 1037|      0|                }
- 1038|     43|            } else {
- 1039|     43|                let table: TableIndex
- 1040|     43|
- 1041|     43|                if flag.contains(.hasTableIndex) {
- 1042|      0|                    table = try parseUnsigned()
- 1043|     43|                } else {
- 1044|     43|                    table = 0
- 1045|     43|                }
- 1046|     43|
- 1047|     43|                let offset = try parseConstExpression()
- 1048|     43|                mode = .active(table: table, offset: offset)
- 1049|     43|            }
- 1050|     43|
- 1051|     43|            if flag.segmentHasRefType {
- 1052|      0|                let valueType = try parseValueType()
- 1053|      0|
- 1054|      0|                guard case let .ref(refType) = valueType else {
- 1055|      0|                    throw makeError(.expectedRefType(actual: valueType))
- 1056|      0|                }
- 1057|      0|
- 1058|      0|                type = refType
- 1059|     43|            } else {
- 1060|     43|                type = .funcRef
- 1061|     43|            }
- 1062|     43|
- 1063|     43|            if flag.segmentHasElemKind {
- 1064|      0|                // `elemkind` parsing as defined in the spec
- 1065|      0|                let elemKind = try parseUnsigned() as UInt32
- 1066|      0|                guard elemKind == 0x00 else {
- 1067|      0|                    throw makeError(.unexpectedElementKind(expected: 0x00, actual: elemKind))
- 1068|      0|                }
- 1069|     43|            }
- 1070|     43|
- 1071|     43|            if flag.contains(.usesExpressions) {
- 1072|      0|                initializer = try parseVector { try parseConstExpression() }
- 1073|     43|            } else {
- 1074|     43|                initializer = try parseVector {
- 1075|     43|                    try [Instruction.refFunc(functionIndex: parseUnsigned() as UInt32)]
- 1076|     43|                }
- 1077|     43|            }
- 1078|     43|
- 1079|     43|            return ElementSegment(type: type, initializer: initializer, mode: mode)
- 1080|     43|        }
+ 1025|  47.3k|        return try parseVector {
+ 1026|  47.3k|            let flag = try ElementSegment.Flag(rawValue: parseUnsigned())
+ 1027|  47.0k|
+ 1028|  47.0k|            let type: ReferenceType
+ 1029|  47.0k|            let initializer: [ConstExpression]
+ 1030|  47.0k|            let mode: ElementSegment.Mode
+ 1031|  47.0k|
+ 1032|  47.0k|            if flag.contains(.isPassiveOrDeclarative) {
+ 1033|  10.0k|                if flag.contains(.isDeclarative) {
+ 1034|  4.74k|                    mode = .declarative
+ 1035|  5.33k|                } else {
+ 1036|  5.33k|                    mode = .passive
+ 1037|  5.33k|                }
+ 1038|  36.9k|            } else {
+ 1039|  36.9k|                let table: TableIndex
+ 1040|  36.9k|
+ 1041|  36.9k|                if flag.contains(.hasTableIndex) {
+ 1042|  3.23k|                    table = try parseUnsigned()
+ 1043|  33.7k|                } else {
+ 1044|  33.7k|                    table = 0
+ 1045|  36.9k|                }
+ 1046|  36.9k|
+ 1047|  36.9k|                let offset = try parseConstExpression()
+ 1048|  31.9k|                mode = .active(table: table, offset: offset)
+ 1049|  42.0k|            }
+ 1050|  42.0k|
+ 1051|  42.0k|            if flag.segmentHasRefType {
+ 1052|  1.36k|                let valueType = try parseValueType()
+ 1053|  1.07k|
+ 1054|  1.07k|                guard case let .ref(refType) = valueType else {
+ 1055|    113|                    throw makeError(.expectedRefType(actual: valueType))
+ 1056|    957|                }
+ 1057|    957|
+ 1058|    957|                type = refType
+ 1059|  40.6k|            } else {
+ 1060|  40.6k|                type = .funcRef
+ 1061|  41.6k|            }
+ 1062|  41.6k|
+ 1063|  41.6k|            if flag.segmentHasElemKind {
+ 1064|  11.5k|                // `elemkind` parsing as defined in the spec
+ 1065|  11.5k|                let elemKind = try parseUnsigned() as UInt32
+ 1066|  11.4k|                guard elemKind == 0x00 else {
+ 1067|    429|                    throw makeError(.unexpectedElementKind(expected: 0x00, actual: elemKind))
+ 1068|  11.0k|                }
+ 1069|  41.1k|            }
+ 1070|  41.1k|
+ 1071|  41.1k|            if flag.contains(.usesExpressions) {
+ 1072|  7.03k|                initializer = try parseVector { try parseConstExpression() }
+ 1073|  34.0k|            } else {
+ 1074|  34.0k|                initializer = try parseVector {
+ 1075|  34.0k|                    try [Instruction.refFunc(functionIndex: parseUnsigned() as UInt32)]
+ 1076|  34.0k|                }
+ 1077|  39.9k|            }
+ 1078|  39.9k|
+ 1079|  39.9k|            return ElementSegment(type: type, initializer: initializer, mode: mode)
+ 1080|  47.3k|        }
+$s10WasmParser0B0V19parseElementSectionSayAA0D7SegmentVGyKFAFyKXEfU_SayAA11InstructionOGyKXEfU_:
+ 1072|  6.89k|                initializer = try parseVector { try parseConstExpression() }
 $s10WasmParser0B0V19parseElementSectionSayAA0D7SegmentVGyKFAFyKXEfU_SayAA11InstructionOGyKXEfU0_:
- 1074|      3|                initializer = try parseVector {
- 1075|      3|                    try [Instruction.refFunc(functionIndex: parseUnsigned() as UInt32)]
- 1076|      3|                }
+ 1074|   180k|                initializer = try parseVector {
+ 1075|   180k|                    try [Instruction.refFunc(functionIndex: parseUnsigned() as UInt32)]
+ 1076|   180k|                }
 $s10WasmParser0B0V16parseCodeSectionSayAA0D0VGyKF:
- 1085|     26|    func parseCodeSection() throws -> [Code] {
- 1086|     26|        return try parseVector {
- 1087|     26|            let size = try parseUnsigned() as UInt32
- 1088|     26|            let bodyStart = stream.currentIndex
- 1089|     26|            let localTypes = try parseVector { () -> (n: UInt32, type: ValueType) in
- 1090|     26|                let n: UInt32 = try parseUnsigned()
- 1091|     26|                let t = try parseValueType()
- 1092|     26|                return (n, t)
- 1093|     26|            }
- 1094|     26|            let totalLocals = localTypes.reduce(UInt64(0)) { $0 + UInt64($1.n) }
- 1095|     26|            guard totalLocals < limits.maxFunctionLocals else {
- 1096|     26|                throw makeError(.tooManyLocals(totalLocals, limit: limits.maxFunctionLocals))
- 1097|     26|            }
- 1098|     26|
- 1099|     26|            let locals = localTypes.flatMap { (n: UInt32, type: ValueType) in
- 1100|     26|                return Array(repeating: type, count: Int(n))
- 1101|     26|            }
- 1102|     26|            let expressionStart = stream.currentIndex
- 1103|     26|            let expressionBytes = try stream.consume(
- 1104|     26|                count: Int(size) - (expressionStart - bodyStart)
- 1105|     26|            )
- 1106|     26|            return Code(
- 1107|     26|                locals: locals, expression: expressionBytes,
- 1108|     26|                offset: expressionStart, features: features
- 1109|     26|            )
- 1110|     26|        }
- 1111|     26|    }
+ 1085|    636|    func parseCodeSection() throws -> [Code] {
+ 1086|    636|        return try parseVector {
+ 1087|    636|            let size = try parseUnsigned() as UInt32
+ 1088|    636|            let bodyStart = stream.currentIndex
+ 1089|    636|            let localTypes = try parseVector { () -> (n: UInt32, type: ValueType) in
+ 1090|    636|                let n: UInt32 = try parseUnsigned()
+ 1091|    636|                let t = try parseValueType()
+ 1092|    636|                return (n, t)
+ 1093|    636|            }
+ 1094|    636|            let totalLocals = localTypes.reduce(UInt64(0)) { $0 + UInt64($1.n) }
+ 1095|    636|            guard totalLocals < limits.maxFunctionLocals else {
+ 1096|    636|                throw makeError(.tooManyLocals(totalLocals, limit: limits.maxFunctionLocals))
+ 1097|    636|            }
+ 1098|    636|
+ 1099|    636|            let locals = localTypes.flatMap { (n: UInt32, type: ValueType) in
+ 1100|    636|                return Array(repeating: type, count: Int(n))
+ 1101|    636|            }
+ 1102|    636|            let expressionStart = stream.currentIndex
+ 1103|    636|            let expressionBytes = try stream.consume(
+ 1104|    636|                count: Int(size) - (expressionStart - bodyStart)
+ 1105|    636|            )
+ 1106|    636|            return Code(
+ 1107|    636|                locals: locals, expression: expressionBytes,
+ 1108|    636|                offset: expressionStart, features: features
+ 1109|    636|            )
+ 1110|    636|        }
+ 1111|    636|    }
 $s10WasmParser0B0V16parseCodeSectionSayAA0D0VGyKFAFyKXEfU_:
- 1086|     59|        return try parseVector {
- 1087|     59|            let size = try parseUnsigned() as UInt32
- 1088|     59|            let bodyStart = stream.currentIndex
- 1089|     59|            let localTypes = try parseVector { () -> (n: UInt32, type: ValueType) in
- 1090|     59|                let n: UInt32 = try parseUnsigned()
- 1091|     59|                let t = try parseValueType()
- 1092|     59|                return (n, t)
- 1093|     59|            }
- 1094|     59|            let totalLocals = localTypes.reduce(UInt64(0)) { $0 + UInt64($1.n) }
- 1095|     59|            guard totalLocals < limits.maxFunctionLocals else {
- 1096|      0|                throw makeError(.tooManyLocals(totalLocals, limit: limits.maxFunctionLocals))
- 1097|     59|            }
- 1098|     59|
- 1099|     59|            let locals = localTypes.flatMap { (n: UInt32, type: ValueType) in
- 1100|     59|                return Array(repeating: type, count: Int(n))
- 1101|     59|            }
- 1102|     59|            let expressionStart = stream.currentIndex
- 1103|     59|            let expressionBytes = try stream.consume(
- 1104|     59|                count: Int(size) - (expressionStart - bodyStart)
- 1105|     59|            )
- 1106|     59|            return Code(
- 1107|     59|                locals: locals, expression: expressionBytes,
- 1108|     59|                offset: expressionStart, features: features
- 1109|     59|            )
- 1110|     59|        }
+ 1086|  2.54k|        return try parseVector {
+ 1087|  2.54k|            let size = try parseUnsigned() as UInt32
+ 1088|  2.52k|            let bodyStart = stream.currentIndex
+ 1089|  2.52k|            let localTypes = try parseVector { () -> (n: UInt32, type: ValueType) in
+ 1090|  2.52k|                let n: UInt32 = try parseUnsigned()
+ 1091|  2.52k|                let t = try parseValueType()
+ 1092|  2.52k|                return (n, t)
+ 1093|  2.52k|            }
+ 1094|  2.30k|            let totalLocals = localTypes.reduce(UInt64(0)) { $0 + UInt64($1.n) }
+ 1095|  2.30k|            guard totalLocals < limits.maxFunctionLocals else {
+ 1096|     39|                throw makeError(.tooManyLocals(totalLocals, limit: limits.maxFunctionLocals))
+ 1097|  2.26k|            }
+ 1098|  2.26k|
+ 1099|  2.26k|            let locals = localTypes.flatMap { (n: UInt32, type: ValueType) in
+ 1100|  2.26k|                return Array(repeating: type, count: Int(n))
+ 1101|  2.26k|            }
+ 1102|  2.26k|            let expressionStart = stream.currentIndex
+ 1103|  2.26k|            let expressionBytes = try stream.consume(
+ 1104|  2.26k|                count: Int(size) - (expressionStart - bodyStart)
+ 1105|  2.26k|            )
+ 1106|  2.06k|            return Code(
+ 1107|  2.06k|                locals: locals, expression: expressionBytes,
+ 1108|  2.06k|                offset: expressionStart, features: features
+ 1109|  2.06k|            )
+ 1110|  2.54k|        }
 $s10WasmParser0B0V16parseCodeSectionSayAA0D0VGyKFAFyKXEfU_s6UInt32V1n_0A5Types9ValueTypeO4typetyKXEfU_:
- 1089|     40|            let localTypes = try parseVector { () -> (n: UInt32, type: ValueType) in
- 1090|     40|                let n: UInt32 = try parseUnsigned()
- 1091|     40|                let t = try parseValueType()
- 1092|     40|                return (n, t)
- 1093|     40|            }
+ 1089|  3.03k|            let localTypes = try parseVector { () -> (n: UInt32, type: ValueType) in
+ 1090|  3.03k|                let n: UInt32 = try parseUnsigned()
+ 1091|  2.99k|                let t = try parseValueType()
+ 1092|  2.84k|                return (n, t)
+ 1093|  3.03k|            }
 $s10WasmParser0B0V16parseCodeSectionSayAA0D0VGyKFAFyKXEfU_s6UInt64VAI_s6UInt32V1n_0A5Types9ValueTypeO4typettXEfU0_:
- 1094|     40|            let totalLocals = localTypes.reduce(UInt64(0)) { $0 + UInt64($1.n) }
+ 1094|  1.05k|            let totalLocals = localTypes.reduce(UInt64(0)) { $0 + UInt64($1.n) }
 $s10WasmParser0B0V16parseCodeSectionSayAA0D0VGyKFAFyKXEfU_Say0A5Types9ValueTypeOGs6UInt32V_AJtXEfU1_:
- 1099|     40|            let locals = localTypes.flatMap { (n: UInt32, type: ValueType) in
- 1100|     40|                return Array(repeating: type, count: Int(n))
- 1101|     40|            }
+ 1099|    993|            let locals = localTypes.flatMap { (n: UInt32, type: ValueType) in
+ 1100|    993|                return Array(repeating: type, count: Int(n))
+ 1101|    993|            }
 $s10WasmParser0B0V16parseDataSectionSayAA0D7SegmentOGyKF:
- 1115|     33|    func parseDataSection() throws -> [DataSegment] {
- 1116|     33|        return try parseVector {
- 1117|     33|            let kind: UInt32 = try parseUnsigned()
- 1118|     33|            switch kind {
- 1119|     33|            case 0:
- 1120|     33|                let offset = try parseConstExpression()
- 1121|     33|                let initializer = try parseVectorBytes()
- 1122|     33|                return .active(.init(index: 0, offset: offset, initializer: initializer))
- 1123|     33|
- 1124|     33|            case 1:
- 1125|     33|                return try .passive(parseVectorBytes())
- 1126|     33|
- 1127|     33|            case 2:
- 1128|     33|                let index: UInt32 = try parseUnsigned()
- 1129|     33|                let offset = try parseConstExpression()
- 1130|     33|                let initializer = try parseVectorBytes()
- 1131|     33|                return .active(.init(index: index, offset: offset, initializer: initializer))
- 1132|     33|            default:
- 1133|     33|                throw makeError(.malformedDataSegmentKind(kind))
- 1134|     33|            }
- 1135|     33|        }
- 1136|     33|    }
+ 1115|  2.75k|    func parseDataSection() throws -> [DataSegment] {
+ 1116|  2.75k|        return try parseVector {
+ 1117|  2.75k|            let kind: UInt32 = try parseUnsigned()
+ 1118|  2.75k|            switch kind {
+ 1119|  2.75k|            case 0:
+ 1120|  2.75k|                let offset = try parseConstExpression()
+ 1121|  2.75k|                let initializer = try parseVectorBytes()
+ 1122|  2.75k|                return .active(.init(index: 0, offset: offset, initializer: initializer))
+ 1123|  2.75k|
+ 1124|  2.75k|            case 1:
+ 1125|  2.75k|                return try .passive(parseVectorBytes())
+ 1126|  2.75k|
+ 1127|  2.75k|            case 2:
+ 1128|  2.75k|                let index: UInt32 = try parseUnsigned()
+ 1129|  2.75k|                let offset = try parseConstExpression()
+ 1130|  2.75k|                let initializer = try parseVectorBytes()
+ 1131|  2.75k|                return .active(.init(index: index, offset: offset, initializer: initializer))
+ 1132|  2.75k|            default:
+ 1133|  2.75k|                throw makeError(.malformedDataSegmentKind(kind))
+ 1134|  2.75k|            }
+ 1135|  2.75k|        }
+ 1136|  2.75k|    }
 $s10WasmParser0B0V16parseDataSectionSayAA0D7SegmentOGyKFAFyKXEfU_:
- 1116|     71|        return try parseVector {
- 1117|     71|            let kind: UInt32 = try parseUnsigned()
- 1118|     71|            switch kind {
- 1119|     71|            case 0:
- 1120|     71|                let offset = try parseConstExpression()
- 1121|     71|                let initializer = try parseVectorBytes()
- 1122|     71|                return .active(.init(index: 0, offset: offset, initializer: initializer))
- 1123|     71|
- 1124|     71|            case 1:
- 1125|      0|                return try .passive(parseVectorBytes())
- 1126|     71|
- 1127|     71|            case 2:
- 1128|      0|                let index: UInt32 = try parseUnsigned()
- 1129|      0|                let offset = try parseConstExpression()
- 1130|      0|                let initializer = try parseVectorBytes()
- 1131|      0|                return .active(.init(index: index, offset: offset, initializer: initializer))
- 1132|     71|            default:
- 1133|      0|                throw makeError(.malformedDataSegmentKind(kind))
- 1134|     71|            }
- 1135|     71|        }
+ 1116|  7.09k|        return try parseVector {
+ 1117|  7.09k|            let kind: UInt32 = try parseUnsigned()
+ 1118|  6.82k|            switch kind {
+ 1119|  6.82k|            case 0:
+ 1120|  5.60k|                let offset = try parseConstExpression()
+ 1121|  3.61k|                let initializer = try parseVectorBytes()
+ 1122|  3.51k|                return .active(.init(index: 0, offset: offset, initializer: initializer))
+ 1123|  6.82k|
+ 1124|  6.82k|            case 1:
+ 1125|    726|                return try .passive(parseVectorBytes())
+ 1126|  6.82k|
+ 1127|  6.82k|            case 2:
+ 1128|    438|                let index: UInt32 = try parseUnsigned()
+ 1129|    417|                let offset = try parseConstExpression()
+ 1130|    331|                let initializer = try parseVectorBytes()
+ 1131|    308|                return .active(.init(index: index, offset: offset, initializer: initializer))
+ 1132|  6.82k|            default:
+ 1133|     52|                throw makeError(.malformedDataSegmentKind(kind))
+ 1134|  6.82k|            }
+ 1135|  6.82k|        }
+$s10WasmParser0B0V21parseDataCountSections6UInt32VyKF:
+ 1140|     20|    func parseDataCountSection() throws -> UInt32 {
+ 1141|     20|        return try parseUnsigned()
+ 1142|     20|    }
 $s10WasmParser0B0V16parseMagicNumberyyKF:
- 1167|    104|    func parseMagicNumber() throws {
- 1168|    104|        let magicNumber = try stream.consume(count: 4)
- 1169|    102|        guard magicNumber.elementsEqual(WASM_MAGIC) else {
- 1170|      2|            throw makeError(.invalidMagicNumber(.init(magicNumber)))
- 1171|    100|        }
- 1172|    100|    }
+ 1167|  38.5k|    func parseMagicNumber() throws {
+ 1168|  38.5k|        let magicNumber = try stream.consume(count: 4)
+ 1169|  38.5k|        guard magicNumber.elementsEqual(WASM_MAGIC) else {
+ 1170|      4|            throw makeError(.invalidMagicNumber(.init(magicNumber)))
+ 1171|  38.5k|        }
+ 1172|  38.5k|    }
 $s10WasmParser0B0V12parseVersionSays5UInt8VGyKF:
- 1176|    100|    func parseVersion() throws -> [UInt8] {
- 1177|    100|        let version = try Array(stream.consume(count: 4))
- 1178|    100|        guard version == [0x01, 0x00, 0x00, 0x00] else {
- 1179|      0|            throw makeError(.unknownVersion(.init(version)))
- 1180|    100|        }
- 1181|    100|        return version
- 1182|    100|    }
+ 1176|  38.5k|    func parseVersion() throws -> [UInt8] {
+ 1177|  38.5k|        let version = try Array(stream.consume(count: 4))
+ 1178|  38.5k|        guard version == [0x01, 0x00, 0x00, 0x00] else {
+ 1179|      2|            throw makeError(.unknownVersion(.init(version)))
+ 1180|  38.5k|        }
+ 1181|  38.5k|        return version
+ 1182|  38.5k|    }
 $s10WasmParser0B0V13OrderTrackingV4last33_266B39EE9A5BCC72156BAE2430A75AC9LLAE0C0Oyx__Gvpfi:
- 1202|    104|        private var last: Order = .initial
+ 1202|  38.5k|        private var last: Order = .initial
 $s10WasmParser0B0V13OrderTrackingV5track5order6parseryAE0C0Oyx__G_ACyxGtKF:
- 1203|    478|        mutating func track(order: Order, parser: Parser) throws {
- 1204|    478|            guard last.rawValue < order.rawValue else {
- 1205|      0|                throw parser.makeError(.sectionOutOfOrder)
- 1206|    478|            }
- 1207|    478|            last = order
- 1208|    478|        }
+ 1203|  71.9k|        mutating func track(order: Order, parser: Parser) throws {
+ 1204|  71.9k|            guard last.rawValue < order.rawValue else {
+ 1205|    172|                throw parser.makeError(.sectionOutOfOrder)
+ 1206|  71.7k|            }
+ 1207|  71.7k|            last = order
+ 1208|  71.7k|        }
 $s10WasmParser0B0V9parseNextAA14ParsingPayloadOSgyKF:
- 1239|    682|    public mutating func parseNext() throws -> ParsingPayload? {
- 1240|    682|        switch nextParseTarget {
- 1241|    682|        case .header:
- 1242|    104|            try parseMagicNumber()
- 1243|    100|            let version = try parseVersion()
- 1244|    100|            self.nextParseTarget = .section
- 1245|    100|            return .header(version: version)
- 1246|    682|        case .section:
- 1247|    578|            guard try !stream.hasReachedEnd() else {
- 1248|    100|                return nil
- 1249|    478|            }
- 1250|    478|            let sectionID = try stream.consumeAny()
- 1251|    478|            let sectionSize: UInt32 = try parseUnsigned()
- 1252|    478|            let sectionStart = stream.currentIndex
- 1253|    478|
- 1254|    478|            let payload: ParsingPayload
- 1255|    478|            let order: OrderTracking.Order?
- 1256|    478|            switch sectionID {
- 1257|    478|            case 0:
- 1258|      0|                order = nil
- 1259|      0|                payload = .customSection(try parseCustomSection(size: sectionSize))
- 1260|    478|            case 1:
- 1261|     77|                order = .type
- 1262|     77|                payload = .typeSection(try parseTypeSection())
- 1263|    478|            case 2:
- 1264|     78|                order = ._import
- 1265|     78|                payload = .importSection(try parseImportSection())
- 1266|    478|            case 3:
- 1267|     26|                order = .function
- 1268|     26|                payload = .functionSection(try parseFunctionSection())
- 1269|    478|            case 4:
- 1270|     42|                order = .table
- 1271|     42|                payload = .tableSection(try parseTableSection())
- 1272|    478|            case 5:
- 1273|     43|                order = .memory
- 1274|     43|                payload = .memorySection(try parseMemorySection())
- 1275|    478|            case 6:
- 1276|     72|                order = .global
- 1277|     72|                payload = .globalSection(try parseGlobalSection())
- 1278|    478|            case 7:
- 1279|     56|                order = .export
- 1280|     56|                payload = .exportSection(try parseExportSection())
- 1281|    478|            case 8:
- 1282|      4|                order = .start
- 1283|      4|                payload = .startSection(try parseStartSection())
- 1284|    478|            case 9:
- 1285|     21|                order = .element
- 1286|     21|                payload = .elementSection(try parseElementSection())
- 1287|    478|            case 10:
- 1288|     26|                order = .code
- 1289|     26|                payload = .codeSection(try parseCodeSection())
- 1290|    478|            case 11:
- 1291|     33|                order = .data
- 1292|     33|                payload = .dataSection(try parseDataSection())
- 1293|    478|            case 12:
- 1294|      0|                order = .dataCount
- 1295|      0|                payload = .dataCount(try parseDataCountSection())
- 1296|    478|            default:
- 1297|      0|                throw makeError(.malformedSectionID(sectionID))
- 1298|    478|            }
- 1299|    478|            if let order = order {
- 1300|    478|                try orderTracking.track(order: order, parser: self)
- 1301|    478|            }
- 1302|    478|            let expectedSectionEnd = sectionStart + Int(sectionSize)
- 1303|    478|            guard expectedSectionEnd == stream.currentIndex else {
- 1304|      0|                throw makeError(.sectionSizeMismatch(expected: expectedSectionEnd, actual: offset))
- 1305|    478|            }
- 1306|    478|            return payload
- 1307|    682|        }
- 1308|    682|    }
+ 1239|   153k|    public mutating func parseNext() throws -> ParsingPayload? {
+ 1240|   153k|        switch nextParseTarget {
+ 1241|   153k|        case .header:
+ 1242|  38.5k|            try parseMagicNumber()
+ 1243|  38.5k|            let version = try parseVersion()
+ 1244|  38.5k|            self.nextParseTarget = .section
+ 1245|  38.5k|            return .header(version: version)
+ 1246|   153k|        case .section:
+ 1247|   115k|            guard try !stream.hasReachedEnd() else {
+ 1248|    221|                return nil
+ 1249|   115k|            }
+ 1250|   115k|            let sectionID = try stream.consumeAny()
+ 1251|   115k|            let sectionSize: UInt32 = try parseUnsigned()
+ 1252|   115k|            let sectionStart = stream.currentIndex
+ 1253|   115k|
+ 1254|   115k|            let payload: ParsingPayload
+ 1255|   115k|            let order: OrderTracking.Order?
+ 1256|   115k|            switch sectionID {
+ 1257|   115k|            case 0:
+ 1258|  6.26k|                order = nil
+ 1259|  6.26k|                payload = .customSection(try parseCustomSection(size: sectionSize))
+ 1260|   115k|            case 1:
+ 1261|  22.9k|                order = .type
+ 1262|  22.9k|                payload = .typeSection(try parseTypeSection())
+ 1263|   115k|            case 2:
+ 1264|  16.2k|                order = ._import
+ 1265|  16.2k|                payload = .importSection(try parseImportSection())
+ 1266|   115k|            case 3:
+ 1267|  6.04k|                order = .function
+ 1268|  6.04k|                payload = .functionSection(try parseFunctionSection())
+ 1269|   115k|            case 4:
+ 1270|  11.1k|                order = .table
+ 1271|  11.1k|                payload = .tableSection(try parseTableSection())
+ 1272|   115k|            case 5:
+ 1273|  10.0k|                order = .memory
+ 1274|  10.0k|                payload = .memorySection(try parseMemorySection())
+ 1275|   115k|            case 6:
+ 1276|  28.0k|                order = .global
+ 1277|  28.0k|                payload = .globalSection(try parseGlobalSection())
+ 1278|   115k|            case 7:
+ 1279|  2.98k|                order = .export
+ 1280|  2.98k|                payload = .exportSection(try parseExportSection())
+ 1281|   115k|            case 8:
+ 1282|    154|                order = .start
+ 1283|    154|                payload = .startSection(try parseStartSection())
+ 1284|   115k|            case 9:
+ 1285|  7.85k|                order = .element
+ 1286|  7.85k|                payload = .elementSection(try parseElementSection())
+ 1287|   115k|            case 10:
+ 1288|    636|                order = .code
+ 1289|    636|                payload = .codeSection(try parseCodeSection())
+ 1290|   115k|            case 11:
+ 1291|  2.75k|                order = .data
+ 1292|  2.75k|                payload = .dataSection(try parseDataSection())
+ 1293|   115k|            case 12:
+ 1294|     20|                order = .dataCount
+ 1295|     20|                payload = .dataCount(try parseDataCountSection())
+ 1296|   115k|            default:
+ 1297|     63|                throw makeError(.malformedSectionID(sectionID))
+ 1298|   115k|            }
+ 1299|  78.1k|            if let order = order {
+ 1300|  71.9k|                try orderTracking.track(order: order, parser: self)
+ 1301|  77.9k|            }
+ 1302|  77.9k|            let expectedSectionEnd = sectionStart + Int(sectionSize)
+ 1303|  77.9k|            guard expectedSectionEnd == stream.currentIndex else {
+ 1304|  1.01k|                throw makeError(.sectionSizeMismatch(expected: expectedSectionEnd, actual: offset))
+ 1305|  76.9k|            }
+ 1306|  76.9k|            return payload
+ 1307|   153k|        }
+ 1308|   153k|    }
 
+$s10WasmParser6MemArgV6offset5alignACs6UInt64V_s6UInt32VtcfC:
+   29|   342k|    public init(offset: UInt64, align: UInt32) {
+   30|   342k|        self.offset = offset
+   31|   342k|        self.align = align
+   32|   342k|    }
 $s10WasmParser6LimitsV3min3max10isMemory646sharedACs6UInt64V_AISgS2btcfC:
-   49|    123|    public init(min: UInt64, max: UInt64? = nil, isMemory64: Bool = false, shared: Bool = false) {
-   50|    123|        self.min = min
-   51|    123|        self.max = max
-   52|    123|        self.isMemory64 = isMemory64
-   53|    123|        self.shared = shared
-   54|    123|    }
+   49|  38.2k|    public init(min: UInt64, max: UInt64? = nil, isMemory64: Bool = false, shared: Bool = false) {
+   50|  38.2k|        self.min = min
+   51|  38.2k|        self.max = max
+   52|  38.2k|        self.isMemory64 = isMemory64
+   53|  38.2k|        self.shared = shared
+   54|  38.2k|    }
 $s10WasmParser9TableTypeV07elementD06limitsAC0A5Types09ReferenceD0O_AA6LimitsVtcfC:
-   67|     62|    public init(elementType: ReferenceType, limits: Limits) {
-   68|     62|        self.elementType = elementType
-   69|     62|        self.limits = limits
-   70|     62|    }
+   67|  20.7k|    public init(elementType: ReferenceType, limits: Limits) {
+   68|  20.7k|        self.elementType = elementType
+   69|  20.7k|        self.limits = limits
+   70|  20.7k|    }
 $s10WasmParser10GlobalTypeV10mutability05valueD0AcA10MutabilityO_0A5Types05ValueD0OtcfC:
-   86|    250|    public init(mutability: Mutability, valueType: ValueType) {
-   87|    250|        self.mutability = mutability
-   88|    250|        self.valueType = valueType
-   89|    250|    }
+   86|  48.1k|    public init(mutability: Mutability, valueType: ValueType) {
+   87|  48.1k|        self.mutability = mutability
+   88|  48.1k|        self.valueType = valueType
+   89|  48.1k|    }
 $s10WasmParser7IEEE754O7Float32V10bitPatternAEs6UInt32V_tcfC:
-  105|     20|        public init(bitPattern: UInt32) {
-  106|     20|            self.bitPattern = bitPattern
-  107|     20|        }
+  105|  95.7k|        public init(bitPattern: UInt32) {
+  106|  95.7k|            self.bitPattern = bitPattern
+  107|  95.7k|        }
 $s10WasmParser7IEEE754O7Float64V10bitPatternAEs6UInt64V_tcfC:
-  112|     20|        public init(bitPattern: UInt64) {
-  113|     20|            self.bitPattern = bitPattern
-  114|     20|        }
+  112|  40.9k|        public init(bitPattern: UInt64) {
+  113|  40.9k|            self.bitPattern = bitPattern
+  114|  40.9k|        }
+$s10WasmParser7BrTableV12labelIndices12defaultIndexACSays6UInt32VG_AGtcfC:
+  122|  36.4k|    public init(labelIndices: [UInt32], defaultIndex: UInt32) {
+  123|  36.4k|        self.labelIndices = labelIndices
+  124|  36.4k|        self.defaultIndex = defaultIndex
+  125|  36.4k|    }
 $s10WasmParser5TableV4typeAcA0C4TypeV_tcfC:
-  160|     42|    public init(type: TableType) {
-  161|     42|        self.type = type
-  162|     42|    }
+  160|  12.8k|    public init(type: TableType) {
+  161|  12.8k|        self.type = type
+  162|  12.8k|    }
 $s10WasmParser14ElementSegmentV4FlagV8rawValueAEs6UInt32V_tcfC:
-  186|    476|        init(rawValue: UInt32) {
-  187|    476|            self.rawValue = rawValue
-  188|    476|        }
+  186|   484k|        init(rawValue: UInt32) {
+  187|   484k|            self.rawValue = rawValue
+  188|   484k|        }
 $s10WasmParser14ElementSegmentV4FlagV18segmentHasElemKindSbvg:
-  190|     43|        var segmentHasElemKind: Bool {
-  191|     43|            !contains(.usesExpressions) && rawValue != 0
-  192|     43|        }
+  190|  41.6k|        var segmentHasElemKind: Bool {
+  191|  41.6k|            !contains(.usesExpressions) && rawValue != 0
+  192|  41.6k|        }
 $s10WasmParser14ElementSegmentV4FlagV18segmentHasElemKindSbvgSbyKXEfu_:
-  191|     43|            !contains(.usesExpressions) && rawValue != 0
+  191|  34.6k|            !contains(.usesExpressions) && rawValue != 0
 $s10WasmParser14ElementSegmentV4FlagV17segmentHasRefTypeSbvg:
-  194|     43|        var segmentHasRefType: Bool {
-  195|     43|            contains(.usesExpressions) && rawValue != 4
-  196|     43|        }
+  194|  42.0k|        var segmentHasRefType: Bool {
+  195|  42.0k|            contains(.usesExpressions) && rawValue != 4
+  196|  42.0k|        }
+$s10WasmParser14ElementSegmentV4FlagV17segmentHasRefTypeSbvgSbyKXEfu_:
+  195|  7.44k|            contains(.usesExpressions) && rawValue != 4
 $s10WasmParser6ExportV4name10descriptorACSS_AA0C10DescriptorOtcfC:
-  238|    147|    public init(name: String, descriptor: ExportDescriptor) {
-  239|    147|        self.name = name
-  240|    147|        self.descriptor = descriptor
-  241|    147|    }
+  238|  10.8k|    public init(name: String, descriptor: ExportDescriptor) {
+  239|  10.8k|        self.name = name
+  240|  10.8k|        self.descriptor = descriptor
+  241|  10.8k|    }
 $s10WasmParser6ImportV6module4name10descriptorACSS_SSAA0C10DescriptorOtcfC:
-  267|     89|    public init(module: String, name: String, descriptor: ImportDescriptor) {
-  268|     89|        self.module = module
-  269|     89|        self.name = name
-  270|     89|        self.descriptor = descriptor
-  271|     89|    }
+  267|  25.3k|    public init(module: String, name: String, descriptor: ImportDescriptor) {
+  268|  25.3k|        self.module = module
+  269|  25.3k|        self.name = name
+  270|  25.3k|        self.descriptor = descriptor
+  271|  25.3k|    }
 
 $s9WasmTypes12FunctionTypeV10parameters7resultsACSayAA05ValueD0OG_AHtcfC:
-    6|     90|    public init(parameters: [ValueType], results: [ValueType] = []) {
-    7|     90|        self.parameters = parameters
-    8|     90|        self.results = results
-    9|     90|    }
+    6|  19.8k|    public init(parameters: [ValueType], results: [ValueType] = []) {
+    7|  19.8k|        self.parameters = parameters
+    8|  19.8k|        self.results = results
+    9|  19.8k|    }
 
