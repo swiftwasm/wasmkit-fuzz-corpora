@@ -1,55 +1,55 @@
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 329133422
-INFO: Loaded 1 modules   (23648 inline 8-bit counters): 23648 [0x556494b75e08, 0x556494b7ba68), 
-INFO: Loaded 1 PC tables (23648 PCs): 23648 [0x556494b7ba68,0x556494bd8068), 
-MERGE-OUTER: 4183 files, 0 in the initial corpus, 0 processed earlier
+INFO: Seed: 760078344
+INFO: Loaded 1 modules   (23648 inline 8-bit counters): 23648 [0x5641f37abe08, 0x5641f37b1a68), 
+INFO: Loaded 1 PC tables (23648 PCs): 23648 [0x5641f37b1a68,0x5641f380e068), 
+MERGE-OUTER: 4188 files, 0 in the initial corpus, 0 processed earlier
 MERGE-OUTER: attempt 1
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 329162053
-INFO: Loaded 1 modules   (23648 inline 8-bit counters): 23648 [0x55e3378eee08, 0x55e3378f4a68), 
-INFO: Loaded 1 PC tables (23648 PCs): 23648 [0x55e3378f4a68,0x55e337951068), 
+INFO: Seed: 760106690
+INFO: Loaded 1 modules   (23648 inline 8-bit counters): 23648 [0x555f3fa68e08, 0x555f3fa6ea68), 
+INFO: Loaded 1 PC tables (23648 PCs): 23648 [0x555f3fa6ea68,0x555f3facb068), 
 INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
 MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge91.txt'
-MERGE-INNER: 4183 total files; 0 processed earlier; will process 4183 files now
+MERGE-INNER: 4188 total files; 0 processed earlier; will process 4188 files now
 #1	pulse  cov: 105 ft: 106 exec/s: 0 rss: 33Mb
 #2	pulse  cov: 110 ft: 113 exec/s: 0 rss: 33Mb
-#4	pulse  cov: 139 ft: 158 exec/s: 0 rss: 34Mb
-#8	pulse  cov: 539 ft: 588 exec/s: 0 rss: 36Mb
-#16	pulse  cov: 598 ft: 667 exec/s: 0 rss: 36Mb
-#32	pulse  cov: 761 ft: 919 exec/s: 0 rss: 36Mb
-#64	pulse  cov: 905 ft: 1104 exec/s: 0 rss: 36Mb
-#128	pulse  cov: 1136 ft: 1425 exec/s: 0 rss: 36Mb
-#256	pulse  cov: 1447 ft: 1784 exec/s: 0 rss: 36Mb
-#512	pulse  cov: 1907 ft: 2686 exec/s: 0 rss: 37Mb
-#1024	pulse  cov: 2353 ft: 4716 exec/s: 0 rss: 37Mb
-#2048	pulse  cov: 3003 ft: 10380 exec/s: 0 rss: 45Mb
+#4	pulse  cov: 139 ft: 157 exec/s: 0 rss: 34Mb
+#8	pulse  cov: 539 ft: 588 exec/s: 0 rss: 35Mb
+#16	pulse  cov: 598 ft: 667 exec/s: 0 rss: 35Mb
+#32	pulse  cov: 737 ft: 863 exec/s: 0 rss: 36Mb
+#64	pulse  cov: 896 ft: 1104 exec/s: 0 rss: 36Mb
+#128	pulse  cov: 1158 ft: 1457 exec/s: 0 rss: 36Mb
+#256	pulse  cov: 1447 ft: 1783 exec/s: 0 rss: 36Mb
+#512	pulse  cov: 1892 ft: 2674 exec/s: 0 rss: 36Mb
+#1024	pulse  cov: 2361 ft: 4676 exec/s: 0 rss: 37Mb
+#2048	pulse  cov: 3050 ft: 10481 exec/s: 0 rss: 45Mb
 ==94== ERROR: libFuzzer: out-of-memory (used: 2067Mb; limit: 2048Mb)
    To change the out-of-memory limit use -rss_limit_mb=<N>
 
 MS: 0 ; base unit: 0000000000000000000000000000000000000000
-artifact_prefix='./'; Test unit written to ./oom-4ee218313bfd85559007384ee21880b14b8b1f73
+artifact_prefix='./'; Test unit written to ./oom-5d9ce3576b51fbbd7ba22ad3d5107a4b14984526
 SUMMARY: libFuzzer: out-of-memory
 MERGE-OUTER: attempt 2
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 344176462
-INFO: Loaded 1 modules   (23648 inline 8-bit counters): 23648 [0x5574735e7e08, 0x5574735eda68), 
-INFO: Loaded 1 PC tables (23648 PCs): 23648 [0x5574735eda68,0x55747364a068), 
+INFO: Seed: 776120957
+INFO: Loaded 1 modules   (23648 inline 8-bit counters): 23648 [0x55fd65c44e08, 0x55fd65c4aa68), 
+INFO: Loaded 1 PC tables (23648 PCs): 23648 [0x55fd65c4aa68,0x55fd65ca7068), 
 INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
 MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge91.txt'
-MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/4ee218313bfd85559007384ee21880b14b8b1f73' caused a failure at the previous merge step
-MERGE-INNER: 4183 total files; 3547 processed earlier; will process 636 files now
-#1	pulse  cov: 2278 ft: 2279 exec/s: 0 rss: 375Mb
-#2	pulse  cov: 2378 ft: 2791 exec/s: 0 rss: 376Mb
-#4	pulse  cov: 2542 ft: 3577 exec/s: 0 rss: 376Mb
-#8	pulse  cov: 2773 ft: 4132 exec/s: 0 rss: 376Mb
-#16	pulse  cov: 3080 ft: 5367 exec/s: 0 rss: 376Mb
-#32	pulse  cov: 3503 ft: 7264 exec/s: 32 rss: 1050Mb
-#64	pulse  cov: 3861 ft: 8386 exec/s: 16 rss: 1482Mb
-#128	pulse  cov: 4194 ft: 10747 exec/s: 18 rss: 1482Mb
-#256	pulse  cov: 4452 ft: 12659 exec/s: 17 rss: 1482Mb
-#512	pulse  cov: 4618 ft: 15638 exec/s: 17 rss: 1482Mb
-#636	DONE   cov: 5213 ft: 19969 exec/s: 19 rss: 1482Mb
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/5d9ce3576b51fbbd7ba22ad3d5107a4b14984526' caused a failure at the previous merge step
+MERGE-INNER: 4188 total files; 3559 processed earlier; will process 629 files now
+#1	pulse  cov: 2301 ft: 2302 exec/s: 0 rss: 373Mb
+#2	pulse  cov: 2383 ft: 2829 exec/s: 0 rss: 374Mb
+#4	pulse  cov: 2563 ft: 3600 exec/s: 0 rss: 374Mb
+#8	pulse  cov: 2801 ft: 4493 exec/s: 0 rss: 374Mb
+#16	pulse  cov: 3193 ft: 5852 exec/s: 16 rss: 1046Mb
+#32	pulse  cov: 3575 ft: 7410 exec/s: 16 rss: 1480Mb
+#64	pulse  cov: 3841 ft: 8336 exec/s: 16 rss: 1480Mb
+#128	pulse  cov: 4174 ft: 10742 exec/s: 18 rss: 1480Mb
+#256	pulse  cov: 4444 ft: 12616 exec/s: 17 rss: 1480Mb
+#512	pulse  cov: 4619 ft: 15671 exec/s: 17 rss: 1480Mb
+#629	DONE   cov: 5211 ft: 19947 exec/s: 20 rss: 1480Mb
 MERGE-OUTER: successful in 2 attempt(s)
-MERGE-OUTER: the control file has 868720 bytes
-MERGE-OUTER: consumed 0Mb (34Mb rss) to parse the control file
-MERGE-OUTER: 4155 new files with 33131 new features added; 6644 new coverage edges
+MERGE-OUTER: the control file has 869869 bytes
+MERGE-OUTER: consumed 0Mb (32Mb rss) to parse the control file
+MERGE-OUTER: 4152 new files with 33132 new features added; 6644 new coverage edges
