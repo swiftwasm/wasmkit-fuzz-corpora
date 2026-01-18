@@ -1,32 +1,1468 @@
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 4132119114
-INFO: Loaded 1 modules   (27875 inline 8-bit counters): 27875 [0x55cb7f04df70, 0x55cb7f054c53), 
-INFO: Loaded 1 PC tables (27875 PCs): 27875 [0x55cb7f054c58,0x55cb7f0c1a88), 
-MERGE-OUTER: 8579 files, 0 in the initial corpus, 0 processed earlier
+INFO: Seed: 779685710
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x558c7b2a33d0, 0x558c7b2aa1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x558c7b2aa1f0,0x558c7b3183a0), 
+MERGE-OUTER: 7301 files, 0 in the initial corpus, 0 processed earlier
 MERGE-OUTER: attempt 1
 INFO: Running with entropic power schedule (0xFF, 100).
-INFO: Seed: 4132167808
-INFO: Loaded 1 modules   (27875 inline 8-bit counters): 27875 [0x561a19717f70, 0x561a1971ec53), 
-INFO: Loaded 1 PC tables (27875 PCs): 27875 [0x561a1971ec58,0x561a1978ba88), 
+INFO: Seed: 779728995
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x55a590fee3d0, 0x55a590ff51eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x55a590ff51f0,0x55a5910633a0), 
 INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
-MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge108.txt'
-MERGE-INNER: 8579 total files; 0 processed earlier; will process 8579 files now
-#1	pulse  cov: 105 ft: 106 exec/s: 0 rss: 34Mb
-#2	pulse  cov: 110 ft: 113 exec/s: 0 rss: 34Mb
-#4	pulse  cov: 139 ft: 157 exec/s: 0 rss: 35Mb
-#8	pulse  cov: 542 ft: 591 exec/s: 0 rss: 36Mb
-#16	pulse  cov: 601 ft: 670 exec/s: 0 rss: 36Mb
-#32	pulse  cov: 746 ft: 909 exec/s: 0 rss: 36Mb
-#64	pulse  cov: 922 ft: 1129 exec/s: 0 rss: 37Mb
-#128	pulse  cov: 1145 ft: 1423 exec/s: 0 rss: 37Mb
-#256	pulse  cov: 1481 ft: 1827 exec/s: 0 rss: 37Mb
-#512	pulse  cov: 1932 ft: 2612 exec/s: 0 rss: 38Mb
-#1024	pulse  cov: 2702 ft: 4379 exec/s: 0 rss: 38Mb
-#2048	pulse  cov: 3428 ft: 7543 exec/s: 0 rss: 38Mb
-#4096	pulse  cov: 3718 ft: 11819 exec/s: 4096 rss: 46Mb
-#8192	pulse  cov: 8250 ft: 37841 exec/s: 178 rss: 2038Mb
-#8579	DONE   cov: 8272 ft: 39271 exec/s: 171 rss: 2038Mb
-MERGE-OUTER: successful in 1 attempt(s)
-MERGE-OUTER: the control file has 1330531 bytes
-MERGE-OUTER: consumed 0Mb (34Mb rss) to parse the control file
-MERGE-OUTER: 5818 new files with 39271 new features added; 8272 new coverage edges
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: 7301 total files; 0 processed earlier; will process 7301 files now
+#1	pulse  cov: 105 ft: 106 exec/s: 0 rss: 37Mb
+#2	pulse  cov: 110 ft: 113 exec/s: 0 rss: 37Mb
+#4	pulse  cov: 137 ft: 148 exec/s: 0 rss: 38Mb
+#8	pulse  cov: 541 ft: 591 exec/s: 0 rss: 39Mb
+#16	pulse  cov: 600 ft: 669 exec/s: 0 rss: 39Mb
+#32	pulse  cov: 747 ft: 899 exec/s: 0 rss: 39Mb
+#64	pulse  cov: 965 ft: 1175 exec/s: 0 rss: 39Mb
+#128	pulse  cov: 1204 ft: 1512 exec/s: 0 rss: 40Mb
+#256	pulse  cov: 1483 ft: 1824 exec/s: 0 rss: 40Mb
+#512	pulse  cov: 1990 ft: 2705 exec/s: 0 rss: 40Mb
+#1024	pulse  cov: 2720 ft: 4338 exec/s: 0 rss: 40Mb
+#2048	pulse  cov: 3486 ft: 7711 exec/s: 0 rss: 40Mb
+#4096	pulse  cov: 4838 ft: 15930 exec/s: 4096 rss: 48Mb
+ALARM: working on the last Unit for 140 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-e9c21482d31a7e39f75c262da47ab23a89f64070
+==105== ERROR: libFuzzer: timeout after 140 seconds
+    #0 0x55a590663784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x55a5905cd098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x55a5905b86e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f912dc7a41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x55a59092f15c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x55a590c86bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x55a590a1fc7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x55a590788133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x55a590788310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x55a590a17da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x55a590b9249d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x55a5907536d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x55a5907536d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x55a590775779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x55a5907714eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x55a590772ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x55a5906978d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x55a590b6352c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x55a590b62819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x55a59077001e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x55a59076fc38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x55a590772bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x55a590b5e603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x55a590b62509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x55a590a13a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x55a5906c8822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x55a590a30e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x55a5909d72b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x55a5909d61ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x55a5909d60c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x55a5905b9c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x55a5905be20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x55a5905b202f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x55a5905cda02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f912da4a082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x55a5905a934d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 2
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 932834301
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5612fda123d0, 0x5612fda191eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x5612fda191f0,0x5612fda873a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/e9c21482d31a7e39f75c262da47ab23a89f64070' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6266 processed earlier; will process 1035 files now
+#1	pulse  cov: 1804 ft: 1805 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 1861 ft: 2142 exec/s: 2 rss: 374Mb
+#4	pulse  cov: 2456 ft: 3523 exec/s: 2 rss: 375Mb
+#8	pulse  cov: 2891 ft: 5148 exec/s: 0 rss: 711Mb
+ALARM: working on the last Unit for 137 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-01b63a5ddc78a24195dcea97005238989bec33a4
+==109== ERROR: libFuzzer: timeout after 137 seconds
+    #0 0x5612fd087784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x5612fcff1098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x5612fcfdc6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7fac0a22941f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5612fd35314f  (build-out/FuzzTranslator+0x4ba14f) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+    #5 0x5612fd6aabbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x5612fd443c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x5612fd1ac133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x5612fd1ac310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5612fd43bda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x5612fd5b649d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5612fd1776d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5612fd1776d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x5612fd199779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x5612fd1954eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x5612fd196ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x5612fd0bb8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x5612fd58752c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x5612fd586819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x5612fd19401e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x5612fd193c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x5612fd196bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x5612fd582603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x5612fd586509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5612fd437a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x5612fd0ec822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5612fd454e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5612fd3fb2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5612fd3fa1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5612fd3fa0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x5612fcfddc26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x5612fcfe220d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x5612fcfd602f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x5612fcff1a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7fac09ff9082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x5612fcfcd34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 3
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1085906197
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x564a4c46c3d0, 0x564a4c4731eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x564a4c4731f0,0x564a4c4e13a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/01b63a5ddc78a24195dcea97005238989bec33a4' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6278 processed earlier; will process 1023 files now
+#1	pulse  cov: 2256 ft: 2257 exec/s: 0 rss: 375Mb
+#2	pulse  cov: 2386 ft: 2734 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2477 ft: 3158 exec/s: 2 rss: 375Mb
+#8	pulse  cov: 2804 ft: 4752 exec/s: 1 rss: 375Mb
+ALARM: working on the last Unit for 145 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-b917d26bbf26a459f37da52e9c2df13f74bc3cf2
+==113== ERROR: libFuzzer: timeout after 145 seconds
+    #0 0x564a4bae1784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x564a4ba4b098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x564a4ba366e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7fec395be41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x564a4bdad15c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x564a4c104bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x564a4be9dc7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x564a4bc06133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x564a4bc06310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x564a4be95da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x564a4c01049d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x564a4bbd16d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x564a4bbd16d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x564a4bbf3779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x564a4bbef4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x564a4bbf0ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x564a4bb158d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x564a4bfe152c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x564a4bfe0819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x564a4bbee01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x564a4bbedc38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x564a4bbf0bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x564a4bfdc603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x564a4bfe0509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x564a4be91a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x564a4bb46822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x564a4beaee5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x564a4be552b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x564a4be541ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x564a4be540c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x564a4ba37c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x564a4ba3c20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x564a4ba3002f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x564a4ba4ba02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7fec3938e082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x564a4ba2734d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 4
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1238978182
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x559b863893d0, 0x559b863901eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x559b863901f0,0x559b863fe3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/b917d26bbf26a459f37da52e9c2df13f74bc3cf2' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6289 processed earlier; will process 1012 files now
+ALARM: working on the last Unit for 101 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-5d9ce3576b51fbbd7ba22ad3d5107a4b14984526
+==117== ERROR: libFuzzer: timeout after 101 seconds
+    #0 0x559b859fe784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x559b85968098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x559b859536e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7fdb8c5c241f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x559b85cca15c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x559b86021bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x559b85dbac7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x559b85b23133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x559b85b23310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x559b85db2da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x559b85f2d49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x559b85aee6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x559b85aee6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x559b85b10779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x559b85b0c4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x559b85b0dce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x559b85a328d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x559b85efe52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x559b85efd819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x559b85b0b01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x559b85b0ac38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x559b85b0dbd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x559b85ef9603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x559b85efd509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x559b85daea97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x559b85a63822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x559b85dcbe5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x559b85d722b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x559b85d711ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x559b85d710c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x559b85954c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x559b8595920d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x559b8594d02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x559b85968a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7fdb8c392082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x559b8594434d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 5
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1341050233
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x563ef5ede3d0, 0x563ef5ee51eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x563ef5ee51f0,0x563ef5f533a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/5d9ce3576b51fbbd7ba22ad3d5107a4b14984526' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6290 processed earlier; will process 1011 files now
+#1	pulse  cov: 1653 ft: 1654 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 1968 ft: 2275 exec/s: 2 rss: 374Mb
+#4	pulse  cov: 2527 ft: 3568 exec/s: 2 rss: 375Mb
+ALARM: working on the last Unit for 149 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-17d8a98b594651ed3c9d981995f6be4389affee2
+==121== ERROR: libFuzzer: timeout after 149 seconds
+    #0 0x563ef5553784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x563ef54bd098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x563ef54a86e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f9b7955f41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x563ef581f150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x563ef5b76bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x563ef590fc7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x563ef5678133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x563ef5678310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x563ef5907da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x563ef5a8249d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x563ef56436d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x563ef56436d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x563ef5665779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x563ef56614eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x563ef5662ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x563ef55878d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x563ef5a5352c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x563ef5a52819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x563ef566001e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x563ef565fc38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x563ef5662bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x563ef5a4e603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x563ef5a52509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x563ef5903a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x563ef55b8822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x563ef5920e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x563ef58c72b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x563ef58c61ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x563ef58c60c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x563ef54a9c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x563ef54ae20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x563ef54a202f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x563ef54bda02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f9b7932f082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x563ef549934d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 6
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1494122958
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x562fe84e33d0, 0x562fe84ea1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x562fe84ea1f0,0x562fe85583a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/17d8a98b594651ed3c9d981995f6be4389affee2' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6296 processed earlier; will process 1005 files now
+#1	pulse  cov: 2220 ft: 2221 exec/s: 0 rss: 375Mb
+#2	pulse  cov: 2388 ft: 2817 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2609 ft: 3623 exec/s: 2 rss: 376Mb
+ALARM: working on the last Unit for 148 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-afa926f8c62a74f60faa872b87848b1fd6d47510
+==125== ERROR: libFuzzer: timeout after 148 seconds
+    #0 0x562fe7b58784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x562fe7ac2098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x562fe7aad6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f48e7fb041f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x562fe7e24150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x562fe817bbbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x562fe7f14c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x562fe7c7d133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x562fe7c7d310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x562fe7f0cda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x562fe808749d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x562fe7c486d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x562fe7c486d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x562fe7c6a779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x562fe7c664eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x562fe7c67ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x562fe7b8c8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x562fe805852c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x562fe8057819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x562fe7c6501e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x562fe7c64c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x562fe7c67bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x562fe8053603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x562fe8057509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x562fe7f08a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x562fe7bbd822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x562fe7f25e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x562fe7ecc2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x562fe7ecb1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x562fe7ecb0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x562fe7aaec26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x562fe7ab320d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x562fe7aa702f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x562fe7ac2a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f48e7d80082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x562fe7a9e34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 7
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1647196496
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x561e3c8023d0, 0x561e3c8091eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x561e3c8091f0,0x561e3c8773a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/afa926f8c62a74f60faa872b87848b1fd6d47510' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6304 processed earlier; will process 997 files now
+#1	pulse  cov: 646 ft: 647 exec/s: 0 rss: 36Mb
+#2	pulse  cov: 2300 ft: 2508 exec/s: 0 rss: 375Mb
+#4	pulse  cov: 2564 ft: 3577 exec/s: 2 rss: 375Mb
+ALARM: working on the last Unit for 148 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-4a29055fec16b03929a1ca3c88caea5c42ea5333
+==129== ERROR: libFuzzer: timeout after 148 seconds
+    #0 0x561e3be77784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x561e3bde1098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x561e3bdcc6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f80b6bcf41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x561e3c14315c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x561e3c49abbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x561e3c233c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x561e3bf9c133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x561e3bf9c310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x561e3c22bda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x561e3c3a649d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x561e3bf676d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x561e3bf676d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x561e3bf89779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x561e3bf854eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x561e3bf86ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x561e3beab8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x561e3c37752c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x561e3c376819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x561e3bf8401e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x561e3bf83c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x561e3bf86bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x561e3c372603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x561e3c376509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x561e3c227a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x561e3bedc822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x561e3c244e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x561e3c1eb2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x561e3c1ea1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x561e3c1ea0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x561e3bdcdc26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x561e3bdd220d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x561e3bdc602f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x561e3bde1a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f80b699f082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x561e3bdbd34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 8
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1800268722
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x55acf26373d0, 0x55acf263e1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x55acf263e1f0,0x55acf26ac3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/4a29055fec16b03929a1ca3c88caea5c42ea5333' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6312 processed earlier; will process 989 files now
+ALARM: working on the last Unit for 101 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-a70ed2548069784b782c4c534bc5acc8861d420a
+==133== ERROR: libFuzzer: timeout after 101 seconds
+    #0 0x55acf1cac784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x55acf1c16098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x55acf1c016e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f092453041f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x55acf1f7815c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x55acf22cfbbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x55acf2068c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x55acf1dd1133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x55acf1dd1310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x55acf2060da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x55acf21db49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x55acf1d9c6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x55acf1d9c6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x55acf1dbe779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x55acf1dba4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x55acf1dbbce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x55acf1ce08d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x55acf21ac52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x55acf21ab819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x55acf1db901e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x55acf1db8c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x55acf1dbbbd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x55acf21a7603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x55acf21ab509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x55acf205ca97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x55acf1d11822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x55acf2079e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x55acf20202b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x55acf201f1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x55acf201f0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x55acf1c02c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x55acf1c0720d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x55acf1bfb02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x55acf1c16a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f0924300082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x55acf1bf234d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 9
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 1902339768
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x562f599993d0, 0x562f599a01eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x562f599a01f0,0x562f59a0e3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/a70ed2548069784b782c4c534bc5acc8861d420a' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6313 processed earlier; will process 988 files now
+#1	pulse  cov: 2259 ft: 2260 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 2422 ft: 2734 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2486 ft: 3157 exec/s: 2 rss: 375Mb
+#8	pulse  cov: 2707 ft: 4006 exec/s: 1 rss: 375Mb
+ALARM: working on the last Unit for 145 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-37deebcfa57cdc584bce696f5c329ce6f111ea64
+==137== ERROR: libFuzzer: timeout after 145 seconds
+    #0 0x562f5900e784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x562f58f78098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x562f58f636e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f48f945c41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x562f59631bb8 in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #5 0x562f593cac7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #6 0x562f59133133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #7 0x562f59133310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #8 0x562f593c2da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #9 0x562f5953d49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #10 0x562f590fe6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #11 0x562f590fe6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #12 0x562f59120779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #13 0x562f5911c4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #14 0x562f5911dce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #15 0x562f590428d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #16 0x562f5950e52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #17 0x562f5950d819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #18 0x562f5911b01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #19 0x562f5911ac38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #20 0x562f5911dbd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #21 0x562f59509603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #22 0x562f5950d509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #23 0x562f593bea97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #24 0x562f59073822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #25 0x562f593dbe5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #26 0x562f593822b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #27 0x562f593811ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #28 0x562f593810c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #29 0x562f58f64c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #30 0x562f58f6920d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #31 0x562f58f5d02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #32 0x562f58f78a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #33 0x7f48f922c082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #34 0x562f58f5434d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 10
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2055412579
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5555763c33d0, 0x5555763ca1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x5555763ca1f0,0x5555764383a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/37deebcfa57cdc584bce696f5c329ce6f111ea64' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6325 processed earlier; will process 976 files now
+#1	pulse  cov: 2278 ft: 2279 exec/s: 0 rss: 377Mb
+#2	pulse  cov: 2424 ft: 2777 exec/s: 2 rss: 377Mb
+#4	pulse  cov: 2622 ft: 3622 exec/s: 2 rss: 377Mb
+#8	pulse  cov: 2804 ft: 4313 exec/s: 1 rss: 377Mb
+#16	pulse  cov: 3032 ft: 5668 exec/s: 1 rss: 377Mb
+ALARM: working on the last Unit for 141 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-995c49d36b916c32ef4b1a764696cdf8658d3da7
+==141== ERROR: libFuzzer: timeout after 141 seconds
+    #0 0x555575a38784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x5555759a2098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x55557598d6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f61b6a0f41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x555575d04159 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x55557605bbbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x555575df4c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x555575b5d133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x555575b5d310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x555575decda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x555575f6749d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x555575b286d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x555575b286d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x555575b4a779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x555575b464eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x555575b47ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x555575a6c8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x555575f3852c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x555575f37819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x555575b4501e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x555575b44c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x555575b47bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x555575f33603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x555575f37509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x555575de8a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x555575a9d822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x555575e05e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x555575dac2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x555575dab1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x555575dab0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x55557598ec26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x55557599320d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x55557598702f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x5555759a2a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f61b67df082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x55557597e34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 11
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2208485242
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x557546cf63d0, 0x557546cfd1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x557546cfd1f0,0x557546d6b3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/995c49d36b916c32ef4b1a764696cdf8658d3da7' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6343 processed earlier; will process 958 files now
+#1	pulse  cov: 2225 ft: 2226 exec/s: 0 rss: 374Mb
+ALARM: working on the last Unit for 101 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-ad0bc604bb42ea3eaf848c8530f0e755a39774a0
+==145== ERROR: libFuzzer: timeout after 101 seconds
+    #0 0x55754636b784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x5575462d5098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x5575462c06e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f2b036ff41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x557546637150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x55754698ebbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x557546727c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x557546490133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x557546490310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x55754671fda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x55754689a49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x55754645b6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x55754645b6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x55754647d779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x5575464794eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x55754647ace4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x55754639f8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x55754686b52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x55754686a819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x55754647801e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x557546477c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x55754647abd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x557546866603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x55754686a509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x55754671ba97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x5575463d0822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x557546738e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5575466df2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5575466de1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5575466de0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x5575462c1c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x5575462c620d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x5575462ba02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x5575462d5a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f2b034cf082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x5575462b134d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 12
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2310557911
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x55639f6393d0, 0x55639f6401eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x55639f6401f0,0x55639f6ae3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/ad0bc604bb42ea3eaf848c8530f0e755a39774a0' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6345 processed earlier; will process 956 files now
+#1	pulse  cov: 2221 ft: 2222 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 2324 ft: 2868 exec/s: 2 rss: 375Mb
+ALARM: working on the last Unit for 150 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-60d3c9f512d861448226a9d1f55939730d66ceef
+==149== ERROR: libFuzzer: timeout after 150 seconds
+    #0 0x55639ecae784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x55639ec18098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x55639ec036e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f669a1a541f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x55639ef7a150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x55639f2d1bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x55639f06ac7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x55639edd3133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x55639edd3310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x55639f062da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x55639f1dd49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x55639ed9e6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x55639ed9e6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x55639edc0779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x55639edbc4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x55639edbdce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x55639ece28d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x55639f1ae52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x55639f1ad819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x55639edbb01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x55639edbac38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x55639edbdbd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x55639f1a9603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x55639f1ad509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x55639f05ea97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x55639ed13822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x55639f07be5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x55639f0222b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x55639f0211ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x55639f0210c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x55639ec04c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x55639ec0920d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x55639ebfd02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x55639ec18a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f6699f75082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x55639ebf434d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 13
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2463628720
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5571e70003d0, 0x5571e70071eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x5571e70071f0,0x5571e70753a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/60d3c9f512d861448226a9d1f55939730d66ceef' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6349 processed earlier; will process 952 files now
+#1	pulse  cov: 2234 ft: 2235 exec/s: 0 rss: 375Mb
+#2	pulse  cov: 2468 ft: 2889 exec/s: 1 rss: 1047Mb
+ALARM: working on the last Unit for 149 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-b03266c821faf1ccab37d0084cfa94b5f46ccca0
+==153== ERROR: libFuzzer: timeout after 149 seconds
+    #0 0x5571e6675784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x5571e65df098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x5571e65ca6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f520130d41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5571e694115c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x5571e6c98bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x5571e6a31c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x5571e679a133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x5571e679a310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5571e6a29da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x5571e6ba449d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5571e67656d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5571e67656d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x5571e6787779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x5571e67834eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x5571e6784ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x5571e66a98d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x5571e6b7552c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x5571e6b74819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x5571e678201e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x5571e6781c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x5571e6784bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x5571e6b70603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x5571e6b74509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5571e6a25a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x5571e66da822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5571e6a42e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5571e69e92b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5571e69e81ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5571e69e80c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x5571e65cbc26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x5571e65d020d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x5571e65c402f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x5571e65dfa02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f52010dd082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x5571e65bb34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 14
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2616700489
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5642b12613d0, 0x5642b12681eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x5642b12681f0,0x5642b12d63a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/b03266c821faf1ccab37d0084cfa94b5f46ccca0' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6353 processed earlier; will process 948 files now
+#1	pulse  cov: 2119 ft: 2120 exec/s: 0 rss: 375Mb
+#2	pulse  cov: 2360 ft: 2853 exec/s: 2 rss: 375Mb
+ALARM: working on the last Unit for 100 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-cedb5196a7d509de5fdb189d40ddbe5149b7eb7a
+==157== ERROR: libFuzzer: timeout after 100 seconds
+    #0 0x5642b08d6784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x5642b0840098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x5642b082b6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7ff0b28bd41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5642b0ba2150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x5642b0ef9bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x5642b0c92c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x5642b09fb133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x5642b09fb310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5642b0c8ada9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x5642b0e0549d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5642b09c66d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5642b09c66d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x5642b09e8779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x5642b09e44eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x5642b09e5ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x5642b090a8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x5642b0dd652c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x5642b0dd5819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x5642b09e301e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x5642b09e2c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x5642b09e5bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x5642b0dd1603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x5642b0dd5509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5642b0c86a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x5642b093b822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5642b0ca3e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5642b0c4a2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5642b0c491ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5642b0c490c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x5642b082cc26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x5642b083120d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x5642b082502f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x5642b0840a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7ff0b268d082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x5642b081c34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 15
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2718773084
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x563ffe4a63d0, 0x563ffe4ad1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x563ffe4ad1f0,0x563ffe51b3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/cedb5196a7d509de5fdb189d40ddbe5149b7eb7a' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6356 processed earlier; will process 945 files now
+#1	pulse  cov: 2160 ft: 2161 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 2217 ft: 2417 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2590 ft: 3833 exec/s: 2 rss: 375Mb
+ALARM: working on the last Unit for 148 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-7529f58072a605ee2e633c65dc6d1f59d72a3cd6
+==161== ERROR: libFuzzer: timeout after 148 seconds
+    #0 0x563ffdb1b784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x563ffda85098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x563ffda706e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f390a48941f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x563ffe13ebb8 in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #5 0x563ffded7c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #6 0x563ffdc40133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #7 0x563ffdc40310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #8 0x563ffdecfda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #9 0x563ffe04a49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #10 0x563ffdc0b6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #11 0x563ffdc0b6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #12 0x563ffdc2d779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #13 0x563ffdc294eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #14 0x563ffdc2ace4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #15 0x563ffdb4f8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #16 0x563ffe01b52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #17 0x563ffe01a819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #18 0x563ffdc2801e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #19 0x563ffdc27c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #20 0x563ffdc2abd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #21 0x563ffe016603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #22 0x563ffe01a509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #23 0x563ffdecba97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #24 0x563ffdb80822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #25 0x563ffdee8e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #26 0x563ffde8f2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #27 0x563ffde8e1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #28 0x563ffde8e0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #29 0x563ffda71c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #30 0x563ffda7620d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #31 0x563ffda6a02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #32 0x563ffda85a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #33 0x7f390a259082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #34 0x563ffda6134d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 16
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 2871845538
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x55a7989973d0, 0x55a79899e1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x55a79899e1f0,0x55a798a0c3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/7529f58072a605ee2e633c65dc6d1f59d72a3cd6' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6362 processed earlier; will process 939 files now
+#1	pulse  cov: 2300 ft: 2301 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 2484 ft: 2989 exec/s: 2 rss: 374Mb
+#4	pulse  cov: 2638 ft: 3748 exec/s: 1 rss: 1047Mb
+ALARM: working on the last Unit for 147 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-38824bd51b4589a5d32880040307db8383029501
+==165== ERROR: libFuzzer: timeout after 147 seconds
+    #0 0x55a79800c784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x55a797f76098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x55a797f616e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f26c083541f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x55a7982d8150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x55a79862fbbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x55a7983c8c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x55a798131133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x55a798131310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x55a7983c0da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x55a79853b49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x55a7980fc6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x55a7980fc6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x55a79811e779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x55a79811a4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x55a79811bce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x55a7980408d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x55a79850c52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x55a79850b819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x55a79811901e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x55a798118c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x55a79811bbd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x55a798507603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x55a79850b509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x55a7983bca97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x55a798071822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x55a7983d9e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x55a7983802b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x55a79837f1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x55a79837f0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x55a797f62c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x55a797f6720d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x55a797f5b02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x55a797f76a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f26c0605082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x55a797f5234d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 17
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3024918302
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x562bbf2de3d0, 0x562bbf2e51eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x562bbf2e51f0,0x562bbf3533a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/38824bd51b4589a5d32880040307db8383029501' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6369 processed earlier; will process 932 files now
+#1	pulse  cov: 2218 ft: 2219 exec/s: 0 rss: 375Mb
+ALARM: working on the last Unit for 101 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-92bd3e23c1ca1c2794ee43114c704acc8af0da72
+==169== ERROR: libFuzzer: timeout after 101 seconds
+    #0 0x562bbe953784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x562bbe8bd098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x562bbe8a86e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f908f7be41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x562bbec1f14f  (build-out/FuzzTranslator+0x4ba14f) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+    #5 0x562bbef76bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x562bbed0fc7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x562bbea78133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x562bbea78310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x562bbed07da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x562bbee8249d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x562bbea436d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x562bbea436d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x562bbea65779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x562bbea614eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x562bbea62ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x562bbe9878d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x562bbee5352c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x562bbee52819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x562bbea6001e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x562bbea5fc38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x562bbea62bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x562bbee4e603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x562bbee52509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x562bbed03a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x562bbe9b8822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x562bbed20e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x562bbecc72b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x562bbecc61ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x562bbecc60c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x562bbe8a9c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x562bbe8ae20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x562bbe8a202f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x562bbe8bda02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f908f58e082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x562bbe89934d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 18
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3126989725
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x560539f883d0, 0x560539f8f1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x560539f8f1f0,0x560539ffd3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/92bd3e23c1ca1c2794ee43114c704acc8af0da72' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6371 processed earlier; will process 930 files now
+#1	pulse  cov: 2224 ft: 2225 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 2323 ft: 2927 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2655 ft: 4035 exec/s: 2 rss: 375Mb
+ALARM: working on the last Unit for 150 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-b705b14fa4fa29ccd6b4eb374d4f1b34f36b072b
+==173== ERROR: libFuzzer: timeout after 150 seconds
+    #0 0x5605395fd784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x560539567098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x5605395526e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7fe239d3e41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5605398c9150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x560539c20bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x5605399b9c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x560539722133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x560539722310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5605399b1da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x560539b2c49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5605396ed6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5605396ed6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x56053970f779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x56053970b4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x56053970cce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x5605396318d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x560539afd52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x560539afc819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x56053970a01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x560539709c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x56053970cbd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x560539af8603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x560539afc509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5605399ada97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x560539662822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5605399cae5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5605399712b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5605399701ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5605399700c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x560539553c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x56053955820d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x56053954c02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x560539567a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7fe239b0e082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x56053954334d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 19
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3280062878
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x560d20f893d0, 0x560d20f901eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x560d20f901f0,0x560d20ffe3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/b705b14fa4fa29ccd6b4eb374d4f1b34f36b072b' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6376 processed earlier; will process 925 files now
+#1	pulse  cov: 1315 ft: 1316 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 2303 ft: 2664 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2381 ft: 3002 exec/s: 2 rss: 375Mb
+#8	pulse  cov: 2586 ft: 4162 exec/s: 1 rss: 375Mb
+#16	pulse  cov: 2839 ft: 5690 exec/s: 1 rss: 375Mb
+ALARM: working on the last Unit for 138 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-c9bab3d063d6db819381ebaa849783cde951391a
+==177== ERROR: libFuzzer: timeout after 138 seconds
+    #0 0x560d205fe784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x560d20568098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x560d205536e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f464667341f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x560d208ca150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x560d20c21bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x560d209bac7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x560d20723133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x560d20723310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x560d209b2da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x560d20b2d49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x560d206ee6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x560d206ee6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x560d20710779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x560d2070c4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x560d2070dce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x560d206328d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x560d20afe52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x560d20afd819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x560d2070b01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x560d2070ac38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x560d2070dbd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x560d20af9603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x560d20afd509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x560d209aea97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x560d20663822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x560d209cbe5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x560d209722b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x560d209711ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x560d209710c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x560d20554c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x560d2055920d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x560d2054d02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x560d20568a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f4646443082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x560d2054434d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 20
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3433134181
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x55b7b85fd3d0, 0x55b7b86041eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x55b7b86041f0,0x55b7b86723a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/c9bab3d063d6db819381ebaa849783cde951391a' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6399 processed earlier; will process 902 files now
+#1	pulse  cov: 2220 ft: 2221 exec/s: 0 rss: 377Mb
+#2	pulse  cov: 2317 ft: 2814 exec/s: 2 rss: 377Mb
+#4	pulse  cov: 2597 ft: 3883 exec/s: 2 rss: 377Mb
+ALARM: working on the last Unit for 141 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-0b513e2a1516cfcf87cbde2550d268d9a75765d9
+==181== ERROR: libFuzzer: timeout after 141 seconds
+    #0 0x55b7b7c72784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x55b7b7bdc098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x55b7b7bc76e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7fe3b222141f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x55b7b7f3e15c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x55b7b8295bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x55b7b802ec7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x55b7b7d97133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x55b7b7d97310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x55b7b8026da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x55b7b81a149d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x55b7b7d626d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x55b7b7d626d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x55b7b7d84779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x55b7b7d804eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x55b7b7d81ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x55b7b7ca68d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x55b7b817252c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x55b7b8171819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x55b7b7d7f01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x55b7b7d7ec38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x55b7b7d81bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x55b7b816d603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x55b7b8171509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x55b7b8022a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x55b7b7cd7822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x55b7b803fe5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x55b7b7fe62b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x55b7b7fe51ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x55b7b7fe50c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x55b7b7bc8c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x55b7b7bcd20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x55b7b7bc102f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x55b7b7bdca02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7fe3b1ff1082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x55b7b7bb834d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 21
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3586206016
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5627946653d0, 0x56279466c1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x56279466c1f0,0x5627946da3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/0b513e2a1516cfcf87cbde2550d268d9a75765d9' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6406 processed earlier; will process 895 files now
+#1	pulse  cov: 2233 ft: 2234 exec/s: 0 rss: 375Mb
+#2	pulse  cov: 2325 ft: 2701 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2497 ft: 3403 exec/s: 2 rss: 375Mb
+ALARM: working on the last Unit for 148 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-d3c6fa3666c4bd26ea5e31a7eea083f13327ac30
+==185== ERROR: libFuzzer: timeout after 148 seconds
+    #0 0x562793cda784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x562793c44098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x562793c2f6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f4e8c29e41f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x562793fa614f  (build-out/FuzzTranslator+0x4ba14f) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+    #5 0x5627942fdbbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x562794096c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x562793dff133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x562793dff310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x56279408eda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x56279420949d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x562793dca6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x562793dca6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x562793dec779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x562793de84eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x562793de9ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x562793d0e8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x5627941da52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x5627941d9819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x562793de701e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x562793de6c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x562793de9bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x5627941d5603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x5627941d9509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x56279408aa97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x562793d3f822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5627940a7e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x56279404e2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x56279404d1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x56279404d0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x562793c30c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x562793c3520d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x562793c2902f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x562793c44a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f4e8c06e082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x562793c2034d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 22
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3739279108
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x563788e8a3d0, 0x563788e911eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x563788e911f0,0x563788eff3a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/d3c6fa3666c4bd26ea5e31a7eea083f13327ac30' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6414 processed earlier; will process 887 files now
+ALARM: working on the last Unit for 101 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-f55feebf1a1fe543d929033a459dd57b21c0e378
+==189== ERROR: libFuzzer: timeout after 101 seconds
+    #0 0x5637884ff784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x563788469098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x5637884546e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f9bec3e241f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5637887cb15c in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x563788b22bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x5637888bbc7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x563788624133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x563788624310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5637888b3da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x563788a2e49d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5637885ef6d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5637885ef6d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x563788611779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x56378860d4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x56378860ece4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x5637885338d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x5637889ff52c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x5637889fe819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x56378860c01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x56378860bc38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x56378860ebd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x5637889fa603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x5637889fe509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5637888afa97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x563788564822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5637888cce5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5637888732b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5637888721ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5637888720c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x563788455c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x56378845a20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x56378844e02f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x563788469a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f9bec1b2082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x56378844534d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 23
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3841350520
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5567968ac3d0, 0x5567968b31eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x5567968b31f0,0x5567969213a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/f55feebf1a1fe543d929033a459dd57b21c0e378' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6415 processed earlier; will process 886 files now
+#1	pulse  cov: 2332 ft: 2333 exec/s: 0 rss: 375Mb
+#2	pulse  cov: 2493 ft: 3012 exec/s: 2 rss: 375Mb
+#4	pulse  cov: 2699 ft: 3604 exec/s: 1 rss: 1048Mb
+ALARM: working on the last Unit for 147 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-35727dab92376c8e9a5aa8afe46ff240331dbfd1
+==193== ERROR: libFuzzer: timeout after 147 seconds
+    #0 0x556795f21784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x556795e8b098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x556795e766e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f23ad08541f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5567961ed150 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x556796544bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x5567962ddc7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x556796046133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x556796046310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5567962d5da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x55679645049d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5567960116d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5567960116d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x556796033779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x55679602f4eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x556796030ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x556795f558d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x55679642152c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x556796420819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x55679602e01e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x55679602dc38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x556796030bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x55679641c603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x556796420509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5567962d1a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x556795f86822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5567962eee5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5567962952b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5567962941ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5567962940c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x556795e77c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x556795e7c20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x556795e7002f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x556795e8ba02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f23ace55082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x556795e6734d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 24
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 3994421745
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5610565513d0, 0x5610565581eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x5610565581f0,0x5610565c63a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/35727dab92376c8e9a5aa8afe46ff240331dbfd1' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6422 processed earlier; will process 879 files now
+#1	pulse  cov: 2282 ft: 2283 exec/s: 0 rss: 374Mb
+#2	pulse  cov: 2398 ft: 2724 exec/s: 2 rss: 374Mb
+ALARM: working on the last Unit for 100 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-54ad5fef7006245a366781fa2528977e98f0d1dc
+==197== ERROR: libFuzzer: timeout after 100 seconds
+    #0 0x561055bc6784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x561055b30098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x561055b1b6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f9a61b1241f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5610561e9bb8 in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #5 0x561055f82c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #6 0x561055ceb133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #7 0x561055ceb310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #8 0x561055f7ada9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #9 0x5610560f549d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #10 0x561055cb66d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #11 0x561055cb66d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #12 0x561055cd8779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #13 0x561055cd44eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #14 0x561055cd5ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #15 0x561055bfa8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #16 0x5610560c652c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #17 0x5610560c5819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #18 0x561055cd301e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #19 0x561055cd2c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #20 0x561055cd5bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #21 0x5610560c1603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #22 0x5610560c5509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #23 0x561055f76a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #24 0x561055c2b822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #25 0x561055f93e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #26 0x561055f3a2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #27 0x561055f391ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #28 0x561055f390c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #29 0x561055b1cc26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #30 0x561055b2120d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #31 0x561055b1502f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #32 0x561055b30a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #33 0x7f9a618e2082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #34 0x561055b0c34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 25
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 4096493581
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x562196bd43d0, 0x562196bdb1eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x562196bdb1f0,0x562196c493a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/54ad5fef7006245a366781fa2528977e98f0d1dc' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6425 processed earlier; will process 876 files now
+#1	pulse  cov: 2303 ft: 2304 exec/s: 0 rss: 376Mb
+#2	pulse  cov: 2385 ft: 2817 exec/s: 2 rss: 377Mb
+#4	pulse  cov: 2476 ft: 3678 exec/s: 2 rss: 377Mb
+#8	pulse  cov: 2654 ft: 4443 exec/s: 1 rss: 377Mb
+ALARM: working on the last Unit for 138 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-9cd5b988e85daa33d6c191e12bf481dd463bdf26
+==201== ERROR: libFuzzer: timeout after 138 seconds
+    #0 0x562196249784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x5621961b3098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x56219619e6e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f7e9229141f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x562196515159 in swift::metadataimpl::ValueWitnesses<swift::metadataimpl::NativeBox<unsigned char, 1ul, 1ul, 1ul>>::initializeWithCopy(swift::OpaqueValue*, swift::OpaqueValue*, swift::TargetMetadata<swift::InProcess> const*) crtstuff.c
+    #5 0x56219686cbbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x562196605c7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x56219636e133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x56219636e310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5621965fdda9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x56219677849d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5621963396d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5621963396d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x56219635b779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x5621963574eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x562196358ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x56219627d8d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x56219674952c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x562196748819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x56219635601e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x562196355c38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x562196358bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x562196744603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x562196748509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5621965f9a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x5621962ae822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x562196616e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5621965bd2b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5621965bc1ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5621965bc0c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x56219619fc26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x5621961a420d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x56219619802f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x5621961b3a02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f7e92061082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x56219618f34d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 26
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 4249569235
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x5556fcece3d0, 0x5556fced51eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x5556fced51f0,0x5556fcf433a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/9cd5b988e85daa33d6c191e12bf481dd463bdf26' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6437 processed earlier; will process 864 files now
+ALARM: working on the last Unit for 101 seconds
+       and the timeout value is 100 (use -timeout=N to change)
+MS: 0 ; base unit: 0000000000000000000000000000000000000000
+artifact_prefix='./'; Test unit written to ./timeout-abc6e9ac4049ed83c022679f9c8685aa98c37897
+==205== ERROR: libFuzzer: timeout after 101 seconds
+    #0 0x5556fc543784 in __sanitizer_print_stack_trace /home/build-user/llvm-project/compiler-rt/lib/ubsan/ubsan_diag_standalone.cpp:31:3
+    #1 0x5556fc4ad098 in fuzzer::PrintStackTrace() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerUtil.cpp:210:5
+    #2 0x5556fc4986e7 in fuzzer::Fuzzer::AlarmCallback() /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:304:5
+    #3 0x7f2b19bf341f  (/lib/x86_64-linux-gnu/libpthread.so.0+0x1441f) (BuildId: 9753720502573b97dbac595b61fd72c2df18e078)
+    #4 0x5556fc80f14f  (build-out/FuzzTranslator+0x4ba14f) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+    #5 0x5556fcb66bbb in $sSp10initialize9repeating5countyx_SitF crtstuff.c
+    #6 0x5556fc8ffc7d in $s7WasmKit12MemoryEntityV4grow2by15resourceLimiter0A5Types5ValueOSi_AA08ResourceH0_ptKF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:517:21
+    #7 0x5556fc668133 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:55:43
+    #8 0x5556fc668310 in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKFyAA0L6EntityVzKXEfU_TA /<compiler-generated>
+    #9 0x5556fc8f7da9 in $s7WasmKit12EntityHandleVAARi_zrlE9withValueyqd__qd__xzKXEKlF /src/wasmkit/Sources/WasmKit/Execution/Instances.swift:60:20
+    #10 0x5556fca7249d in $s7WasmKit9ExecutionV10memoryGrow2sp2md2ms9immediateySpys6UInt64VG_SvSgzSizAA11InstructionO06MemoryE7OperandVtKF /src/wasmkit/Sources/WasmKit/Execution/Instructions/Memory.swift:50:20
+    #11 0x5556fc6336d3 in wasmkit_execute_memoryGrow /src/wasmkit/Sources/WasmKit/Execution/DispatchInstruction.swift:560:18
+    #12 0x5556fc6336d3 in wasmkit_tc_memoryGrow /src/wasmkit/Sources/_CWasmKit/include/DirectThreadedCode.inc:292:24
+    #13 0x5556fc655779 in wasmkit_tc_start /src/wasmkit/Sources/_CWasmKit/include/_CWasmKit.h:42:3
+    #14 0x5556fc6514eb in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:463:17
+    #15 0x5556fc652ce4 in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKFySpyACGXEfU_TA /<compiler-generated>
+    #16 0x5556fc5778d5 in $ss24withUnsafeMutablePointer2to_q0_xz_q0_SpyxGq_YKXEtq_YKs5ErrorR_Ri_zRi_0_r1_lF /<compiler-generated>
+    #17 0x5556fca4352c in $s7WasmKit9ExecutionV17runDirectThreaded2sp2pc2md2msySpys6UInt64VG_AKSvSgSitKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:462:13
+    #18 0x5556fca42819 in $s7WasmKit9ExecutionV7execute2sp2pc6handle4typeySpys6UInt64VG_AkA16InternalFunctionV0A5Types0K4TypeVtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:443:21
+    #19 0x5556fc65001e in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ySryATGKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:316:23
+    #20 0x5556fc64fc38 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:312:13
+    #21 0x5556fc652bd4 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKFAjA9ExecutionVz_Spys6UInt64VGtKXEfU_TA /<compiler-generated>
+    #22 0x5556fca3e603 in $s7WasmKit9ExecutionV4with5store4bodyxAA8StoreRefV_xACz_Spys6UInt64VGtKXEtKlFZ /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:37:20
+    #23 0x5556fca42509 in $s7WasmKit07executeA05store8function4type9argumentsSay0A5Types5ValueOGAA5StoreC_AA16InternalFunctionVAG0L4TypeVAJtKF /src/wasmkit/Sources/WasmKit/Execution/Execution.swift:301:26
+    #24 0x5556fc8f3a97 in $s7WasmKit16InternalFunctionV6invoke_5storeSay0A5Types5ValueOGAI_AA5StoreCtKF /src/wasmkit/Sources/WasmKit/Execution/Function.swift:171:24
+    #25 0x5556fc5a8822 in $s7WasmKit6ModuleV17instantiateHandle33_9D7B6AF9E60BD2C9958AA3A316E12A98LL5store7imports12isDebuggableAA06EntityE0VyAA08InstanceT0VGAA5StoreC_AA7ImportsVSbtKF /src/wasmkit/Sources/WasmKit/Module.swift:232:35
+    #26 0x5556fc910e5f in $s7WasmKit6ModuleV11instantiate5store7importsAA8InstanceVAA5StoreC_AA7ImportsVtKF /src/wasmkit/Sources/WasmKit/Module.swift:138:35
+    #27 0x5556fc8b72b0 in $s14WasmKitFuzzing17fuzzInstantiation5bytesySays5UInt8VG_tKF /src/wasmkit/FuzzTesting/Sources/WasmKitFuzzing/WasmKitFuzzing.swift:53:20
+    #28 0x5556fc8b61ba in $s14FuzzTranslator0A5Checkys5Int32VSPys5UInt8VG_SitF /src/wasmkit/FuzzTesting/Sources/FuzzTranslator/FuzzTranslator.swift:8:13
+    #29 0x5556fc8b60c0 in LLVMFuzzerTestOneInput /<compiler-generated>
+    #30 0x5556fc499c26 in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerLoop.cpp:614:13
+    #31 0x5556fc49e20d in fuzzer::Fuzzer::CrashResistantMergeInternalStep(std::__Fuzzer::basic_string<char, std::__Fuzzer::char_traits<char>, std::__Fuzzer::allocator<char>> const&, bool) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMerge.cpp:239:5
+    #32 0x5556fc49202f in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:888:8
+    #33 0x5556fc4ada02 in main /home/build-user/llvm-project/compiler-rt/lib/fuzzer/FuzzerMain.cpp:20:10
+    #34 0x7f2b199c3082 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x24082) (BuildId: 5792732f783158c66fb4f3756458ca24e46e827d)
+    #35 0x5556fc48934d in _start (build-out/FuzzTranslator+0x13434d) (BuildId: 8bf2c99aaeb3e7c35250b1b0fa31fdb9aadd313c)
+
+DEDUP_TOKEN: __sanitizer_print_stack_trace--fuzzer::PrintStackTrace()--fuzzer::Fuzzer::AlarmCallback()
+SUMMARY: libFuzzer: timeout
+MERGE-OUTER: attempt 27
+INFO: Running with entropic power schedule (0xFF, 100).
+INFO: Seed: 56673771
+INFO: Loaded 1 modules   (28187 inline 8-bit counters): 28187 [0x563d0441d3d0, 0x563d044241eb), 
+INFO: Loaded 1 PC tables (28187 PCs): 28187 [0x563d044241f0,0x563d044923a0), 
+INFO: -max_len is not provided; libFuzzer will not generate inputs larger than 1048576 bytes
+MERGE-INNER: using the control file '/tmp/libFuzzerTemp.Merge102.txt'
+MERGE-INNER: '/github/workspace/cifuzz-corpus/FuzzTranslator/abc6e9ac4049ed83c022679f9c8685aa98c37897' caused a failure at the previous merge step
+MERGE-INNER: 7301 total files; 6438 processed earlier; will process 863 files now
+#1	pulse  cov: 2184 ft: 2185 exec/s: 0 rss: 374Mb
+==209== libFuzzer: run interrupted; exiting
+==102== libFuzzer: run interrupted; exiting
+==102== libFuzzer: run interrupted; exiting
