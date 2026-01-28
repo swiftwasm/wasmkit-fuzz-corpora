@@ -1,5 +1,5 @@
 ==104== ERROR: libFuzzer: timeout after 141 seconds
-==108== ERROR: libFuzzer: timeout after 139 seconds
+==108== ERROR: libFuzzer: timeout after 137 seconds
 ==112== ERROR: libFuzzer: timeout after 147 seconds
 ==116== ERROR: libFuzzer: timeout after 101 seconds
 ==120== ERROR: libFuzzer: timeout after 150 seconds
@@ -22,5 +22,5 @@
 ==188== ERROR: libFuzzer: timeout after 101 seconds
 ==192== ERROR: libFuzzer: timeout after 148 seconds
 ==196== ERROR: libFuzzer: timeout after 100 seconds
-==200== ERROR: libFuzzer: timeout after 139 seconds
+==200== ERROR: libFuzzer: timeout after 140 seconds
 ==204== ERROR: libFuzzer: timeout after 101 seconds
