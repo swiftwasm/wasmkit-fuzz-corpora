@@ -1,5 +1,5 @@
 ==128== ERROR: libFuzzer: timeout after 141 seconds
-==132== ERROR: libFuzzer: out-of-memory (used: 2049Mb; limit: 2048Mb)
+==132== ERROR: libFuzzer: out-of-memory (used: 2050Mb; limit: 2048Mb)
 ==135== ERROR: libFuzzer: timeout after 147 seconds
 ==139== ERROR: libFuzzer: timeout after 101 seconds
 ==143== ERROR: libFuzzer: timeout after 101 seconds
@@ -15,7 +15,7 @@
 ==183== ERROR: libFuzzer: timeout after 101 seconds
 ==187== ERROR: libFuzzer: timeout after 148 seconds
 ==191== ERROR: libFuzzer: timeout after 148 seconds
-==195== ERROR: libFuzzer: timeout after 146 seconds
+==195== ERROR: libFuzzer: timeout after 145 seconds
 ==199== ERROR: libFuzzer: timeout after 101 seconds
 ==203== ERROR: libFuzzer: timeout after 143 seconds
 ==207== ERROR: libFuzzer: timeout after 100 seconds
